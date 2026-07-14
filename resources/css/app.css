@@ -2,8 +2,61 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-tinta-950: #101828;
+    --color-tinta-900: #182230;
+    --color-tinta-700: #344054;
+    --color-tinta-600: #475467;
+    --color-tinta-400: #98a2b3;
+    --color-superficie: #f7f8fa;
+    --color-acento-700: #175cd3;
+    --color-acento-600: #1570ef;
+    --color-acento-100: #d1e9ff;
+    --color-acento-50: #eff8ff;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #ffffff;
+        color: var(--color-tinta-700);
+    }
+
+    ::selection {
+        background: var(--color-acento-100);
+        color: var(--color-tinta-950);
+    }
+
+    :focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--color-acento-600) 55%, transparent);
+        outline-offset: 3px;
+    }
+}
+
+@layer utilities {
+    .fondo-hero {
+        background-image:
+            radial-gradient(circle at 15% 20%, rgb(21 112 239 / 0.12), transparent 26rem),
+            linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    }
+
+    .rejilla-sutil {
+        background-image:
+            linear-gradient(rgb(16 24 40 / 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(16 24 40 / 0.035) 1px, transparent 1px);
+        background-size: 32px 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

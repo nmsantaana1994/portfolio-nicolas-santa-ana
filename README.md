@@ -1,58 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Portfolio profesional — Nicolás Martín Santa Ana
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Portfolio web personal orientado a búsquedas laborales como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, áreas de valor, stack técnico, experiencia, casos de proyectos, CV y canales de contacto en una única página responsive.
 
-## About Laravel
+## Objetivo profesional
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Comunicar un perfil Full Stack con foco en Laravel, JavaScript, MySQL, APIs REST y sistemas web en producción. El contenido prioriza experiencia aplicada, mantenimiento evolutivo, soporte productivo y comprensión funcional por sobre una lista aislada de tecnologías.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Stack del proyecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP 8.3 o superior.
+- Laravel 13 (versión instalada al crear este README: 13.19.0).
+- Blade.
+- Tailwind CSS 4.
+- JavaScript nativo.
+- Vite 8.
 
-## Learning Laravel
+La primera versión no utiliza autenticación, panel administrativo, base de datos ni formularios persistentes.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Arquitectura
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+El contenido editable se encuentra centralizado en [`config/portafolio.php`](config/portafolio.php). La ruta principal carga esa configuración y renderiza una vista Blade compuesta por parciales para cada sección.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```text
+config/portafolio.php
+routes/web.php
+resources/views/layouts/portafolio.blade.php
+resources/views/portafolio/index.blade.php
+resources/views/portafolio/secciones/*.blade.php
+resources/css/app.css
+resources/js/app.js
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Requisitos
 
-## Contributing
+- PHP `^8.3` con las extensiones requeridas por Laravel.
+- Composer 2.
+- Node.js y npm compatibles con Vite 8.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+No es necesario crear una base de datos ni ejecutar migraciones.
 
-## Code of Conduct
+## Instalación local
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Clonar el repositorio e ingresar al directorio:
 
-## Security Vulnerabilities
+   ```bash
+   git clone https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana.git
+   cd portfolio-nicolas-santa-ana
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. Instalar las dependencias PHP:
 
-## License
+   ```bash
+   composer install
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. Crear el archivo de entorno y generar la clave de la aplicación.
+
+   En Linux o macOS:
+
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+   En PowerShell:
+
+   ```powershell
+   Copy-Item .env.example .env
+   php artisan key:generate
+   ```
+
+4. Instalar y compilar los assets:
+
+   ```bash
+   npm install
+   npm run build
+   ```
+
+## Ejecución en desarrollo
+
+Usar dos terminales:
+
+```bash
+php artisan serve
+```
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible por defecto en `http://127.0.0.1:8000`.
+
+## Comandos útiles
+
+```bash
+# Ejecutar pruebas
+php artisan test
+
+# Aplicar formato al código PHP
+vendor/bin/pint
+
+# Levantar Vite con recarga automática
+npm run dev
+
+# Generar assets optimizados
+npm run build
+
+# Limpiar cachés de Laravel
+php artisan optimize:clear
+```
+
+## Currículum en PDF
+
+El CV no se incluye como archivo de ejemplo. Para habilitar su descarga, agregar el PDF real en:
+
+```text
+public/cv/Nicolas_Santa_Ana_CV_FullStack_Laravel.pdf
+```
+
+Mientras no exista, la interfaz muestra un estado informativo y no genera enlaces rotos.
+
+## Variables de entorno
+
+La configuración propuesta no depende de una base de datos:
+
+```env
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
+```
+
+En producción también deben definirse correctamente `APP_KEY`, `APP_ENV`, `APP_DEBUG` y `APP_URL`.
+
+## Deploy en Railway
+
+El proyecto está preparado para un despliegue sencillo sin servicios de base de datos.
+
+Configuración sugerida:
+
+- Build command:
+
+  ```bash
+  composer install --no-dev --optimize-autoloader && npm ci && npm run build
+  ```
+
+- Start command:
+
+  ```bash
+  php artisan serve --host=0.0.0.0 --port=$PORT
+  ```
+
+- Variables mínimas:
+
+  ```env
+  APP_ENV=production
+  APP_DEBUG=false
+  APP_URL=https://tu-dominio.up.railway.app
+  APP_KEY=base64:clave-generada
+  SESSION_DRIVER=file
+  CACHE_STORE=file
+  QUEUE_CONNECTION=sync
+  LOG_CHANNEL=stderr
+  ```
+
+La clave puede generarse localmente con `php artisan key:generate --show` y cargarse como variable privada en Railway. Luego del despliegue, actualizar `APP_URL` con el dominio definitivo para que los metadatos canónicos y Open Graph usen la URL pública correcta.
