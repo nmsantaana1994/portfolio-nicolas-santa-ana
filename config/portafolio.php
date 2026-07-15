@@ -6,6 +6,10 @@ return [
         'descripcion' => 'Portfolio de Nicolás Martín Santa Ana, Full Stack PHP/Laravel Developer especializado en APIs REST y sistemas web en producción.',
         'tipo' => 'website',
         'locale' => 'es_AR',
+        'imagen' => 'images/og-portfolio.png',
+        'imagen_alt' => 'Nicolás Martín Santa Ana — Full Stack PHP/Laravel Developer',
+        'imagen_ancho' => 1200,
+        'imagen_alto' => 630,
     ],
 
     'persona' => [

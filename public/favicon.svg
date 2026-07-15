@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo descripcion">
+    <title id="titulo">NS</title>
+    <desc id="descripcion">Iniciales de Nicolás Santa Ana</desc>
+    <rect width="64" height="64" rx="14" fill="#101828" />
+    <path d="M7 47V17a10 10 0 0 1 10-10h30" fill="none" stroke="#1570ef" stroke-width="4" stroke-linecap="round" />
+    <text x="32" y="40" fill="#fff" font-family="Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle">NS</text>
+</svg>

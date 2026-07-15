@@ -29,7 +29,7 @@ La V2 busca aumentar la credibilidad profesional, la calidad del repositorio y l
 | Slice | Objetivo | Estado |
 | --- | --- | --- |
 | 1 | Calidad automática con GitHub Actions | Completado |
-| 2 | Identidad visual y Open Graph | Pendiente |
+| 2 | Identidad visual y Open Graph | Completado |
 | 3 | Evidencia profesional en proyectos | Pendiente |
 | 4 | Accesibilidad y rendimiento | Pendiente |
 | 5 | Documentación y release V2 | Pendiente |
@@ -72,4 +72,4 @@ git commit -m "docs(release): documentar cambios de la versión 2.0.0"
 
 ## Próxima tarea
 
-Definir los recursos y el contenido del Slice 2: identidad visual y Open Graph.
+Relevar evidencia pública y resultados verificables para el Slice 3: proyectos.

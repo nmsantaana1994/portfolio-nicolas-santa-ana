@@ -32,6 +32,23 @@ class PortafolioTest extends TestCase
             ->assertSee('"@type":"Person"', false);
     }
 
+    public function test_incluye_favicon_e_imagen_social_con_sus_metadatos(): void
+    {
+        $imagenSocial = config('portafolio.seo.imagen');
+
+        $this->assertFileExists(public_path('favicon.svg'));
+        $this->assertFileExists(public_path($imagenSocial));
+
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('<link rel="icon"', false)
+            ->assertSee('/'.$imagenSocial, false)
+            ->assertSee('<meta property="og:image:width" content="1200">', false)
+            ->assertSee('<meta property="og:image:height" content="630">', false)
+            ->assertSee('<meta name="twitter:card" content="summary_large_image">', false)
+            ->assertSee('<meta name="twitter:image"', false);
+    }
+
     public function test_la_home_incluye_los_enlaces_principales(): void
     {
         $contacto = config('portafolio.contacto');
