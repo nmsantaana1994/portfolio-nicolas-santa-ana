@@ -3,7 +3,7 @@
 @section('contenido')
     <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
         <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10" aria-label="Navegación principal">
-            <a href="#inicio" class="text-sm font-bold tracking-tight text-tinta-950 sm:text-base" aria-label="Volver al inicio">
+            <a href="#inicio" class="text-sm font-bold tracking-tight text-tinta-950 sm:text-base" aria-label="Nicolás Santa Ana — volver al inicio">
                 Nicolás Santa Ana
             </a>
 

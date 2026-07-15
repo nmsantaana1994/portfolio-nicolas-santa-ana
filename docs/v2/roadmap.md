@@ -31,7 +31,7 @@ La V2 busca aumentar la credibilidad profesional, la calidad del repositorio y l
 | 1 | Calidad automática con GitHub Actions | Completado |
 | 2 | Identidad visual y Open Graph | Completado |
 | 3 | Evidencia profesional en proyectos | Completado |
-| 4 | Accesibilidad y rendimiento | Pendiente |
+| 4 | Accesibilidad y rendimiento | Completado |
 | 5 | Documentación y release V2 | Pendiente |
 
 ## Definición de terminado
@@ -72,4 +72,4 @@ git commit -m "docs(release): documentar cambios de la versión 2.0.0"
 
 ## Próxima tarea
 
-Ejecutar el Slice 4: auditoría de accesibilidad y rendimiento basada en hallazgos medibles.
+Ejecutar el Slice 5: revisar pendientes de mejora y preparar la documentación y el release de V2.

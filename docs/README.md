@@ -15,7 +15,10 @@ docs/
 └── v2/
     ├── roadmap.md
     └── slices/
-        └── 01-calidad-automatica.md
+        ├── 01-calidad-automatica.md
+        ├── 02-identidad-visual-open-graph.md
+        ├── 03-evidencia-profesional-proyectos.md
+        └── 04-accesibilidad-rendimiento.md
 ```
 
 ## Documentos activos
@@ -27,6 +30,7 @@ docs/
 | [Slice 1 — Calidad automática](v2/slices/01-calidad-automatica.md) | Implementación del workflow de GitHub Actions. |
 | [Slice 2 — Identidad visual](v2/slices/02-identidad-visual-open-graph.md) | Favicon, imagen Open Graph y metadatos sociales. |
 | [Slice 3 — Evidencia profesional](v2/slices/03-evidencia-profesional-proyectos.md) | Contexto y resultados cualitativos de proyectos. |
+| [Slice 4 — Accesibilidad y rendimiento](v2/slices/04-accesibilidad-rendimiento.md) | Auditoría Lighthouse y correcciones verificables. |
 | [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización

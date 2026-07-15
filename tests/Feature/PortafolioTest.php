@@ -12,6 +12,7 @@ class PortafolioTest extends TestCase
             ->assertOk()
             ->assertSee('Nicolás Martín Santa Ana')
             ->assertSee('Full Stack PHP/Laravel Developer')
+            ->assertSee('aria-label="Nicolás Santa Ana — volver al inicio"', false)
             ->assertSee('id="sobre-mi"', false)
             ->assertSee('id="stack"', false)
             ->assertSee('id="experiencia"', false)
