@@ -1,47 +1,33 @@
 # Portfolio profesional — Nicolás Martín Santa Ana
 
-Portfolio web personal orientado a búsquedas laborales como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, áreas de valor, stack técnico, experiencia, casos de proyectos, CV y canales de contacto en una única página responsive.
+Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, foco de valor, stack técnico, experiencia, casos de proyectos, CV descargable y canales de contacto en una única página responsive.
 
-## Objetivo profesional
-
-Comunicar un perfil Full Stack con foco en Laravel, JavaScript, MySQL, APIs REST y sistemas web en producción. El contenido prioriza experiencia aplicada, mantenimiento evolutivo, soporte productivo y comprensión funcional por sobre una lista aislada de tecnologías.
+Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https://portfolio-nicolas-santa-ana-production.up.railway.app)
 
 ## Stack del proyecto
 
-- PHP 8.3 o superior.
-- Laravel 13 (versión instalada al crear este README: 13.19.0).
+- PHP 8.4 o superior.
+- Laravel 13.
 - Blade.
 - Tailwind CSS 4.
 - JavaScript nativo.
-- Vite 8.
+- Vite.
+- Railway.
 
-La primera versión no utiliza autenticación, panel administrativo, base de datos ni formularios persistentes.
+Esta primera versión no utiliza base de datos, login, panel administrativo ni formularios persistentes.
 
-## Arquitectura
+## Requisitos locales
 
-El contenido editable se encuentra centralizado en [`config/portafolio.php`](config/portafolio.php). La ruta principal carga esa configuración y renderiza una vista Blade compuesta por parciales para cada sección.
-
-```text
-config/portafolio.php
-routes/web.php
-resources/views/layouts/portafolio.blade.php
-resources/views/portafolio/index.blade.php
-resources/views/portafolio/secciones/*.blade.php
-resources/css/app.css
-resources/js/app.js
-```
-
-## Requisitos
-
-- PHP `^8.3` con las extensiones requeridas por Laravel.
+- PHP 8.4 o superior, con las extensiones requeridas por Laravel.
 - Composer 2.
-- Node.js y npm compatibles con Vite 8.
+- Node.js y npm compatibles con Vite.
+- Git.
 
 No es necesario crear una base de datos ni ejecutar migraciones.
 
 ## Instalación local
 
-1. Clonar el repositorio e ingresar al directorio:
+1. Clonar el repositorio e ingresar en el proyecto:
 
    ```bash
    git clone https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana.git
@@ -54,113 +40,160 @@ No es necesario crear una base de datos ni ejecutar migraciones.
    composer install
    ```
 
-3. Crear el archivo de entorno y generar la clave de la aplicación.
+3. Crear el archivo de entorno.
 
    En Linux o macOS:
 
    ```bash
    cp .env.example .env
-   php artisan key:generate
    ```
 
    En PowerShell:
 
    ```powershell
    Copy-Item .env.example .env
+   ```
+
+4. Generar la clave de la aplicación:
+
+   ```bash
    php artisan key:generate
    ```
 
-4. Instalar y compilar los assets:
+5. Instalar las dependencias frontend:
 
    ```bash
    npm install
-   npm run build
    ```
 
-## Ejecución en desarrollo
+## Ejecución local
 
-Usar dos terminales:
+Levantar Laravel en una terminal:
 
 ```bash
-php artisan serve
+php artisan serve --port=8001
 ```
+
+Levantar Vite en otra terminal:
 
 ```bash
 npm run dev
 ```
 
-La aplicación estará disponible por defecto en `http://127.0.0.1:8000`.
+El portfolio estará disponible en `http://127.0.0.1:8001`.
 
 ## Comandos útiles
 
 ```bash
-# Ejecutar pruebas
-php artisan test
+# Instalar dependencias PHP
+composer install
 
-# Aplicar formato al código PHP
-vendor/bin/pint
+# Instalar dependencias frontend
+npm install
 
-# Levantar Vite con recarga automática
+# Ejecutar Vite en desarrollo
 npm run dev
 
-# Generar assets optimizados
+# Compilar assets para producción
 npm run build
 
-# Limpiar cachés de Laravel
-php artisan optimize:clear
+# Levantar el servidor local en el puerto configurado
+php artisan serve --port=8001
+
+# Ejecutar la suite de pruebas
+php artisan test
 ```
 
-## Currículum en PDF
+## Estructura principal
 
-El CV no se incluye como archivo de ejemplo. Para habilitar su descarga, agregar el PDF real en:
+```text
+config/portafolio.php
+    Contenido profesional, contacto, proyectos y metadatos editables.
+
+routes/web.php
+    Ruta de la página principal y detección del CV.
+
+resources/views/layouts/portafolio.blade.php
+    Layout general, SEO, Open Graph, JSON-LD y carga de Vite.
+
+resources/views/portafolio/index.blade.php
+    Navegación, composición de secciones y footer.
+
+resources/views/portafolio/secciones/
+    Hero, sobre mí, foco, stack, experiencia, proyectos, CV y contacto.
+
+resources/css/app.css
+    Tailwind CSS 4, tema visual y estilos globales mínimos.
+
+resources/js/app.js
+    Comportamiento accesible del menú móvil.
+
+tests/Feature/PortafolioTest.php
+    Pruebas de contenido, SEO, enlaces y disponibilidad del CV.
+```
+
+## Currículum descargable
+
+El CV utilizado por el portfolio se encuentra en:
 
 ```text
 public/cv/Nicolas_Santa_Ana_CV_FullStack_Laravel.pdf
 ```
 
-Mientras no exista, la interfaz muestra un estado informativo y no genera enlaces rotos.
-
-## Variables de entorno
-
-La configuración propuesta no depende de una base de datos:
-
-```env
-SESSION_DRIVER=file
-CACHE_STORE=file
-QUEUE_CONNECTION=sync
-```
-
-En producción también deben definirse correctamente `APP_KEY`, `APP_ENV`, `APP_DEBUG` y `APP_URL`.
+La aplicación comprueba su existencia antes de generar el enlace. Si el archivo falta, muestra un estado informativo y evita una navegación rota.
 
 ## Deploy en Railway
 
-El proyecto está preparado para un despliegue sencillo sin servicios de base de datos.
+El deploy actual se encuentra en:
 
-Configuración sugerida:
+```text
+https://portfolio-nicolas-santa-ana-production.up.railway.app
+```
 
-- Build command:
+El proceso de despliegue debe instalar las dependencias PHP, instalar las dependencias frontend y compilar los assets de Vite:
 
-  ```bash
-  composer install --no-dev --optimize-autoloader && npm ci && npm run build
-  ```
+```bash
+composer install --no-dev --optimize-autoloader
+npm ci
+npm run build
+```
 
-- Start command:
+Como comando de inicio puede utilizarse:
 
-  ```bash
-  php artisan serve --host=0.0.0.0 --port=$PORT
-  ```
+```bash
+php artisan serve --host=0.0.0.0 --port=$PORT
+```
 
-- Variables mínimas:
+### Variables de Railway
 
-  ```env
-  APP_ENV=production
-  APP_DEBUG=false
-  APP_URL=https://tu-dominio.up.railway.app
-  APP_KEY=base64:clave-generada
-  SESSION_DRIVER=file
-  CACHE_STORE=file
-  QUEUE_CONNECTION=sync
-  LOG_CHANNEL=stderr
-  ```
+```env
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://portfolio-nicolas-santa-ana-production.up.railway.app
+ASSET_URL=https://portfolio-nicolas-santa-ana-production.up.railway.app
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
+LOG_CHANNEL=stderr
+```
 
-La clave puede generarse localmente con `php artisan key:generate --show` y cargarse como variable privada en Railway. Luego del despliegue, actualizar `APP_URL` con el dominio definitivo para que los metadatos canónicos y Open Graph usen la URL pública correcta.
+También debe configurarse una `APP_KEY` válida como variable privada. Puede generarse localmente con:
+
+```bash
+php artisan key:generate --show
+```
+
+`ASSET_URL` es necesaria en este deploy de Railway para que Laravel genere correctamente las URLs públicas de los assets compilados por Vite. Sin esa variable, el CSS de Tailwind y el JavaScript pueden apuntar a una URL incorrecta y no cargar en producción.
+
+Después de modificar variables de entorno en Railway, se debe realizar un nuevo deploy para reconstruir los assets y aplicar la configuración actualizada.
+
+## Alcance de la primera versión
+
+El portfolio está diseñado como una página pública y liviana. No incluye:
+
+- Base de datos.
+- Login o registro.
+- Panel administrativo.
+- Formularios persistentes.
+- React, Inertia o Livewire.
+- Servicios backend adicionales.

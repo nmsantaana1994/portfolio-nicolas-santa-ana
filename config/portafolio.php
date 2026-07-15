@@ -3,7 +3,7 @@
 return [
     'seo' => [
         'titulo' => 'Nicolás Martín Santa Ana | Full Stack PHP/Laravel Developer',
-        'descripcion' => 'Portfolio profesional de Nicolás Martín Santa Ana, desarrollador Full Stack especializado en PHP, Laravel, JavaScript, MySQL y APIs REST.',
+        'descripcion' => 'Portfolio de Nicolás Martín Santa Ana, Full Stack PHP/Laravel Developer especializado en APIs REST y sistemas web en producción.',
         'tipo' => 'website',
         'locale' => 'es_AR',
     ],
@@ -23,7 +23,7 @@ return [
         ['etiqueta' => 'Contacto', 'ancla' => 'contacto'],
     ],
 
-    'sobre_mi' => 'Desarrollador Full Stack con foco en PHP/Laravel, MySQL y JavaScript, orientado al desarrollo y mantenimiento de sistemas web de gestión, APIs RESTful e integraciones para productos en producción. Mi perfil combina backend Laravel con frontend web usando Blade, JavaScript, Vue.js, Bootstrap/Tailwind e interfaces operativas.',
+    'sobre_mi' => 'Desarrollador Full Stack con foco en PHP/Laravel, MySQL y JavaScript, orientado al desarrollo y mantenimiento de sistemas web de gestión, APIs REST e integraciones para productos en producción. Mi perfil combina backend Laravel con frontend web usando Blade, JavaScript, Vue.js, Bootstrap y Tailwind CSS e interfaces operativas.',
 
     'focos' => [
         ['titulo' => 'Full Stack Laravel', 'descripcion' => 'Soluciones web completas, desde el dominio y la persistencia hasta la experiencia de uso.'],
@@ -34,7 +34,7 @@ return [
     ],
 
     'stack' => [
-        'Backend / Laravel' => ['PHP', 'Laravel', 'Blade', 'Eloquent ORM', 'Artisan', 'Composer', 'APIs RESTful', 'JSON', 'JWT', 'Roles y permisos'],
+        'Backend / Laravel' => ['PHP', 'Laravel', 'Blade', 'Eloquent ORM', 'Artisan', 'Composer', 'APIs REST', 'JSON', 'JWT', 'Roles y permisos'],
         'Frontend / UI' => ['JavaScript', 'Vue.js', 'jQuery', 'AJAX', 'HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'AG Grid', 'Chart.js', 'Vite'],
         'Base de datos' => ['MySQL', 'MariaDB', 'SQLite', 'SQL', 'Diseño relacional', 'Migraciones', 'Seeders', 'Índices', 'Claves foráneas', 'Transacciones'],
         'Cloud / DevOps' => ['Git', 'GitHub', 'GitLab', 'AWS EC2', 'AWS S3', 'Railway', 'Vercel', 'IIS', 'Linux básico por consola'],

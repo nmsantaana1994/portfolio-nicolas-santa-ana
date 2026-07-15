@@ -6,42 +6,67 @@ use Tests\TestCase;
 
 class PortafolioTest extends TestCase
 {
-    public function test_el_portafolio_se_muestra_con_su_contenido_principal(): void
+    public function test_la_home_carga_con_el_contenido_y_las_secciones_principales(): void
     {
-        $response = $this->get(route('inicio'));
-
-        $response
+        $this->get(route('inicio'))
             ->assertOk()
             ->assertSee('Nicolás Martín Santa Ana')
             ->assertSee('Full Stack PHP/Laravel Developer')
-            ->assertSee('Proyectos destacados')
-            ->assertSee('nmsantaana1994@gmail.com')
+            ->assertSee('id="sobre-mi"', false)
+            ->assertSee('id="stack"', false)
+            ->assertSee('id="experiencia"', false)
+            ->assertSee('id="proyectos"', false)
+            ->assertSee('id="cv"', false)
             ->assertSee('id="contacto"', false);
     }
 
-    public function test_el_portafolio_incluye_metadatos_seo_y_open_graph(): void
+    public function test_los_metadatos_usan_la_url_https_configurada_y_el_json_ld_es_valido(): void
     {
-        $response = $this->get(route('inicio'));
+        config(['app.url' => 'https://portfolio.example.com']);
 
-        $response
+        $this->get(route('inicio'))
             ->assertOk()
-            ->assertSee('<meta name="description"', false)
-            ->assertSee('<meta property="og:title"', false)
-            ->assertSee('<meta property="og:description"', false)
-            ->assertSee('<link rel="canonical"', false);
+            ->assertSee('<link rel="canonical" href="https://portfolio.example.com">', false)
+            ->assertSee('<meta property="og:url" content="https://portfolio.example.com">', false)
+            ->assertSee('"@context":"https://schema.org"', false)
+            ->assertSee('"@type":"Person"', false);
     }
 
-    public function test_el_cv_faltante_no_genera_un_enlace_roto(): void
+    public function test_la_home_incluye_los_enlaces_principales(): void
     {
-        $rutaCv = public_path(config('portafolio.cv.archivo'));
+        $contacto = config('portafolio.contacto');
 
-        if (is_file($rutaCv)) {
-            $this->markTestSkipped('El CV ya existe y corresponde validar el enlace de descarga.');
-        }
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('href="'.$contacto['github'].'"', false)
+            ->assertSee('href="'.$contacto['linkedin'].'"', false)
+            ->assertSee('href="mailto:'.$contacto['email'].'"', false);
+    }
+
+    public function test_un_cv_presente_genera_un_enlace_de_descarga(): void
+    {
+        config([
+            'portafolio.cv.archivo' => 'robots.txt',
+            'portafolio.cv.nombre_descarga' => 'cv-prueba.pdf',
+        ]);
+
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('href="'.asset('robots.txt').'"', false)
+            ->assertSee('download="cv-prueba.pdf"', false)
+            ->assertDontSee('CV disponible próximamente');
+    }
+
+    public function test_un_cv_ausente_no_genera_un_enlace_roto(): void
+    {
+        $archivoInexistente = 'cv/archivo-que-no-existe.pdf';
+
+        config(['portafolio.cv.archivo' => $archivoInexistente]);
 
         $this->get(route('inicio'))
             ->assertOk()
             ->assertSee('CV disponible próximamente')
-            ->assertDontSee(asset(config('portafolio.cv.archivo')));
+            ->assertSee('href="#cv"', false)
+            ->assertDontSee('href="'.asset($archivoInexistente).'"', false);
     }
 }

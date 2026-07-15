@@ -1,3 +1,7 @@
+@php
+    $urlCanonica = rtrim(config('app.url'), '/');
+@endphp
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -8,12 +12,12 @@
         <meta name="description" content="{{ $portafolio['seo']['descripcion'] }}">
         <meta name="author" content="{{ $portafolio['persona']['nombre'] }}">
         <meta name="robots" content="index, follow">
-        <link rel="canonical" href="{{ url('/') }}">
+        <link rel="canonical" href="{{ $urlCanonica }}">
 
         <meta property="og:title" content="{{ $portafolio['seo']['titulo'] }}">
         <meta property="og:description" content="{{ $portafolio['seo']['descripcion'] }}">
         <meta property="og:type" content="{{ $portafolio['seo']['tipo'] }}">
-        <meta property="og:url" content="{{ url('/') }}">
+        <meta property="og:url" content="{{ $urlCanonica }}">
         <meta property="og:locale" content="{{ $portafolio['seo']['locale'] }}">
         <meta property="og:site_name" content="Portfolio de {{ $portafolio['persona']['nombre'] }}">
 
@@ -25,11 +29,11 @@
 
         <script type="application/ld+json">
             {!! json_encode([
-                '@context' => 'https://schema.org',
+                '@'.'context' => 'https://schema.org',
                 '@type' => 'Person',
                 'name' => $portafolio['persona']['nombre'],
                 'jobTitle' => $portafolio['persona']['titulo'],
-                'url' => url('/'),
+                'url' => $urlCanonica,
                 'email' => 'mailto:'.$portafolio['contacto']['email'],
                 'address' => [
                     '@type' => 'PostalAddress',
