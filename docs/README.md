@@ -7,6 +7,11 @@ Este directorio registra la evolución técnica y funcional del portfolio. Su ob
 ```text
 docs/
 ├── README.md
+├── flujo-de-trabajo.md
+├── v1/
+│   ├── README.md
+│   ├── v1.0.md
+│   └── v1.1.md
 └── v2/
     ├── roadmap.md
     └── slices/
@@ -17,8 +22,11 @@ docs/
 
 | Documento | Propósito |
 | --- | --- |
+| [Historial V1](v1/README.md) | Alcance y cierre de V1.0 y V1.1. |
 | [Roadmap V2](v2/roadmap.md) | Alcance, fases, decisiones y estado general de V2. |
 | [Slice 1 — Calidad automática](v2/slices/01-calidad-automatica.md) | Implementación del workflow de GitHub Actions. |
+| [Slice 2 — Identidad visual](v2/slices/02-identidad-visual-open-graph.md) | Favicon, imagen Open Graph y metadatos sociales. |
+| [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización
 
