@@ -66,6 +66,18 @@ El build conserva un aviso informativo sobre `fontaine`, una optimización opcio
 
 El repositorio cuenta con una verificación automática y reproducible para cambios enviados a GitHub. El workflow no requiere base de datos, servicios externos ni secretos.
 
+## Corrección posterior
+
+La primera ejecución en un checkout limpio detectó que los tests de la home necesitan el manifest generado por Vite para renderizar `@vite`. Localmente el problema quedaba oculto porque `public/build` ya existía y no está versionado.
+
+Se reordenó el workflow para ejecutar `npm run build` después de `npm ci` y antes de `php artisan test`. De esta forma los tests conservan la integración real con Vite y el pipeline funciona igual que una instalación limpia, sin versionar assets ni desactivar Vite durante las pruebas.
+
+Commit sugerido para la corrección:
+
+```bash
+git commit -m "fix(ci): compilar assets antes de ejecutar tests"
+```
+
 ## Próxima tarea
 
 Definir y preparar el Slice 2: favicon, imagen Open Graph y metadatos sociales asociados.

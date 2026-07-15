@@ -51,11 +51,11 @@ jobs:
       - name: Instalar dependencias frontend
         run: npm ci
 
+      - name: Compilar assets
+        run: npm run build
+
       - name: Ejecutar tests
         run: php artisan test
 
       - name: Verificar formato PHP
         run: php vendor/bin/pint --test
-
-      - name: Compilar assets
-        run: npm run build
