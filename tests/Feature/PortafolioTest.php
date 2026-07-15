@@ -60,6 +60,27 @@ class PortafolioTest extends TestCase
             ->assertSee('href="mailto:'.$contacto['email'].'"', false);
     }
 
+    public function test_muestra_cuatro_proyectos_con_contexto_y_resultado(): void
+    {
+        $proyectos = config('portafolio.proyectos');
+
+        $this->assertCount(4, $proyectos);
+
+        foreach ($proyectos as $proyecto) {
+            $this->assertArrayHasKey('contexto', $proyecto);
+            $this->assertArrayHasKey('resultado', $proyecto);
+        }
+
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('Sistema de gestión para comedores corporativos')
+            ->assertSee('Terminales offline con sincronización')
+            ->assertSee('PWA para operación de depósito')
+            ->assertSee('Plataforma web para droguería')
+            ->assertSee('Resultado')
+            ->assertDontSee('Challenge técnico Laravel / API REST');
+    }
+
     public function test_un_cv_presente_genera_un_enlace_de_descarga(): void
     {
         config([

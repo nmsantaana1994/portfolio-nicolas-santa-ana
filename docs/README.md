@@ -26,6 +26,7 @@ docs/
 | [Roadmap V2](v2/roadmap.md) | Alcance, fases, decisiones y estado general de V2. |
 | [Slice 1 — Calidad automática](v2/slices/01-calidad-automatica.md) | Implementación del workflow de GitHub Actions. |
 | [Slice 2 — Identidad visual](v2/slices/02-identidad-visual-open-graph.md) | Favicon, imagen Open Graph y metadatos sociales. |
+| [Slice 3 — Evidencia profesional](v2/slices/03-evidencia-profesional-proyectos.md) | Contexto y resultados cualitativos de proyectos. |
 | [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización

@@ -29,6 +29,8 @@ git push -u origin feat/identidad-visual
 
 La rama se integra a `main` mediante pull request. Railway continúa desplegando únicamente desde `main`.
 
+El workflow de calidad se ejecuta automáticamente tanto en push como en pull request. Actualmente GitHub no obliga a crear un PR: el push directo a `main` sigue permitido. Si más adelante se configura una ruleset de protección para `main`, los PR pueden convertirse en un requisito sin cambiar el workflow.
+
 ## Convención
 
 Los commits siguen Conventional Commits y cada uno debe representar un cambio completo, validado y documentado.
