@@ -1,0 +1,61 @@
+name: Calidad
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Tests, formato y build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v7
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: dom, fileinfo, mbstring
+          coverage: none
+          tools: composer:v2
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Validar Composer
+        run: composer validate --no-check-publish --strict
+
+      - name: Instalar dependencias PHP
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Preparar entorno de testing
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Instalar dependencias frontend
+        run: npm ci
+
+      - name: Ejecutar tests
+        run: php artisan test
+
+      - name: Verificar formato PHP
+        run: php vendor/bin/pint --test
+
+      - name: Compilar assets
+        run: npm run build

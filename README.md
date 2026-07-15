@@ -1,5 +1,7 @@
 # Portfolio profesional — Nicolás Martín Santa Ana
 
+[![Calidad](https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana/actions/workflows/quality.yml/badge.svg)](https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana/actions/workflows/quality.yml)
+
 Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, foco de valor, stack técnico, experiencia, casos de proyectos, CV descargable y canales de contacto en una única página responsive.
 
 Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https://portfolio-nicolas-santa-ana-production.up.railway.app)
@@ -15,6 +17,8 @@ Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https:/
 - Railway.
 
 Esta primera versión no utiliza base de datos, login, panel administrativo ni formularios persistentes.
+
+La evolución técnica, las decisiones y el estado de cada fase se registran en la [documentación del proyecto](docs/README.md).
 
 ## Requisitos locales
 
