@@ -6,6 +6,8 @@ Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades 
 
 Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https://portfolio-nicolas-santa-ana-production.up.railway.app)
 
+Versión actual: **V2.0.0**. El alcance y las decisiones del cierre están documentados en las [notas del release](docs/v2/release-v2.0.0.md).
+
 ## Stack del proyecto
 
 - PHP 8.4 o superior.
@@ -16,7 +18,7 @@ Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https:/
 - Vite.
 - Railway.
 
-Esta primera versión no utiliza base de datos, login, panel administrativo ni formularios persistentes.
+La versión actual no utiliza base de datos, login, panel administrativo ni formularios persistentes.
 
 La evolución técnica, las decisiones y el estado de cada fase se registran en la [documentación del proyecto](docs/README.md).
 
@@ -106,6 +108,9 @@ php artisan serve --port=8001
 
 # Ejecutar la suite de pruebas
 php artisan test
+
+# Verificar el formato PHP
+php vendor/bin/pint --test
 ```
 
 ## Estructura principal
@@ -191,7 +196,7 @@ php artisan key:generate --show
 
 Después de modificar variables de entorno en Railway, se debe realizar un nuevo deploy para reconstruir los assets y aplicar la configuración actualizada.
 
-## Alcance de la primera versión
+## Alcance actual
 
 El portfolio está diseñado como una página pública y liviana. No incluye:
 

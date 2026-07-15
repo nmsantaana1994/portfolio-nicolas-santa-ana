@@ -13,12 +13,14 @@ docs/
 │   ├── v1.0.md
 │   └── v1.1.md
 └── v2/
+    ├── release-v2.0.0.md
     ├── roadmap.md
     └── slices/
         ├── 01-calidad-automatica.md
         ├── 02-identidad-visual-open-graph.md
         ├── 03-evidencia-profesional-proyectos.md
-        └── 04-accesibilidad-rendimiento.md
+        ├── 04-accesibilidad-rendimiento.md
+        └── 05-documentacion-release.md
 ```
 
 ## Documentos activos
@@ -27,10 +29,12 @@ docs/
 | --- | --- |
 | [Historial V1](v1/README.md) | Alcance y cierre de V1.0 y V1.1. |
 | [Roadmap V2](v2/roadmap.md) | Alcance, fases, decisiones y estado general de V2. |
+| [Release V2.0.0](v2/release-v2.0.0.md) | Resumen del cierre, validaciones y mejoras diferidas. |
 | [Slice 1 — Calidad automática](v2/slices/01-calidad-automatica.md) | Implementación del workflow de GitHub Actions. |
 | [Slice 2 — Identidad visual](v2/slices/02-identidad-visual-open-graph.md) | Favicon, imagen Open Graph y metadatos sociales. |
 | [Slice 3 — Evidencia profesional](v2/slices/03-evidencia-profesional-proyectos.md) | Contexto y resultados cualitativos de proyectos. |
 | [Slice 4 — Accesibilidad y rendimiento](v2/slices/04-accesibilidad-rendimiento.md) | Auditoría Lighthouse y correcciones verificables. |
+| [Slice 5 — Documentación y release](v2/slices/05-documentacion-release.md) | Revisión final y preparación del release V2.0.0. |
 | [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización

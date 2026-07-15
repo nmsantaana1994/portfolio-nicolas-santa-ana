@@ -32,7 +32,7 @@ La V2 busca aumentar la credibilidad profesional, la calidad del repositorio y l
 | 2 | Identidad visual y Open Graph | Completado |
 | 3 | Evidencia profesional en proyectos | Completado |
 | 4 | Accesibilidad y rendimiento | Completado |
-| 5 | Documentación y release V2 | Pendiente |
+| 5 | Documentación y release V2 | Completado |
 
 ## Definición de terminado
 
@@ -72,4 +72,8 @@ git commit -m "docs(release): documentar cambios de la versión 2.0.0"
 
 ## Próxima tarea
 
-Ejecutar el Slice 5: revisar pendientes de mejora y preparar la documentación y el release de V2.
+Publicar el tag `v2.0.0` cuando el commit de cierre pase el workflow de calidad. Las mejoras diferidas se evaluarán como V2.1 solo cuando exista material real y publicable.
+
+## Cierre
+
+Los cinco slices definidos para V2 están completados. El detalle consolidado, las validaciones y el backlog posterior se encuentran en las [notas del release V2.0.0](release-v2.0.0.md).
