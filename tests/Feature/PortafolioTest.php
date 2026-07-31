@@ -103,8 +103,8 @@ class PortafolioTest extends TestCase
             ->assertSee('data-galeria-foco', false)
             ->assertSee('data-tema-foco="light"', false)
             ->assertSee('data-tema-foco="dark"', false)
-            ->assertSee('aria-pressed="true"', false)
-            ->assertSee('aria-pressed="false"', false);
+            ->assertSee('aria-pressed="false" data-tema-foco="light"', false)
+            ->assertSee('aria-pressed="true" data-tema-foco="dark"', false);
     }
 
     public function test_las_escenas_de_foco_tienen_variantes_clara_y_oscura_publicables(): void

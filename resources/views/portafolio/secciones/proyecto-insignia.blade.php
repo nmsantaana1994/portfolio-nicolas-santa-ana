@@ -54,10 +54,10 @@
                 </div>
 
                 <div class="inline-flex w-fit rounded-xl border border-white/15 bg-slate-900 p-1" role="group" aria-label="Tema de las capturas">
-                    <button type="button" class="rounded-lg bg-white px-4 py-2 text-sm font-bold text-tinta-950" aria-pressed="true" data-tema-foco="light">
+                    <button type="button" class="rounded-lg px-4 py-2 text-sm font-bold text-slate-300" aria-pressed="false" data-tema-foco="light">
                         Claro
                     </button>
-                    <button type="button" class="rounded-lg px-4 py-2 text-sm font-bold text-slate-300" aria-pressed="false" data-tema-foco="dark">
+                    <button type="button" class="rounded-lg bg-white px-4 py-2 text-sm font-bold text-tinta-950" aria-pressed="true" data-tema-foco="dark">
                         Oscuro
                     </button>
                 </div>
@@ -72,8 +72,8 @@
                     @endphp
                     <figure class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 {{ $esDesktop ? 'lg:col-span-2' : '' }}">
                         <div class="flex min-h-80 items-center justify-center bg-slate-800/70 p-4 sm:p-6">
-                            <img src="{{ asset('images/projects/foco/light/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="{{ $esDesktop ? 'w-full' : 'max-h-[34rem] w-auto' }} rounded-xl shadow-2xl" data-imagen-foco="light">
-                            <img data-src="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="hidden {{ $esDesktop ? 'w-full' : 'max-h-[34rem] w-auto' }} rounded-xl shadow-2xl" data-imagen-foco="dark">
+                            <img data-src="{{ asset('images/projects/foco/light/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="hidden {{ $esDesktop ? 'w-full' : 'max-h-[34rem] w-auto' }} rounded-xl shadow-2xl" data-imagen-foco="light">
+                            <img src="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="{{ $esDesktop ? 'w-full' : 'max-h-[34rem] w-auto' }} rounded-xl shadow-2xl" data-imagen-foco="dark">
                         </div>
                         <figcaption class="p-5 sm:p-6">
                             <p class="font-bold text-white">{{ $escena['nombre'] }}</p>
@@ -99,8 +99,8 @@
                         @endphp
                         <figure class="overflow-hidden rounded-xl bg-slate-900 {{ $esDesktop ? 'lg:col-span-2' : '' }}">
                             <div class="flex items-center justify-center bg-slate-800/70 p-4">
-                                <img src="{{ asset('images/projects/foco/light/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="{{ $esDesktop ? 'w-full' : 'max-h-[32rem] w-auto' }} rounded-lg" data-imagen-foco="light">
-                                <img data-src="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="hidden {{ $esDesktop ? 'w-full' : 'max-h-[32rem] w-auto' }} rounded-lg" data-imagen-foco="dark">
+                                <img data-src="{{ asset('images/projects/foco/light/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="hidden {{ $esDesktop ? 'w-full' : 'max-h-[32rem] w-auto' }} rounded-lg" data-imagen-foco="light">
+                                <img src="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $ancho }}" height="{{ $alto }}" loading="lazy" decoding="async" class="{{ $esDesktop ? 'w-full' : 'max-h-[32rem] w-auto' }} rounded-lg" data-imagen-foco="dark">
                             </div>
                             <figcaption class="p-5">
                                 <p class="font-bold text-white">{{ $escena['nombre'] }}</p>
