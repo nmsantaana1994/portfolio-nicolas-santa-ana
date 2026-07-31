@@ -2,11 +2,11 @@
 
 [![Calidad](https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana/actions/workflows/quality.yml/badge.svg)](https://github.com/nmsantaana1994/portfolio-nicolas-santa-ana/actions/workflows/quality.yml)
 
-Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, foco de valor, stack técnico, experiencia, casos de proyectos, CV descargable y canales de contacto en una única página responsive.
+Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades como **Full Stack PHP/Laravel Developer**. Presenta perfil profesional, stack técnico, experiencia, casos de proyectos, el caso insignia Foco Finanzas, CV descargable y canales de contacto en una única página responsive.
 
 Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https://portfolio-nicolas-santa-ana-production.up.railway.app)
 
-Versión actual: **V2.0.0**. El alcance y las decisiones del cierre están documentados en las [notas del release](docs/v2/release-v2.0.0.md).
+Versión estable actual: **V2.0.0**. La evolución V2.1 para integrar evidencia verificable de Foco Finanzas está documentada en su [roadmap](docs/v2.1/roadmap.md).
 
 ## Stack del proyecto
 
@@ -129,13 +129,16 @@ resources/views/portafolio/index.blade.php
     Navegación, composición de secciones y footer.
 
 resources/views/portafolio/secciones/
-    Hero, sobre mí, foco, stack, experiencia, proyectos, CV y contacto.
+    Hero, sobre mí, foco, stack, experiencia, proyecto insignia, proyectos, CV y contacto.
+
+public/images/projects/foco/
+    Seis escenas sintéticas de Foco Finanzas en variantes clara y oscura.
 
 resources/css/app.css
     Tailwind CSS 4, tema visual y estilos globales mínimos.
 
 resources/js/app.js
-    Comportamiento accesible del menú móvil.
+    Comportamiento accesible del menú móvil y selector de tema de la evidencia visual.
 
 tests/Feature/PortafolioTest.php
     Pruebas de contenido, SEO, enlaces y disponibilidad del CV.

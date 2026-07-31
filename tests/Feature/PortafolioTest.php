@@ -16,6 +16,7 @@ class PortafolioTest extends TestCase
             ->assertSee('id="sobre-mi"', false)
             ->assertSee('id="stack"', false)
             ->assertSee('id="experiencia"', false)
+            ->assertSee('id="foco-finanzas"', false)
             ->assertSee('id="proyectos"', false)
             ->assertSee('id="cv"', false)
             ->assertSee('id="contacto"', false);
@@ -80,6 +81,50 @@ class PortafolioTest extends TestCase
             ->assertSee('Plataforma web para droguería')
             ->assertSee('Resultado')
             ->assertDontSee('Challenge técnico Laravel / API REST');
+    }
+
+    public function test_presenta_foco_como_proyecto_insignia_con_evidencia_fechada(): void
+    {
+        $proyecto = config('portafolio.proyecto_insignia');
+
+        $this->assertSame('Foco Finanzas', $proyecto['nombre']);
+        $this->assertCount(4, $proyecto['metricas']);
+        $this->assertCount(4, $proyecto['decisiones']);
+        $this->assertCount(6, $proyecto['escenas']);
+
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('Proyecto insignia')
+            ->assertSee('Finanzas personales mobile-first con Laravel')
+            ->assertSee('604')
+            ->assertSee('tests automatizados')
+            ->assertSee('Beta privada activa en staging')
+            ->assertSee('Todos los datos visibles son sintéticos')
+            ->assertSee('data-galeria-foco', false)
+            ->assertSee('data-tema-foco="light"', false)
+            ->assertSee('data-tema-foco="dark"', false)
+            ->assertSee('aria-pressed="true"', false)
+            ->assertSee('aria-pressed="false"', false);
+    }
+
+    public function test_las_escenas_de_foco_tienen_variantes_clara_y_oscura_publicables(): void
+    {
+        $escenas = config('portafolio.proyecto_insignia.escenas');
+        $respuesta = $this->get(route('inicio'))->assertOk();
+
+        foreach ($escenas as $escena) {
+            foreach (['light', 'dark'] as $tema) {
+                $ruta = "images/projects/foco/{$tema}/{$escena['archivo']}";
+
+                $this->assertFileExists(public_path($ruta));
+                $respuesta->assertSee(asset($ruta), false);
+            }
+
+            $respuesta
+                ->assertSee($escena['nombre'])
+                ->assertSee($escena['alt'])
+                ->assertSee($escena['descripcion']);
+        }
     }
 
     public function test_un_cv_presente_genera_un_enlace_de_descarga(): void
