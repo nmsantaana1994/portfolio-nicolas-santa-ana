@@ -6,7 +6,7 @@ Portfolio web personal de Nicolás Martín Santa Ana, orientado a oportunidades 
 
 Sitio publicado: [portfolio-nicolas-santa-ana-production.up.railway.app](https://portfolio-nicolas-santa-ana-production.up.railway.app)
 
-Versión estable actual: **V2.0.0**. La evolución V2.1 para integrar evidencia verificable de Foco Finanzas está documentada en su [roadmap](docs/v2.1/roadmap.md).
+Versión actual: **V2.1.0**. La integración de Foco Finanzas, sus validaciones y límites están documentados en las [notas del release](docs/v2.1/release-v2.1.0.md).
 
 ## Stack del proyecto
 

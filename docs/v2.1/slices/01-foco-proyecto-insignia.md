@@ -2,7 +2,7 @@
 
 ## Estado
 
-Completado localmente. Pendiente de CI, integración y validación del deploy.
+Completado, integrado y validado.
 
 ## Objetivo
 
@@ -86,10 +86,11 @@ El build conserva el aviso informativo del plugin de fuentes sobre `fontaine`; n
 
 La revisión Browser local utilizó Chromium y comprobó el heading del caso, el cambio de capturas, `aria-pressed`, errores de página/consola y ancho del documento. Los scripts y screenshots diagnósticos se eliminaron después de la inspección; no forman parte del producto.
 
-## Validación pendiente
+## Validación posterior
 
-- GitHub Actions.
-- Deploy y smoke test en Railway.
+- GitHub Actions: aprobado en los PR `#1` y `#2`.
+- Integración final: merge `8a72c7b` sobre `main`.
+- Deploy y smoke test en Railway: aprobados el 31/07/2026.
 
 ## Commit sugerido
 
@@ -99,4 +100,4 @@ git commit -m "feat(projects): integrar Foco como proyecto insignia"
 
 ## Próximo paso
 
-Publicar la rama y cerrar el Slice 2 con CI y deploy aprobados.
+Consultar el [Slice 2](02-validacion-release.md) y las [notas del release V2.1.0](../release-v2.1.0.md).

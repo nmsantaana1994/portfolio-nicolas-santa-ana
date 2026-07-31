@@ -22,9 +22,11 @@ docs/
 │       ├── 04-accesibilidad-rendimiento.md
 │       └── 05-documentacion-release.md
 └── v2.1/
+    ├── release-v2.1.0.md
     ├── roadmap.md
     └── slices/
-        └── 01-foco-proyecto-insignia.md
+        ├── 01-foco-proyecto-insignia.md
+        └── 02-validacion-release.md
 ```
 
 ## Documentos activos
@@ -41,6 +43,8 @@ docs/
 | [Slice 5 — Documentación y release](v2/slices/05-documentacion-release.md) | Revisión final y preparación del release V2.0.0. |
 | [Roadmap V2.1](v2.1/roadmap.md) | Integración verificable de Foco Finanzas como proyecto insignia. |
 | [Slice V2.1.1 — Foco Finanzas](v2.1/slices/01-foco-proyecto-insignia.md) | Contenido, evidencia visual light/dark, límites y validaciones. |
+| [Slice V2.1.2 — Validación y deploy](v2.1/slices/02-validacion-release.md) | Integración, CI, Railway y cierre operativo. |
+| [Release V2.1.0](v2.1/release-v2.1.0.md) | Resumen, trazabilidad, validaciones y límites de la versión. |
 | [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización
