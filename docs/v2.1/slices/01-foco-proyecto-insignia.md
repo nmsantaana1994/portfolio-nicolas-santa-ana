@@ -34,16 +34,16 @@ public/images/projects/foco/{light,dark}/
 
 ### Tema local de la galería
 
-El portfolio general conserva su identidad clara. El selector “Claro/Oscuro” cambia únicamente las capturas de Foco y actualiza `aria-pressed`; no introduce un sistema de tema global ni una dependencia adicional.
+El portfolio general conserva su identidad clara. Las capturas comienzan en modo oscuro por decisión visual y el selector “Claro/Oscuro” permite cambiar únicamente la evidencia de Foco, actualizando `aria-pressed`; no introduce un sistema de tema global ni una dependencia adicional.
 
 ### Carga y accesibilidad
 
 - Las imágenes declaran ancho y alto.
 - Se usa `loading="lazy"` y `decoding="async"`.
-- Las variantes oscuras cargan bajo demanda al seleccionar el tema.
+- Las variantes claras cargan bajo demanda al seleccionar el tema.
 - Cada variante activa conserva el texto alternativo descriptivo.
 - Las escenas complementarias viven en un elemento `details` navegable por teclado.
-- Sin JavaScript, la variante clara permanece visible y el contenido principal continúa accesible.
+- Sin JavaScript, la variante oscura permanece visible y el contenido principal continúa accesible.
 
 ## Evidencia publicada
 
