@@ -7,7 +7,7 @@
                 Nicolás Santa Ana
             </a>
 
-            <div class="hidden items-center gap-7 md:flex">
+            <div class="hidden items-center gap-7 lg:flex">
                 @foreach ($portafolio['navegacion'] as $item)
                     <a href="#{{ $item['ancla'] }}" class="text-sm font-medium text-tinta-600 transition hover:text-acento-700">
                         {{ $item['etiqueta'] }}
@@ -15,14 +15,14 @@
                 @endforeach
             </div>
 
-            <button type="button" class="inline-flex size-10 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 md:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
+            <button type="button" class="inline-flex size-10 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
                 <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
             </button>
         </nav>
 
-        <div id="menu-movil" class="hidden border-t border-slate-200 bg-white px-5 py-4 md:hidden" data-menu-movil>
+        <div id="menu-movil" class="hidden border-t border-slate-200 bg-white px-5 py-4 lg:hidden" data-menu-movil>
             <div class="mx-auto flex max-w-7xl flex-col gap-1">
                 @foreach ($portafolio['navegacion'] as $item)
                     <a href="#{{ $item['ancla'] }}" class="rounded-lg px-3 py-3 text-sm font-medium text-tinta-700 hover:bg-acento-50 hover:text-acento-700">
@@ -39,6 +39,7 @@
         @include('portafolio.secciones.foco')
         @include('portafolio.secciones.stack')
         @include('portafolio.secciones.experiencia')
+        @include('portafolio.secciones.proyecto-insignia')
         @include('portafolio.secciones.proyectos')
         @include('portafolio.secciones.cv')
         @include('portafolio.secciones.contacto')

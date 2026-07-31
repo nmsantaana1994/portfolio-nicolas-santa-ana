@@ -12,15 +12,19 @@ docs/
 │   ├── README.md
 │   ├── v1.0.md
 │   └── v1.1.md
-└── v2/
-    ├── release-v2.0.0.md
+├── v2/
+│   ├── release-v2.0.0.md
+│   ├── roadmap.md
+│   └── slices/
+│       ├── 01-calidad-automatica.md
+│       ├── 02-identidad-visual-open-graph.md
+│       ├── 03-evidencia-profesional-proyectos.md
+│       ├── 04-accesibilidad-rendimiento.md
+│       └── 05-documentacion-release.md
+└── v2.1/
     ├── roadmap.md
     └── slices/
-        ├── 01-calidad-automatica.md
-        ├── 02-identidad-visual-open-graph.md
-        ├── 03-evidencia-profesional-proyectos.md
-        ├── 04-accesibilidad-rendimiento.md
-        └── 05-documentacion-release.md
+        └── 01-foco-proyecto-insignia.md
 ```
 
 ## Documentos activos
@@ -35,6 +39,8 @@ docs/
 | [Slice 3 — Evidencia profesional](v2/slices/03-evidencia-profesional-proyectos.md) | Contexto y resultados cualitativos de proyectos. |
 | [Slice 4 — Accesibilidad y rendimiento](v2/slices/04-accesibilidad-rendimiento.md) | Auditoría Lighthouse y correcciones verificables. |
 | [Slice 5 — Documentación y release](v2/slices/05-documentacion-release.md) | Revisión final y preparación del release V2.0.0. |
+| [Roadmap V2.1](v2.1/roadmap.md) | Integración verificable de Foco Finanzas como proyecto insignia. |
+| [Slice V2.1.1 — Foco Finanzas](v2.1/slices/01-foco-proyecto-insignia.md) | Contenido, evidencia visual light/dark, límites y validaciones. |
 | [Flujo de trabajo Git](flujo-de-trabajo.md) | Estrategia de ramas y convención de commits. |
 
 ## Criterio de actualización
