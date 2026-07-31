@@ -20,8 +20,8 @@ El contenido proviene del handoff y del cierre técnico de Foco Finanzas, fechad
 
 | Slice | Objetivo | Estado |
 | --- | --- | --- |
-| 1 | Integrar Foco como caso insignia con evidencia visual light/dark | Completado localmente |
-| 2 | Validar CI, desplegar y revisar la integración pública | Pendiente |
+| 1 | Integrar Foco como caso insignia con evidencia visual light/dark | Completado e integrado |
+| 2 | Validar CI, desplegar y revisar la integración pública | Completado |
 
 ## Principios
 
@@ -45,6 +45,8 @@ V2.1 quedará cerrada cuando:
 6. GitHub Actions quede verde.
 7. Railway despliegue el cambio y se complete un smoke test responsive.
 
-## Próximo paso
+## Cierre
 
-Publicar la rama mediante pull request a `main`, observar el workflow y validar el deploy antes de preparar el release V2.1.0.
+V2.1 fue integrada mediante los PR `#1` y `#2`, validada por GitHub Actions y desplegada correctamente en Railway el 31 de julio de 2026. El detalle se encuentra en las [notas del release V2.1.0](release-v2.1.0.md).
+
+El próximo paso es integrar el commit documental y publicar el tag `v2.1.0`.
