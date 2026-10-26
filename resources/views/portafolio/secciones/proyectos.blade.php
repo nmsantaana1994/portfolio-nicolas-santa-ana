@@ -4,6 +4,7 @@
             <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Casos profesionales</p>
             <h2 class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Software al servicio de la operación</h2>
             <p class="mt-4 text-lg leading-8 text-tinta-600">Gestión, integraciones, trabajo offline y evolución de sistemas. Estos casos describen mi aporte sin publicar pantallas ni información interna.</p>
+            <a href="{{ route('proyectos.soluciones-comerciales', [], false) }}" class="mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Centralfarm y GlobalMed: ver caso empresarial →</a>
         </div>
 
         <div class="mt-8 grid gap-6 md:grid-cols-2">

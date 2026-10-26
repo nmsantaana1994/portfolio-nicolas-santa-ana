@@ -300,6 +300,69 @@ return [
         ],
     ],
 
+    // Relevamiento local 7A y aclaraciones de autoría/publicación del titular (26/10/2026).
+    // No acredita el último despliegue ni autoriza imágenes, código o datos empresariales.
+    'caso_empresarial' => [
+        'seo' => [
+            'titulo' => 'Centralfarm y GlobalMed — Software empresarial | Nicolás Santa Ana',
+            'descripcion' => 'Dos experiencias de desarrollo empresarial: reconstrucción integral de la web de Centralfarm y mantenimiento, optimización y evolución de GlobalMed.',
+        ],
+        'titulo' => 'Software para operaciones comerciales reales.',
+        'presentacion' => 'Dos desafíos de desarrollo: reconstruir una aplicación empresarial y evolucionar un sistema existente. Mi trabajo en Centralfarm y GlobalMed combina procesos comerciales, interfaces operativas e integración de información.',
+        'experiencias' => [
+            [
+                'id' => 'centralfarm',
+                'nombre' => 'Centralfarm',
+                'tipo' => 'Reconstrucción integral',
+                'resumen' => 'Desarrollo completo de la nueva aplicación web.',
+                'contexto' => 'Una aplicación para la operación comercial de una droguería, con recorridos diferenciados para clientes y vendedores.',
+                'desafio' => 'Reconstruir la web para acompañar la consulta de productos, la preparación de pedidos y las necesidades de administración, respetando el contexto comercial existente.',
+                'participacion' => 'Estuve a cargo de la reconstrucción completa y del desarrollo integral de la aplicación web actual: backend, interfaz y adaptación de los flujos comerciales. Esto no implica autoría de los sistemas externos ni de las reglas de negocio originales.',
+                'resultado' => 'La aplicación reúne catálogo, armado y seguimiento de pedidos, importación de archivos y controles de acceso en una herramienta web para la operación.',
+                'funcionalidades' => [
+                    ['titulo' => 'Del catálogo al pedido', 'descripcion' => 'Consulta de productos, carrito, confirmación, historial y repetición de pedidos, con validaciones según el cliente y el contexto del vendedor.'],
+                    ['titulo' => 'Importaciones con revisión', 'descripcion' => 'Carga de pedidos desde archivos, previsualización y confirmación, con devolución de las líneas no procesadas para poder revisarlas.'],
+                    ['titulo' => 'Administración y consultas', 'descripcion' => 'Gestión de usuarios y permisos por módulo. La consulta de cuenta corriente tiene un alcance restringido y documentado como piloto, no una habilitación general.'],
+                ],
+                'stack' => ['PHP', 'Laravel 10', 'MySQL', 'Blade', 'JavaScript', 'Bootstrap', 'AG Grid'],
+                'evidencia' => [
+                    'Implementado' => 'Código de la aplicación, flujos comerciales y administración presentes en el repositorio. El historial registra intervenciones sobre pedidos, importación, consultas y permisos.',
+                    'Validado' => 'Existen pruebas Unit y Feature y resultados históricos documentados. No se ejecutaron de nuevo las pruebas empresariales para publicar este caso.',
+                    'Despliegue' => 'El proyecto está documentado como sistema en producción. La revisión local no certifica qué versión está desplegada actualmente.',
+                    'Pendiente' => 'Parte de las mejoras recientes de pedidos y contexto de cliente sigue como trabajo local pendiente de commit; no se presenta como funcionalidad desplegada.',
+                ],
+            ],
+            [
+                'id' => 'globalmed',
+                'nombre' => 'GlobalMed',
+                'tipo' => 'Evolución de un sistema heredado',
+                'resumen' => 'Mantenimiento, optimización y nuevas funcionalidades.',
+                'contexto' => 'Una aplicación empresarial existente que acompaña pedidos, consultas comerciales e intercambio de información con otros sistemas.',
+                'desafio' => 'Mejorar la experiencia y sumar capacidades sin tratar el sistema como una aplicación nueva ni reemplazar indiscriminadamente los contratos y comportamientos existentes.',
+                'participacion' => 'Recibí una aplicación web heredada y realizo su mantenimiento, optimizaciones y desarrollo de nuevas funcionalidades. Mi intervención es de evolución progresiva, no de construcción desde cero ni de autoría de todo el código existente.',
+                'resultado' => 'El trabajo combina continuidad del circuito comercial con mejoras de interfaz, validaciones y funciones de administración. Las implementaciones locales y las entregas documentadas se distinguen de la aceptación final en el entorno operativo.',
+                'funcionalidades' => [
+                    ['titulo' => 'Pedidos e importaciones', 'descripcion' => 'Mantenimiento de recorridos de pedido y formatos de intercambio, con restricciones comerciales y reglas configurables para la devolución de información importada.'],
+                    ['titulo' => 'Interfaces para la operación', 'descripcion' => 'Las mejoras revisadas incluyen grillas, paginación, teclado y navegación, además de nuevas funciones administrativas. Su presencia en una copia local no demuestra su publicación en todos los entornos.'],
+                    ['titulo' => 'Intercambio de información', 'descripcion' => 'La aplicación dispone de APIs para recibir datos por lotes y entregar pedidos con confirmación de recepción. El consumidor externo no formó parte del relevamiento: no se certifica aquí el circuito completo en producción.'],
+                ],
+                'stack' => ['PHP', 'Laravel 5.6', 'MySQL', 'Blade', 'JavaScript', 'jQuery', 'Bootstrap', 'AG Grid'],
+                'evidencia' => [
+                    'Implementado' => 'Las copias locales contienen módulos comerciales, interfaces de integración y mejoras administrativas. Conservan diferencias que deben revisarse antes de promover cambios.',
+                    'Validado' => 'Hay validaciones dirigidas documentadas de acceso, importación e interfaz con datos de prueba. No equivalen a una comprobación actual del hosting ni de los sistemas externos.',
+                    'Despliegue' => 'La documentación distingue una instalación operativa de otra usada para desarrollo y contingencia. No se consultaron servidores ni se verificó el último despliegue.',
+                    'Pendiente' => 'La aceptación operativa de las entregas recientes y su promoción entre entornos requieren confirmación. No se presenta una modernización completa como terminada.',
+                ],
+            ],
+        ],
+        'capacidades' => [
+            ['titulo' => 'Desarrollar con contexto', 'descripcion' => 'Traducir necesidades comerciales en una aplicación web, diferenciando reglas propias, sistemas externos y responsabilidades.'],
+            ['titulo' => 'Integrar y preservar contratos', 'descripcion' => 'Trabajar con archivos y APIs sin perder de vista formatos, validaciones y recorridos que dependen de esa información.'],
+            ['titulo' => 'Evolucionar sin empezar de cero', 'descripcion' => 'Diagnosticar un sistema existente, mejorar interfaces y sumar funciones con cambios acotados y verificables.'],
+            ['titulo' => 'Validar y documentar', 'descripcion' => 'Combinar pruebas y comprobaciones funcionales, separando código implementado, evidencia de validación y estado desplegado.'],
+        ],
+    ],
+
     'proyectos' => [
         [
             'nombre' => 'Sistema de gestión para comedores corporativos',
