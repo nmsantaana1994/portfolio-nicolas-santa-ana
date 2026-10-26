@@ -145,7 +145,7 @@ class PortafolioTest extends TestCase
         $respuesta = $this->get(route('inicio'))->assertOk();
 
         foreach (config('portafolio.proyectos') as $proyecto) {
-            $respuesta->assertSee($proyecto['responsabilidades'])->assertSee($proyecto['resultado']);
+            $respuesta->assertSee($proyecto['nombre'])->assertSee($proyecto['resumen'])->assertSee($proyecto['distintivo']);
         }
 
         foreach (config('portafolio.stack') as $herramientas) {
@@ -159,7 +159,7 @@ class PortafolioTest extends TestCase
             ->assertSee('Ver caso completo');
     }
 
-    public function test_los_casos_muestran_aporte_y_resultado_sin_abrir_desplegables(): void
+    public function test_los_casos_ofrecen_resumen_y_acceso_directo_sin_desplegables(): void
     {
         $documento = new \DOMDocument;
         @$documento->loadHTML($this->get(route('inicio'))->assertOk()->getContent());
@@ -170,35 +170,39 @@ class PortafolioTest extends TestCase
         $this->assertSame(count($proyectos), $casos->length);
 
         foreach ($casos as $indice => $caso) {
-            $contenidoVisible = $xpath->query('./dl', $caso)->item(0)->textContent;
-            $this->assertStringContainsString($proyectos[$indice]['responsabilidades'], $contenidoVisible);
-            $this->assertStringContainsString($proyectos[$indice]['resultado'], $contenidoVisible);
-            $this->assertSame('Tecnologías utilizadas', trim($xpath->query('./details/summary', $caso)->item(0)->textContent));
-            $this->assertSame(0, $xpath->query('./details[@open]', $caso)->length);
+            $this->assertStringContainsString($proyectos[$indice]['resumen'], $caso->textContent);
+            $this->assertStringContainsString($proyectos[$indice]['distintivo'], $caso->textContent);
+            $enlaces = $xpath->query('.//a', $caso);
+            $this->assertSame(1, $enlaces->length);
+            $this->assertSame(route($proyectos[$indice]['ruta_caso'], [], false), $enlaces->item(0)->getAttribute('href'));
+            $this->assertStringContainsString($proyectos[$indice]['nombre'], $enlaces->item(0)->textContent);
+            $this->assertSame(0, $xpath->query('.//details | .//dl', $caso)->length);
+            $this->assertSame(1, $xpath->query('./div/span/svg[@aria-hidden="true"][@focusable="false"]', $caso)->length);
         }
 
-        $this->assertSame(3, $xpath->query('//*[@id="foco-finanzas"]/div/div/div/dl/div')->length);
+        $this->assertSame(0, $xpath->query('//*[@id="foco-finanzas"]//dl')->length);
         $this->assertSame(1, $xpath->query('//*[@id="foco-finanzas"]/div/div/figure')->length);
+        $this->assertSame(1, $xpath->query('//*[@id="foco-finanzas"]//a[@href="/proyectos/foco-finanzas"]')->length);
     }
 
-    public function test_muestra_cinco_proyectos_con_contexto_y_resultado(): void
+    public function test_prioriza_los_cuatro_casos_laborales_y_conserva_el_relevamiento_previo(): void
     {
         $proyectos = config('portafolio.proyectos');
 
-        $this->assertCount(5, $proyectos);
+        $this->assertCount(4, $proyectos);
+        $this->assertCount(5, config('portafolio.experiencia_adicional_proyectos'));
 
         foreach ($proyectos as $proyecto) {
             $this->assertArrayHasKey('contexto', $proyecto);
-            $this->assertArrayHasKey('resultado', $proyecto);
+            $this->assertArrayHasKey('distintivo', $proyecto);
         }
 
         $this->get(route('inicio'))
             ->assertOk()
-            ->assertSee('Sistema de gestión para comedores corporativos')
-            ->assertSee('Terminales offline con sincronización')
-            ->assertSee('PWA para operación de depósito')
-            ->assertSee('Plataforma web para droguería')
-            ->assertSee('Resultado')
+            ->assertSee('Centralfarm + GlobalMed')
+            ->assertSee('Terminales + Agente')
+            ->assertSee('SGM + Healthy')
+            ->assertSee('ZonalApp + CateringOnline')
             ->assertDontSee('Challenge técnico Laravel / API REST');
     }
 

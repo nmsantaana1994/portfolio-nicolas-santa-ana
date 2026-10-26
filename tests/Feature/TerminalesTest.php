@@ -82,7 +82,7 @@ class TerminalesTest extends TestCase
     {
         $this->get(route('inicio'))->assertOk()
             ->assertSee('href="/proyectos/terminales"', false)
-            ->assertSee('Terminales + Agente: ver caso completo');
+            ->assertSee('Terminales + Agente');
         $this->get(route('proyectos.terminales'))->assertOk()
             ->assertSee('href="/#proyectos"', false)
             ->assertSee('href="/servicios"', false)

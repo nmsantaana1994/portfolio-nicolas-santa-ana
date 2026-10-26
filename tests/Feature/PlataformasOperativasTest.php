@@ -81,7 +81,7 @@ class PlataformasOperativasTest extends TestCase
         @$documento->loadHTML($this->get(route('inicio'))->assertOk()->getContent());
         $xpath = new DOMXPath($documento);
         $this->assertSame(1, $xpath->query('//*[@id="proyectos"]//a[@href="/proyectos/plataformas-operativas"]')->length);
-        $this->assertSame(5, $xpath->query('//*[@id="proyectos"]//article')->length);
+        $this->assertSame(4, $xpath->query('//*[@id="proyectos"]//article')->length);
         foreach (['terminales', 'sgm-healthy', 'soluciones-comerciales', 'foco-finanzas'] as $caso) {
             $this->assertGreaterThan(0, $xpath->query('//a[@href="/proyectos/'.$caso.'"]')->length);
         }

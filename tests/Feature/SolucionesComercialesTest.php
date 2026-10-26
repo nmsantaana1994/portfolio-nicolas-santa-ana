@@ -64,15 +64,15 @@ class SolucionesComercialesTest extends TestCase
     {
         $respuesta = $this->get(route('inicio'))->assertOk()
             ->assertSee('href="/proyectos/soluciones-comerciales"', false)
-            ->assertSee('Centralfarm y GlobalMed: ver caso empresarial');
-        $this->assertCount(5, config('portafolio.proyectos'));
+            ->assertSee('Centralfarm + GlobalMed');
+        $this->assertCount(4, config('portafolio.proyectos'));
         $documento = new DOMDocument;
         @$documento->loadHTML($respuesta->getContent());
         $xpath = new DOMXPath($documento);
-        $this->assertSame(5, $xpath->query('//section[@id="proyectos"]//article')->length);
+        $this->assertSame(4, $xpath->query('//section[@id="proyectos"]//article')->length);
 
         foreach (config('portafolio.proyectos') as $proyecto) {
-            $respuesta->assertSee($proyecto['nombre'])->assertSee($proyecto['resultado']);
+            $respuesta->assertSee($proyecto['nombre'])->assertSee($proyecto['resumen']);
         }
     }
 

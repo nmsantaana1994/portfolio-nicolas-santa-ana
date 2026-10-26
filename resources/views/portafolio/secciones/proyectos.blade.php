@@ -1,52 +1,33 @@
-<section id="proyectos" class="scroll-mt-24 bg-superficie py-14 sm:py-16">
+<section id="proyectos" class="scroll-mt-24 bg-superficie py-14 sm:py-16" aria-labelledby="titulo-proyectos">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div class="max-w-3xl">
             <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Casos profesionales</p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Software al servicio de la operación</h2>
-            <p class="mt-4 text-lg leading-8 text-tinta-600">Gestión, integraciones, trabajo offline y evolución de sistemas. Estos casos describen mi aporte sin publicar pantallas ni información interna.</p>
-            <a href="{{ route('proyectos.soluciones-comerciales', [], false) }}" class="mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Centralfarm y GlobalMed: ver caso empresarial @include('portafolio.parciales.indicador-enlace')</a>
+            <h2 id="titulo-proyectos" class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Distintos desafíos. Software para cada necesidad.</h2>
+            <p class="mt-4 text-lg leading-8 text-tinta-600">Aplicaciones empresariales, integración y continuidad operativa. Conocé qué desarrollé y cómo funciona cada solución.</p>
         </div>
 
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="mt-8 grid gap-5 md:grid-cols-2 lg:gap-6">
             @foreach ($portafolio['proyectos'] as $proyecto)
-                <article @class(['superficie-tarjeta flex flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8', 'md:col-span-2' => $proyecto['ancho_completo'] ?? false])>
-                    <p class="text-xs font-bold uppercase tracking-[0.14em] text-acento-700">{{ $proyecto['contexto'] }}</p>
-                    <h3 class="mt-3 text-xl font-bold text-tinta-950 sm:text-2xl">{{ $proyecto['nombre'] }}</h3>
-                    <dl @class(['mt-7', 'grid gap-5 md:grid-cols-2 md:gap-x-10' => $proyecto['ancho_completo'] ?? false, 'space-y-5' => ! ($proyecto['ancho_completo'] ?? false)])>
-                        <div>
-                            <dt class="text-xs font-bold uppercase tracking-[0.14em] text-tinta-400">Problema</dt>
-                            <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['problema'] }}</dd>
+                <article class="proyecto-resumen superficie-tarjeta flex min-w-0 flex-col border border-slate-200 bg-white p-6 sm:p-8">
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-acento-50 text-acento-700" aria-hidden="true">
+                            @include('portafolio.parciales.icono-proyecto', ['icono' => $proyecto['icono']])
+                        </span>
+                        <div class="min-w-0">
+                            <p class="text-xs font-bold uppercase leading-5 tracking-[0.1em] text-acento-700">{{ $proyecto['contexto'] }}</p>
+                            <h3 class="mt-2 text-xl font-bold tracking-tight text-tinta-950 sm:text-2xl">{{ $proyecto['nombre'] }}</h3>
                         </div>
-                        <div>
-                            <dt class="text-xs font-bold uppercase tracking-[0.14em] text-tinta-400">Solución</dt>
-                            <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['solucion'] }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-xs font-bold uppercase tracking-[0.14em] text-tinta-400">Mi participación</dt>
-                            <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['responsabilidades'] }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-xs font-bold uppercase tracking-[0.14em] text-tinta-400">Resultado</dt>
-                            <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['resultado'] }}</dd>
-                        </div>
-                    </dl>
-                    @if (isset($proyecto['ruta_caso']))
-                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="mt-5 inline-flex min-h-11 items-center gap-2 self-start rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">{{ $proyecto['enlace_caso'] ?? 'Terminales + Agente: ver caso completo' }} @include('portafolio.parciales.indicador-enlace')</a>
-                    @endif
-                    <details class="group mt-6 border-t border-slate-200 pt-2">
-                        <summary class="cursor-pointer rounded-md py-3 text-sm font-semibold text-acento-700">Tecnologías utilizadas</summary>
-                        <ul class="mt-4 flex flex-wrap gap-2 pb-2" aria-label="Stack utilizado">
-                            @foreach ($proyecto['stack'] as $tecnologia)
-                                <li class="rounded-full bg-acento-50 px-3 py-1 text-xs font-semibold text-acento-700">{{ $tecnologia }}</li>
-                            @endforeach
-                        </ul>
-                    </details>
+                    </div>
+                    <p class="mt-5 leading-7 text-tinta-600">{{ $proyecto['resumen'] }}</p>
+                    <p class="mt-4 text-sm font-medium leading-6 text-tinta-600">{{ $proyecto['distintivo'] }}</p>
+                    <div class="mt-auto pt-5">
+                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">
+                            Ver caso completo<span class="sr-only"> de {{ $proyecto['nombre'] }}</span>
+                            @include('portafolio.parciales.indicador-enlace')
+                        </a>
+                    </div>
                 </article>
             @endforeach
         </div>
-        <a href="{{ route('proyectos.plataformas-operativas', [], false) }}" class="mt-6 flex min-h-11 items-center justify-between gap-5 rounded-2xl border border-slate-300 bg-white p-5 text-acento-700 hover:border-acento-700 sm:p-6">
-            <span><span class="block text-xs font-bold uppercase tracking-wide">Dos experiencias de desarrollo empresarial</span><span class="mt-2 block text-xl font-bold text-tinta-950">ZonalApp + CateringOnline</span><span class="mt-2 block max-w-3xl text-sm leading-6 text-tinta-600">{{ $portafolio['caso_plataformas_operativas']['resumen_home'] }}</span><span class="mt-3 block text-sm font-semibold underline underline-offset-4">Ver el caso conjunto</span></span>
-            @include('portafolio.parciales.indicador-enlace')
-        </a>
     </div>
 </section>

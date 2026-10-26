@@ -229,6 +229,16 @@
     box-shadow: 0 4px 16px var(--sombra-captura);
 }
 
+/* Descubrimiento de casos: feedback sólo al interactuar con su enlace. */
+.proyecto-resumen { transition: border-color 160ms ease, box-shadow 160ms ease; }
+.proyecto-resumen:focus-within { border-color: var(--enlace); }
+@media (hover: hover) {
+    .proyecto-resumen:has(a:hover) { border-color: var(--enlace); box-shadow: 0 4px 16px var(--sombra-captura); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .proyecto-resumen { transition: none; }
+}
+
 .superficie-captura:focus-within {
     border-color: var(--color-acento-600);
 }

@@ -491,6 +491,42 @@ return [
 
     'proyectos' => [
         [
+            'nombre' => 'Centralfarm + GlobalMed',
+            'contexto' => 'Aplicaciones empresariales',
+            'resumen' => 'Dos experiencias para organizar procesos comerciales: reconstrucción integral de la web de Centralfarm y mantenimiento y evolución de la aplicación heredada de GlobalMed.',
+            'distintivo' => 'Construir desde cero y hacer evolucionar lo existente.',
+            'ruta_caso' => 'proyectos.soluciones-comerciales',
+            'icono' => 'sistemas',
+        ],
+        [
+            'nombre' => 'Terminales + Agente',
+            'contexto' => 'Registro y continuidad operativa',
+            'resumen' => 'Desarrollé ambos sistemas desde cero para registrar consumos y acompañar la operación cuando la conectividad es limitada.',
+            'distintivo' => 'Persistencia local y sincronización, según la información disponible en cada circuito.',
+            'ruta_caso' => 'proyectos.terminales',
+            'icono' => 'terminal',
+        ],
+        [
+            'nombre' => 'SGM + Healthy',
+            'contexto' => 'Planificación y consulta de menús',
+            'resumen' => 'Creé dos aplicaciones desde sus bases: una para planificar menús en la empresa y otra para que los comensales consulten menús y recetas.',
+            'distintivo' => 'Un proceso compartido, con interfaces para necesidades diferentes.',
+            'ruta_caso' => 'proyectos.sgm-healthy',
+            'icono' => 'menu',
+        ],
+        [
+            'nombre' => 'ZonalApp + CateringOnline',
+            'contexto' => 'Integración y trabajo colaborativo',
+            'resumen' => 'Creé ZonalApp, un portal operativo que evolucionó también con otro desarrollador. Desarrollé CateringOnline, para pedidos semanales, junto con mi jefe.',
+            'distintivo' => 'Dos experiencias independientes: reunir sistemas y organizar pedidos.',
+            'ruta_caso' => 'proyectos.plataformas-operativas',
+            'icono' => 'integracion',
+        ],
+    ],
+
+    // Se conserva el relevamiento anterior; la home prioriza los casos publicados.
+    'experiencia_adicional_proyectos' => [
+        [
             'nombre' => 'Sistema de gestión para comedores corporativos',
             'contexto' => 'Producción',
             'problema' => 'Centralizar procesos operativos y administrativos que involucraban múltiples puntos de servicio y reglas de negocio.',

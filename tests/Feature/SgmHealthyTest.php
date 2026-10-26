@@ -82,14 +82,14 @@ class SgmHealthyTest extends TestCase
 
     public function test_se_integra_sin_eliminar_casos_y_ofrece_contacto_servicios_y_regreso(): void
     {
-        $this->assertCount(5, config('portafolio.proyectos'));
+        $this->assertCount(4, config('portafolio.proyectos'));
         $this->get(route('inicio'))->assertOk()
             ->assertSee('href="/proyectos/sgm-healthy"', false)
             ->assertSee('href="/proyectos/terminales"', false)
             ->assertSee('href="/proyectos/soluciones-comerciales"', false)
             ->assertSee('href="/proyectos/foco-finanzas"', false)
-            ->assertSee('Terminales + Agente: ver caso completo')
-            ->assertSee('SGM + Healthy: ver caso completo');
+            ->assertSee('Terminales + Agente')
+            ->assertSee('SGM + Healthy');
         $this->get(route('proyectos.sgm-healthy'))->assertOk()
             ->assertSee('href="/#proyectos"', false)
             ->assertSee('href="/servicios"', false)

@@ -116,7 +116,7 @@ class FocoFinanzasTest extends TestCase
         $this->get(route('inicio'))->assertOk()
             ->assertSee('Captura histórica')
             ->assertSee('17/07/2026')
-            ->assertSee($proyecto['estado'])
+            ->assertSee('Actualmente está en beta privada.')
             ->assertDontSee('604');
     }
 
