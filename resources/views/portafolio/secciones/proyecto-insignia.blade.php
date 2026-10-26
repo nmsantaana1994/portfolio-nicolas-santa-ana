@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <dt class="font-bold text-blue-200">Mi participación</dt>
-                        <dd class="mt-1 text-slate-300">Desarrollo individual: producto, backend, interfaz, pruebas y operación del entorno de staging.</dd>
+                        <dd class="mt-1 text-slate-300">Desarrollo individual del producto: datos, funciones, pantallas y pruebas, con publicación en un entorno de validación privado.</dd>
                     </div>
                 </dl>
                 <p class="mt-5 text-sm leading-6 text-slate-400">{{ $proyecto['estado'] }}</p>

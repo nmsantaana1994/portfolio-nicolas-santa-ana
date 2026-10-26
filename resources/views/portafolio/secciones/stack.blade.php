@@ -3,7 +3,7 @@
         Stack y herramientas utilizadas
     </summary>
     <div class="border-t border-slate-200 p-6">
-        <p class="max-w-3xl leading-7 text-tinta-600">Tecnologías y herramientas aplicadas en los contextos de trabajo presentados.</p>
+        <p class="max-w-3xl leading-7 text-tinta-600">Tecnologías y herramientas aplicadas en los contextos de trabajo presentados. En Foco Finanzas, producto propio, utilizo PostgreSQL, pruebas con PHPUnit y Playwright, integración continua con GitHub Actions y Docker para desarrollo local.</p>
         <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             @foreach ($portafolio['stack'] as $categoria => $tecnologias)
                 <article class="rounded-xl border border-slate-200 bg-superficie p-5">

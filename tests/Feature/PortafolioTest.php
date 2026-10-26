@@ -6,6 +6,23 @@ use Tests\TestCase;
 
 class PortafolioTest extends TestCase
 {
+    public function test_los_resumenes_profesionales_distinguen_autoria_y_conservan_evidencia_tecnica(): void
+    {
+        $this->get(route('inicio'))->assertOk()
+            ->assertSee('Estuve a cargo de la reconstrucción integral de la aplicación web actual')
+            ->assertSee('sin atribuirme su desarrollo ni las reglas comerciales preexistentes')
+            ->assertSee('Recibí una aplicación web existente')
+            ->assertSee('continuidad del sistema y su evolución gradual')
+            ->assertSee('Proyecto propio')
+            ->assertSee('Beta privada')
+            ->assertSee('PostgreSQL')
+            ->assertSee('PHPUnit')
+            ->assertSee('Playwright')
+            ->assertSee('GitHub Actions')
+            ->assertDontSee('Cloud / DevOps')
+            ->assertDontSee('SQL Server');
+    }
+
     public function test_la_home_carga_con_el_contenido_y_las_secciones_principales(): void
     {
         $this->get(route('inicio'))

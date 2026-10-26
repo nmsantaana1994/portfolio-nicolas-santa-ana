@@ -3,7 +3,7 @@
 return [
     'seo' => [
         'titulo' => 'Nicolás Martín Santa Ana | Full Stack PHP/Laravel Developer',
-        'descripcion' => 'Portfolio de Nicolás Martín Santa Ana, Full Stack PHP/Laravel Developer especializado en APIs REST y sistemas web en producción.',
+        'descripcion' => 'Nicolás Martín Santa Ana, desarrollador Full Stack PHP/Laravel. Aplicaciones web para empresas, integración de sistemas y mantenimiento de software.',
         'tipo' => 'website',
         'locale' => 'es_AR',
         'imagen' => 'images/og-portfolio.png',
@@ -15,7 +15,7 @@ return [
     'persona' => [
         'nombre' => 'Nicolás Martín Santa Ana',
         'titulo' => 'Full Stack PHP/Laravel Developer',
-        'presentacion' => 'Construyo y evoluciono sistemas de gestión, aplicaciones web e integraciones para empresas. Combino backend PHP/Laravel con interfaces claras para quienes usan el software todos los días.',
+        'presentacion' => 'Desarrollo aplicaciones web para gestionar el trabajo diario, conectar sistemas y mejorar el software que una empresa ya usa. Trabajo con PHP y Laravel, desde los datos y las reglas del negocio hasta las pantallas.',
         'ubicacion' => 'CABA, Buenos Aires, Argentina',
     ],
 
@@ -34,7 +34,7 @@ return [
         ['etiqueta' => 'Contacto', 'ancla' => 'contacto'],
     ],
 
-    'sobre_mi' => 'Me interesa entender cómo trabaja una organización antes de diseñar una solución. Mi experiencia combina desarrollo full stack, análisis funcional, soporte e implementación: traduzco necesidades operativas en funcionalidades claras y acompaño su evolución en producción.',
+    'sobre_mi' => 'Me interesa entender cómo trabaja una organización antes de diseñar una solución. Mi experiencia combina desarrollo, análisis de necesidades y soporte: converso con quienes usan el sistema, construyo las funciones que necesitan y acompaño su uso y evolución.',
 
     'servicios' => [
         'seo' => [
@@ -47,7 +47,7 @@ return [
             [
                 'titulo' => 'Aplicaciones y sistemas web',
                 'problema' => 'Un proceso necesita una herramienta propia, con reglas y recorridos que las soluciones genéricas no contemplan.',
-                'solucion' => 'Puedo desarrollar sistemas de gestión y aplicaciones web a medida, desde el modelo de datos y la lógica de negocio hasta la interfaz de uso.',
+                'solucion' => 'Puedo desarrollar una aplicación a medida para registrar información, organizar tareas y acompañar las reglas de tu negocio, desde los datos hasta las pantallas.',
                 'evidencia' => 'Experiencia publicada en sistemas de gestión operativa y una plataforma web para droguería.',
                 'ruta' => 'inicio',
                 'ancla' => 'proyectos',
@@ -56,8 +56,8 @@ return [
             [
                 'titulo' => 'Integración y automatización',
                 'problema' => 'Las herramientas no se comunican y parte del trabajo depende de trasladar o revisar información manualmente.',
-                'solucion' => 'Puedo conectar aplicaciones mediante APIs y desarrollar intercambios de datos y validaciones para acompañar el circuito real del negocio.',
-                'evidencia' => 'Los casos publicados de gestión y droguería incluyen integración de APIs y procesos operativos.',
+                'solucion' => 'Puedo conectar aplicaciones para intercambiar pedidos, productos u otros datos mediante archivos o APIs, las interfaces que permiten comunicar sistemas. Las validaciones se adaptan al proceso de trabajo.',
+                'evidencia' => 'Los casos publicados de gestión y droguería incluyen intercambio de información entre sistemas y validaciones comerciales.',
                 'ruta' => 'inicio',
                 'ancla' => 'proyectos',
                 'enlace' => 'Ver experiencia en integraciones',
@@ -74,8 +74,8 @@ return [
             [
                 'titulo' => 'Calidad, pruebas y entrega',
                 'problema' => 'Cambiar software también exige comprobar que lo nuevo funciona y que los recorridos existentes siguen respondiendo.',
-                'solucion' => 'Puedo incorporar pruebas y validaciones al desarrollo, revisar flujos de uso y acompañar entregas controladas con documentación y comprobaciones proporcionales al cambio.',
-                'evidencia' => 'Foco Finanzas documenta pruebas automatizadas, integración continua y validación manual como parte de la evolución de un producto propio.',
+                'solucion' => 'Puedo incorporar pruebas automáticas, revisar los recorridos de uso y comprobar los cambios antes de publicarlos, con documentación para acompañar cada entrega.',
+                'evidencia' => 'En Foco Finanzas utilizo pruebas automáticas y revisiones manuales. La integración continua ejecuta comprobaciones sobre los cambios enviados al repositorio.',
                 'ruta' => 'proyectos.foco-finanzas',
                 'ancla' => 'calidad',
                 'enlace' => 'Ver evidencia en Foco Finanzas',
@@ -89,34 +89,34 @@ return [
     ],
 
     'focos' => [
-        ['titulo' => 'Entender la operación', 'descripcion' => 'Relevamiento y análisis funcional para definir el dominio, las reglas de negocio y los recorridos de quienes usan el sistema.'],
-        ['titulo' => 'Construir e integrar', 'descripcion' => 'Desarrollo full stack: interfaces operativas, lógica de negocio, APIs REST y datos relacionales con consultas SQL e integridad de datos.'],
-        ['titulo' => 'Acompañar la evolución', 'descripcion' => 'Mantenimiento evolutivo, soporte productivo y documentación técnica para sostener el funcionamiento y mejorar el software con el negocio.'],
+        ['titulo' => 'Entender la operación', 'descripcion' => 'Conversar con quienes usan el sistema, entender cómo trabajan y definir qué necesita resolver la aplicación.'],
+        ['titulo' => 'Construir e integrar', 'descripcion' => 'Desarrollar la aplicación completa: datos, reglas y pantallas. Conectar herramientas para que puedan intercambiar información.'],
+        ['titulo' => 'Acompañar la evolución', 'descripcion' => 'Comprobar cambios con pruebas, documentar las entregas y resolver incidencias mientras el software sigue en uso.'],
     ],
 
     'stack' => [
         'Backend / Laravel' => ['PHP', 'Laravel', 'Blade', 'Eloquent ORM', 'Artisan', 'Composer', 'APIs REST', 'JSON', 'JWT', 'Roles y permisos'],
         'Frontend / UI' => ['JavaScript', 'Vue.js', 'jQuery', 'AJAX', 'HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'AG Grid', 'Chart.js', 'Vite'],
-        'Base de datos' => ['MySQL', 'MariaDB', 'SQLite', 'SQL', 'Diseño relacional', 'Migraciones', 'Seeders', 'Índices', 'Claves foráneas', 'Transacciones'],
-        'Cloud / DevOps' => ['Git', 'GitHub', 'GitLab', 'AWS EC2', 'AWS S3', 'Railway', 'Vercel', 'IIS', 'Linux básico por consola'],
-        'Prácticas' => ['Código limpio', 'Documentación técnica', 'Análisis funcional', 'Soporte productivo', 'Mejora continua', 'Mantenimiento de sistemas reales'],
+        'Base de datos' => ['MySQL', 'MariaDB', 'PostgreSQL', 'SQLite', 'SQL', 'Diseño relacional', 'Migraciones', 'Seeders', 'Índices', 'Claves foráneas', 'Transacciones'],
+        'Herramientas, entornos y entrega' => ['Git', 'GitHub', 'GitLab', 'GitHub Actions', 'Docker local', 'AWS EC2', 'AWS S3', 'Railway', 'Vercel', 'IIS', 'Linux básico por consola'],
+        'Prácticas' => ['Desarrollo integral de producto', 'Pruebas automatizadas', 'PHPUnit', 'Playwright', 'Integración continua', 'Código limpio', 'Documentación técnica', 'Análisis funcional', 'Soporte productivo', 'Mejora continua', 'Mantenimiento de sistemas reales'],
     ],
 
     'experiencias' => [
         [
             'empresa' => 'FoodService',
             'puesto' => 'Full Stack Developer PHP/Laravel',
-            'resumen' => 'Desarrollo y mantenimiento evolutivo de sistemas web de gestión para operaciones gastronómicas, integrando backend Laravel, interfaces operativas y soporte a producción.',
+            'resumen' => 'Desarrollo y mejoro aplicaciones para la gestión de comedores corporativos: construyo funciones con PHP/Laravel, adapto pantallas al trabajo diario y doy soporte a los sistemas en uso.',
         ],
         [
-            'empresa' => 'CentralFarm',
+            'empresa' => 'Centralfarm',
             'puesto' => 'Freelance Full Stack Developer',
-            'resumen' => 'Implementación de funcionalidades web e integraciones orientadas a procesos de droguería, con foco en trazabilidad, datos consistentes y flujos de trabajo claros.',
+            'resumen' => 'Estuve a cargo de la reconstrucción integral de la aplicación web actual, desde los datos hasta las pantallas para consultar productos y preparar pedidos. Integré la web con sistemas externos, sin atribuirme su desarrollo ni las reglas comerciales preexistentes.',
         ],
         [
             'empresa' => 'GlobalMed',
             'puesto' => 'Freelance Full Stack Developer',
-            'resumen' => 'Desarrollo de soluciones a medida, relevamiento funcional y mejoras sobre módulos de negocio, coordinando necesidades operativas con decisiones técnicas mantenibles.',
+            'resumen' => 'Recibí una aplicación web existente y realizo mantenimiento, optimizaciones y nuevas funcionalidades. Trabajo sobre pedidos, consultas e intercambio de información, cuidando la continuidad del sistema y su evolución gradual.',
         ],
         [
             'empresa' => 'Report System',
@@ -127,11 +127,11 @@ return [
 
     'proyecto_insignia' => [
         'nombre' => 'Foco Finanzas',
-        'subtitulo' => 'Finanzas personales mobile-first con Laravel',
+        'subtitulo' => 'Cuentas, cuotas y planificación en un mismo lugar',
         'contexto' => 'Proyecto propio · Beta privada',
-        'descripcion' => 'Aplicación web instalable para relacionar cuentas, movimientos, tarjetas, cuotas, presupuestos, metas e inversiones manuales, con planificación, avisos e IA asistiva de solo lectura.',
+        'descripcion' => 'Producto propio en beta privada para registrar ingresos y gastos, entender cuotas y vencimientos, y seguir presupuestos, metas e inversiones manuales.',
         'resumen_problema' => 'Saldos, cuotas y vencimientos separados dificultan entender el disponible real del mes.',
-        'resumen_solucion' => 'Una aplicación que relaciona movimientos, planificación y ahorro sin duplicar impactos financieros.',
+        'resumen_solucion' => 'Una aplicación para consultar la actividad del mes, organizar pagos y seguir el ahorro, sin contar el pago de la tarjeta como un gasto nuevo.',
         'presentacion_caso' => 'Una aplicación de finanzas personales para entender movimientos, cuotas y ahorro en un mismo lugar.',
         'problema' => 'La información financiera personal suele quedar fragmentada entre saldos, consumos, cuotas, vencimientos, metas e inversiones, dificultando entender el disponible real y los compromisos del mes.',
         'solucion' => 'Foco reúne la actividad y la planificación en una misma aplicación: distingue gastos de transferencias, relaciona tarjetas y cuotas con sus vencimientos, y permite seguir presupuestos y metas. El asistente ayuda a interpretar la información, sin modificar los datos financieros.',
@@ -308,7 +308,7 @@ return [
             'descripcion' => 'Dos experiencias de desarrollo empresarial: reconstrucción integral de la web de Centralfarm y mantenimiento, optimización y evolución de GlobalMed.',
         ],
         'titulo' => 'Software para operaciones comerciales reales.',
-        'presentacion' => 'Dos desafíos de desarrollo: reconstruir una aplicación empresarial y evolucionar un sistema existente. Mi trabajo en Centralfarm y GlobalMed combina procesos comerciales, interfaces operativas e integración de información.',
+        'presentacion' => 'En Centralfarm reconstruí la aplicación web para consultar productos y gestionar pedidos. En GlobalMed recibí un sistema existente y trabajo en su mantenimiento y mejora. Dos formas de acompañar la operación comercial con software.',
         'experiencias' => [
             [
                 'id' => 'centralfarm',
@@ -338,7 +338,7 @@ return [
                 'tipo' => 'Evolución de un sistema heredado',
                 'resumen' => 'Mantenimiento, optimización y nuevas funcionalidades.',
                 'contexto' => 'Una aplicación empresarial existente que acompaña pedidos, consultas comerciales e intercambio de información con otros sistemas.',
-                'desafio' => 'Mejorar la experiencia y sumar capacidades sin tratar el sistema como una aplicación nueva ni reemplazar indiscriminadamente los contratos y comportamientos existentes.',
+                'desafio' => 'Mejorar pantallas y sumar funciones sin interrumpir los recorridos de trabajo ni cambiar sin revisión la forma en que el sistema intercambia información.',
                 'participacion' => 'Recibí una aplicación web heredada y realizo su mantenimiento, optimizaciones y desarrollo de nuevas funcionalidades. Mi intervención es de evolución progresiva, no de construcción desde cero ni de autoría de todo el código existente.',
                 'resultado' => 'El trabajo combina continuidad del circuito comercial con mejoras de interfaz, validaciones y funciones de administración. Las implementaciones locales y las entregas documentadas se distinguen de la aceptación final en el entorno operativo.',
                 'funcionalidades' => [
@@ -357,7 +357,7 @@ return [
         ],
         'capacidades' => [
             ['titulo' => 'Desarrollar con contexto', 'descripcion' => 'Traducir necesidades comerciales en una aplicación web, diferenciando reglas propias, sistemas externos y responsabilidades.'],
-            ['titulo' => 'Integrar y preservar contratos', 'descripcion' => 'Trabajar con archivos y APIs sin perder de vista formatos, validaciones y recorridos que dependen de esa información.'],
+            ['titulo' => 'Conectar sistemas con cuidado', 'descripcion' => 'Intercambiar información mediante archivos y APIs, respetando los formatos, las validaciones y las tareas que dependen de esos datos.'],
             ['titulo' => 'Evolucionar sin empezar de cero', 'descripcion' => 'Diagnosticar un sistema existente, mejorar interfaces y sumar funciones con cambios acotados y verificables.'],
             ['titulo' => 'Validar y documentar', 'descripcion' => 'Combinar pruebas y comprobaciones funcionales, separando código implementado, evidencia de validación y estado desplegado.'],
         ],
@@ -368,10 +368,10 @@ return [
             'nombre' => 'Sistema de gestión para comedores corporativos',
             'contexto' => 'Producción',
             'problema' => 'Centralizar procesos operativos y administrativos que involucraban múltiples puntos de servicio y reglas de negocio.',
-            'solucion' => 'Evolución de una plataforma web modular para administrar operaciones, consumos, reportes e integraciones.',
+            'solucion' => 'Desarrollo y mejora de una aplicación web para administrar operaciones, consumos y reportes, y conectar información con otros sistemas.',
             'resultado' => 'Procesos operativos y administrativos reunidos en una plataforma capaz de acompañar múltiples puntos de servicio.',
             'stack' => ['PHP', 'Laravel', 'MySQL', 'Blade', 'JavaScript'],
-            'responsabilidades' => 'Desarrollo full stack, mantenimiento evolutivo, análisis funcional, soporte productivo y documentación técnica.',
+            'responsabilidades' => 'Desarrollo de funciones y pantallas, análisis de necesidades, mantenimiento, soporte a los sistemas en uso y documentación técnica.',
         ],
         [
             'nombre' => 'Terminales offline con sincronización',
@@ -386,10 +386,10 @@ return [
             'nombre' => 'PWA para operación de depósito',
             'contexto' => 'Producción',
             'problema' => 'Agilizar tareas de depósito desde dispositivos móviles y reducir errores de carga manual.',
-            'solucion' => 'Interfaz web progresiva enfocada en recorridos rápidos, validación de operaciones y respuesta clara al usuario.',
+            'solucion' => 'Una aplicación web que se puede instalar desde el navegador, con pantallas adaptadas al trabajo móvil y validación de las operaciones.',
             'resultado' => 'Flujos de depósito disponibles en dispositivos móviles, con validaciones orientadas a reducir errores de operación.',
             'stack' => ['PWA', 'Vue.js', 'JavaScript', 'Laravel', 'APIs REST'],
-            'responsabilidades' => 'Frontend operativo, integración con APIs, pruebas de flujo y mejora de experiencia de uso.',
+            'responsabilidades' => 'Desarrollo de pantallas para la operación, conexión con los servicios del sistema y pruebas de los recorridos de uso.',
         ],
         [
             'nombre' => 'Plataforma web para droguería',

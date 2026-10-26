@@ -37,10 +37,10 @@
             <dl class="mt-6 space-y-5">
                 <div>
                     <dt class="text-sm font-medium text-tinta-400">Especialidad</dt>
-                    <dd class="mt-1 font-semibold text-tinta-950">Laravel · APIs REST · Sistemas de gestión</dd>
+                    <dd class="mt-1 font-semibold text-tinta-950">Aplicaciones de gestión e integración de sistemas con Laravel</dd>
                 </div>
                 <div class="border-t border-slate-100 pt-5">
-                    <dt class="text-sm font-medium text-tinta-400">Core stack</dt>
+                    <dt class="text-sm font-medium text-tinta-400">Tecnologías principales</dt>
                     <dd class="mt-1 font-semibold text-tinta-950">PHP · JavaScript · MySQL · Blade</dd>
                 </div>
                 <div class="border-t border-slate-100 pt-5">
