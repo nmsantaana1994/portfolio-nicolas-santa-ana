@@ -30,6 +30,9 @@
                             <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['resultado'] }}</dd>
                         </div>
                     </dl>
+                    @if (isset($proyecto['ruta_caso']))
+                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="mt-5 inline-flex min-h-11 items-center gap-2 self-start rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Terminales + Agente: ver caso completo @include('portafolio.parciales.indicador-enlace')</a>
+                    @endif
                     <details class="group mt-6 border-t border-slate-200 pt-2">
                         <summary class="cursor-pointer rounded-md py-3 text-sm font-semibold text-acento-700">Tecnologías utilizadas</summary>
                         <ul class="mt-4 flex flex-wrap gap-2 pb-2" aria-label="Stack utilizado">

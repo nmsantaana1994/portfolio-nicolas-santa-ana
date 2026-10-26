@@ -48,3 +48,15 @@ Route::get('/proyectos/soluciones-comerciales', function () {
         'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
     ]);
 })->name('proyectos.soluciones-comerciales');
+
+Route::get('/proyectos/terminales', function () {
+    $portafolio = config('portafolio');
+
+    return view('proyectos.terminales', [
+        'portafolio' => $portafolio,
+        'seo' => array_merge($portafolio['caso_terminales']['seo'], [
+            'canonical' => rtrim(config('app.url'), '/').'/proyectos/terminales',
+        ]),
+        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
+    ]);
+})->name('proyectos.terminales');

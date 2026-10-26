@@ -363,6 +363,43 @@ return [
         ],
     ],
 
+    // Alcance proporcionado por el titular. No acredita una versión instalada ni un despliegue actual.
+    'caso_terminales' => [
+        'seo' => [
+            'titulo' => 'Terminales y continuidad operativa | Nicolás Santa Ana',
+            'descripcion' => 'Desarrollo de una plataforma central y un agente local para registrar consumos, aplicar reglas e integrar operaciones con conectividad limitada.',
+        ],
+        'titulo' => 'Terminales y continuidad operativa',
+        'presentacion' => 'Registrar consumos y operaciones no debería depender de una conexión siempre estable. Terminales y su agente local combinan registro en el punto de atención, administración central e integración con sistemas empresariales.',
+        'problema' => 'En un punto de atención hay que identificar a la persona, aplicar las reglas que corresponden y registrar la operación. Si la conexión se interrumpe, también hace falta distinguir qué puede continuar localmente y qué necesita comunicarse con el sistema central.',
+        'solucion' => 'Desarrollé una plataforma central y un agente local que trabajan de forma coordinada. El agente conserva información en el equipo y participa en la sincronización; la plataforma reúne la administración y el seguimiento de las operaciones.',
+        'participacion' => 'Desarrollé desde sus bases tanto la plataforma central como el agente local: backend, datos, integración y recorridos de uso. El historial también incluye contribuciones de otros desarrolladores; esta participación no implica autoría exclusiva de cada cambio posterior ni de los sistemas empresariales externos.',
+        'capacidades' => [
+            ['titulo' => 'Registrar y aplicar reglas', 'descripcion' => 'Identificación y registro de consumos y operaciones, con las reglas que corresponden al contexto de uso.'],
+            ['titulo' => 'Administrar y seguir la actividad', 'descripcion' => 'Una plataforma central para administrar información y consultar las operaciones que llegan desde los puntos de atención.'],
+            ['titulo' => 'Conectar la operación', 'descripcion' => 'Intercambio de información entre el agente, la plataforma y los sistemas empresariales, sin presentar a estos últimos como desarrollos propios.'],
+        ],
+        'nodos' => [
+            ['nombre' => 'Terminal operativa', 'detalle' => 'Identificación y registro en el punto de atención.', 'tecnologia' => 'Interfaz de operación'],
+            ['nombre' => 'Agente local', 'detalle' => 'Persistencia local y coordinación del intercambio con el sistema central.', 'tecnologia' => 'C# / .NET · SQLite'],
+            ['nombre' => 'Sistema central', 'detalle' => 'Reglas, administración, seguimiento e integración empresarial.', 'tecnologia' => 'Laravel · MySQL'],
+        ],
+        'decisiones' => [
+            ['titulo' => 'Persistir antes de depender de la red', 'descripcion' => 'SQLite ofrece persistencia en el equipo local. El alcance de lo que puede resolverse sin conexión depende de los datos y las reglas disponibles; no se promete operación offline ilimitada.'],
+            ['titulo' => 'Recuperar la comunicación', 'descripcion' => 'La sincronización, los reintentos y la recuperación forman parte del intercambio entre agente y plataforma. Una operación pendiente de comunicar no se presenta como ya recibida por el sistema central.'],
+            ['titulo' => 'Acompañar el mantenimiento', 'descripcion' => 'El diagnóstico y las actualizaciones forman parte de la evolución del agente. Este caso explica su función sin publicar mecanismos internos, configuraciones ni versiones instaladas.'],
+        ],
+        'estados' => [
+            ['titulo' => 'Circuito actual implementado', 'descripcion' => 'Plataforma central y agente local para registro, administración e intercambio de información. Este caso no certifica la versión que está instalada hoy en cada punto de atención.'],
+            ['titulo' => 'Edge en laboratorio', 'descripcion' => 'La arquitectura Edge se presenta como una línea de laboratorio, separada del circuito actual. No se atribuye su funcionamiento a producción.'],
+        ],
+        'evidencia' => [
+            'Pruebas disponibles' => 'Este portfolio no adjunta resultados fechados de las pruebas laborales de Terminales o del agente. No se publican conteos ni porcentajes de cobertura sin esa evidencia.',
+            'Validaciones históricas' => 'Las validaciones históricas deben leerse con su fecha y alcance. No se presentan aquí como comprobación del estado actual de las instalaciones.',
+            'Pendientes de integración' => 'La promoción de la arquitectura Edge y sus pendientes de integración requieren validación específica. No se presentan como una integración productiva terminada.',
+        ],
+    ],
+
     'proyectos' => [
         [
             'nombre' => 'Sistema de gestión para comedores corporativos',
@@ -375,12 +412,13 @@ return [
         ],
         [
             'nombre' => 'Terminales offline con sincronización',
+            'ruta_caso' => 'proyectos.terminales',
             'contexto' => 'Producción',
             'problema' => 'Mantener la operación en ubicaciones con conectividad inestable sin perder consistencia en los datos.',
             'solucion' => 'Flujos offline-first con almacenamiento local y sincronización controlada al recuperar conexión.',
             'resultado' => 'Continuidad operativa ante conectividad intermitente, con recuperación y sincronización controlada de la información.',
-            'stack' => ['Laravel', 'JavaScript', 'APIs REST', 'JSON', 'MySQL'],
-            'responsabilidades' => 'Diseño del flujo de sincronización, endpoints, validaciones, resolución de conflictos y soporte en campo.',
+            'stack' => ['Laravel', 'JavaScript', 'APIs REST', 'JSON', 'MySQL', 'C# / .NET', 'SQLite'],
+            'responsabilidades' => 'Desarrollo desde sus bases de la plataforma central y del agente local, sincronización y soporte. El historial también incluye contribuciones de otros desarrolladores.',
         ],
         [
             'nombre' => 'PWA para operación de depósito',

@@ -10,7 +10,7 @@ class NavegacionAccesibleTest extends TestCase
 {
     public function test_el_salto_tiene_destino_enfocable_sin_agregarlo_a_la_tabulacion(): void
     {
-        foreach (['inicio', 'servicios', 'proyectos.foco-finanzas', 'proyectos.soluciones-comerciales'] as $ruta) {
+        foreach (['inicio', 'servicios', 'proyectos.foco-finanzas', 'proyectos.soluciones-comerciales', 'proyectos.terminales'] as $ruta) {
             $documento = new DOMDocument;
             @$documento->loadHTML($this->get(route($ruta))->assertOk()->getContent());
             $xpath = new DOMXPath($documento);
