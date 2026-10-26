@@ -28,18 +28,17 @@ return [
     'navegacion' => [
         ['etiqueta' => 'Proyectos', 'ancla' => 'foco-finanzas'],
         ['etiqueta' => 'Experiencia', 'ancla' => 'experiencia'],
+        ['etiqueta' => 'Cómo trabajo', 'ancla' => 'competencias'],
         ['etiqueta' => 'Sobre mí', 'ancla' => 'sobre-mi'],
         ['etiqueta' => 'Contacto', 'ancla' => 'contacto'],
     ],
 
-    'sobre_mi' => 'Desarrollador Full Stack con foco en PHP/Laravel, MySQL y JavaScript, orientado al desarrollo y mantenimiento de sistemas web de gestión, APIs REST e integraciones para productos en producción. Mi perfil combina backend Laravel con frontend web usando Blade, JavaScript, Vue.js, Bootstrap y Tailwind CSS e interfaces operativas.',
+    'sobre_mi' => 'Me interesa entender cómo trabaja una organización antes de diseñar una solución. Mi experiencia combina desarrollo full stack, análisis funcional, soporte e implementación: traduzco necesidades operativas en funcionalidades claras y acompaño su evolución en producción.',
 
     'focos' => [
-        ['titulo' => 'Full Stack Laravel', 'descripcion' => 'Soluciones web completas, desde el dominio y la persistencia hasta la experiencia de uso.'],
-        ['titulo' => 'Frontend operativo', 'descripcion' => 'Interfaces claras y eficientes para flujos de trabajo cotidianos y usuarios reales.'],
-        ['titulo' => 'Backend & APIs REST', 'descripcion' => 'Lógica de negocio, integraciones y endpoints mantenibles, seguros y bien documentados.'],
-        ['titulo' => 'Bases de datos', 'descripcion' => 'Modelado relacional, consultas SQL e integridad de datos para sistemas de gestión.'],
-        ['titulo' => 'Sistemas productivos', 'descripcion' => 'Mantenimiento evolutivo, soporte y mejora continua sobre aplicaciones en operación.'],
+        ['titulo' => 'Entender la operación', 'descripcion' => 'Relevamiento y análisis funcional para definir el dominio, las reglas de negocio y los recorridos de quienes usan el sistema.'],
+        ['titulo' => 'Construir e integrar', 'descripcion' => 'Desarrollo full stack: interfaces operativas, lógica de negocio, APIs REST y datos relacionales con consultas SQL e integridad de datos.'],
+        ['titulo' => 'Acompañar la evolución', 'descripcion' => 'Mantenimiento evolutivo, soporte productivo y documentación técnica para sostener el funcionamiento y mejorar el software con el negocio.'],
     ],
 
     'stack' => [
@@ -78,6 +77,8 @@ return [
         'subtitulo' => 'Finanzas personales mobile-first con Laravel',
         'contexto' => 'Proyecto propio · Beta privada',
         'descripcion' => 'Aplicación web para integrar cuentas, movimientos, tarjetas, cuotas, presupuestos, metas, obligaciones e inversiones manuales, con IA asistiva de solo lectura.',
+        'resumen_problema' => 'Saldos, cuotas y vencimientos separados dificultan entender el disponible real del mes.',
+        'resumen_solucion' => 'Una aplicación que relaciona movimientos, planificación y ahorro sin duplicar impactos financieros.',
         'problema' => 'La información financiera personal suele quedar fragmentada entre saldos, consumos, cuotas, vencimientos, metas e inversiones, dificultando entender el disponible real y los compromisos del mes.',
         'solucion' => 'Diseñé un monolito modular que modela esas relaciones sin duplicar impactos: diferencia gastos y transferencias, conserva ciclos históricos, vincula metas con ahorro y mantiene la IA fuera de las mutaciones financieras.',
         'responsabilidades' => 'Definición de producto, modelado de dominio, backend Laravel, persistencia PostgreSQL, interfaz mobile-first, seguridad, tests, CI, Docker, staging, dataset sintético y documentación técnica.',

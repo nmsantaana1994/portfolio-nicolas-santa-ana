@@ -35,14 +35,13 @@
 
     <main id="contenido">
         @include('portafolio.secciones.inicio')
-        @include('portafolio.secciones.sobre-mi')
-        @include('portafolio.secciones.foco')
-        @include('portafolio.secciones.stack')
-        @include('portafolio.secciones.experiencia')
         @include('portafolio.secciones.proyecto-insignia')
         @include('portafolio.secciones.proyectos')
-        @include('portafolio.secciones.cv')
+        @include('portafolio.secciones.experiencia')
+        @include('portafolio.secciones.foco')
+        @include('portafolio.secciones.sobre-mi')
         @include('portafolio.secciones.contacto')
+        @include('portafolio.secciones.cv')
     </main>
 
     <footer class="border-t border-slate-200 bg-white">

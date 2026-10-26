@@ -1,22 +1,20 @@
-<section id="stack" class="scroll-mt-24 bg-tinta-950 py-20 text-white sm:py-24">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-blue-300">Stack técnico</p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Tecnologías para productos web mantenibles</h2>
-            <p class="mt-4 text-lg leading-8 text-slate-300">Herramientas que utilizo para desarrollar y operar soluciones full stack en escenarios reales.</p>
-        </div>
-
-        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+<details id="stack" class="group mt-8 scroll-mt-24 rounded-2xl border border-slate-200 bg-white">
+    <summary class="cursor-pointer rounded-2xl px-6 py-5 font-bold text-tinta-950">
+        Stack y herramientas utilizadas
+    </summary>
+    <div class="border-t border-slate-200 p-6">
+        <p class="max-w-3xl leading-7 text-tinta-600">Tecnologías y herramientas aplicadas en los contextos de trabajo presentados.</p>
+        <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             @foreach ($portafolio['stack'] as $categoria => $tecnologias)
-                <article class="rounded-xl border border-slate-700 bg-tinta-900 p-6">
-                    <h3 class="text-lg font-bold text-white">{{ $categoria }}</h3>
-                    <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tecnologías de {{ $categoria }}">
+                <article class="rounded-xl border border-slate-200 bg-superficie p-5">
+                    <h3 class="text-lg font-bold text-tinta-950">{{ $categoria }}</h3>
+                    <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías de {{ $categoria }}">
                         @foreach ($tecnologias as $tecnologia)
-                            <li class="rounded-md border border-slate-600 bg-tinta-950 px-3 py-1.5 text-sm text-slate-200">{{ $tecnologia }}</li>
+                            <li class="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm text-tinta-700">{{ $tecnologia }}</li>
                         @endforeach
                     </ul>
                 </article>
             @endforeach
         </div>
     </div>
-</section>
+</details>

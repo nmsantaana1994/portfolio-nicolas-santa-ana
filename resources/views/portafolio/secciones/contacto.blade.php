@@ -1,9 +1,9 @@
-<section id="contacto" class="scroll-mt-24 border-t border-slate-200 bg-superficie py-20 sm:py-24">
+<section id="contacto" class="scroll-mt-24 border-t border-slate-200 bg-superficie pt-14 pb-8 sm:pt-16">
     <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-20 lg:px-10">
         <div>
             <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Contacto</p>
             <h2 class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Hablemos de tu próximo desafío</h2>
-            <p class="mt-5 text-lg leading-8 text-tinta-600">Estoy abierto a conversar sobre oportunidades Full Stack PHP/Laravel y productos donde pueda aportar experiencia técnica y mirada operativa.</p>
+            <p class="mt-5 text-lg leading-8 text-tinta-600">Podemos conversar sobre una oportunidad Full Stack PHP/Laravel o un proyecto freelance: un sistema nuevo, una integración o la evolución de una aplicación existente.</p>
         </div>
 
         <address class="not-italic">

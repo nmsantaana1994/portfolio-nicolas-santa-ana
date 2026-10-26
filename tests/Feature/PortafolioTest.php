@@ -94,12 +94,74 @@ class PortafolioTest extends TestCase
         $xpath = new \DOMXPath($documento);
         $enlaces = $xpath->query('//nav[@aria-label="Navegación principal"]//a[starts-with(@href, "#")]');
 
-        $this->assertSame(5, $enlaces->length);
+        $this->assertSame(6, $enlaces->length);
 
         foreach ($enlaces as $enlace) {
             $ancla = substr($enlace->getAttribute('href'), 1);
             $this->assertSame(1, $xpath->query('//*[@id="'.$ancla.'"]')->length);
         }
+    }
+
+    public function test_los_proyectos_aparecen_despues_del_hero_y_se_conservan_las_anclas(): void
+    {
+        $documento = new \DOMDocument;
+        @$documento->loadHTML($this->get(route('inicio'))->assertOk()->getContent());
+        $xpath = new \DOMXPath($documento);
+        $secciones = $xpath->query('//main/section');
+        $orden = [];
+
+        foreach ($secciones as $seccion) {
+            $orden[] = $seccion->getAttribute('id');
+        }
+
+        $this->assertSame([
+            'inicio', 'foco-finanzas', 'proyectos', 'experiencia',
+            'competencias', 'sobre-mi', 'contacto', 'cv',
+        ], $orden);
+        $this->assertSame(1, $xpath->query('//*[@id="stack"]')->length);
+        $this->assertSame(1, $xpath->query('//*[@id="titulo-foco"]')->length);
+        $this->assertSame(0, $xpath->query('//*[@data-detalle-foco and @open]')->length);
+    }
+
+    public function test_los_casos_y_las_herramientas_siguen_disponibles_en_la_home(): void
+    {
+        $respuesta = $this->get(route('inicio'))->assertOk();
+
+        foreach (config('portafolio.proyectos') as $proyecto) {
+            $respuesta->assertSee($proyecto['responsabilidades'])->assertSee($proyecto['resultado']);
+        }
+
+        foreach (config('portafolio.stack') as $herramientas) {
+            foreach ($herramientas as $herramienta) {
+                $respuesta->assertSee($herramienta);
+            }
+        }
+
+        $respuesta->assertSee('Oportunidades laborales y proyectos freelance')
+            ->assertSee('proyecto freelance')
+            ->assertSee('Explorar capturas, decisiones y evidencia técnica');
+    }
+
+    public function test_los_casos_muestran_aporte_y_resultado_sin_abrir_desplegables(): void
+    {
+        $documento = new \DOMDocument;
+        @$documento->loadHTML($this->get(route('inicio'))->assertOk()->getContent());
+        $xpath = new \DOMXPath($documento);
+        $casos = $xpath->query('//*[@id="proyectos"]//article');
+        $proyectos = config('portafolio.proyectos');
+
+        $this->assertSame(count($proyectos), $casos->length);
+
+        foreach ($casos as $indice => $caso) {
+            $contenidoVisible = $xpath->query('./dl', $caso)->item(0)->textContent;
+            $this->assertStringContainsString($proyectos[$indice]['responsabilidades'], $contenidoVisible);
+            $this->assertStringContainsString($proyectos[$indice]['resultado'], $contenidoVisible);
+            $this->assertSame('Tecnologías utilizadas', trim($xpath->query('./details/summary', $caso)->item(0)->textContent));
+            $this->assertSame(0, $xpath->query('./details[@open]', $caso)->length);
+        }
+
+        $this->assertSame(3, $xpath->query('//*[@id="foco-finanzas"]/div/div/div/dl/div')->length);
+        $this->assertSame(1, $xpath->query('//*[@id="foco-finanzas"]/div/div/figure')->length);
     }
 
     public function test_muestra_cuatro_proyectos_con_contexto_y_resultado(): void

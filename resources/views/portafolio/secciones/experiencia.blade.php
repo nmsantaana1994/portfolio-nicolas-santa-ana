@@ -1,4 +1,4 @@
-<section id="experiencia" class="scroll-mt-24 bg-white py-20 sm:py-24">
+<section id="experiencia" class="scroll-mt-24 bg-white py-14 sm:py-16">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div class="max-w-3xl">
             <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Experiencia</p>

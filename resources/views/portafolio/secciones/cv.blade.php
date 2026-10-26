@@ -1,4 +1,4 @@
-<section id="cv" class="scroll-mt-24 bg-white py-20 sm:py-24">
+<section id="cv" class="scroll-mt-24 bg-superficie pt-4 pb-14 sm:pb-16">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div class="overflow-hidden rounded-2xl bg-tinta-950 px-6 py-10 text-white sm:px-10 sm:py-12 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-14">
             <div class="max-w-3xl">
