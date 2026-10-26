@@ -14,14 +14,24 @@
             </div>
 
             <div class="flex shrink-0 items-center gap-2">
-                <label class="selector-tema">
-                    <span class="sr-only">Tema del portfolio</span>
-                    <select class="min-h-11 rounded-lg border border-slate-300 bg-white px-2 text-sm font-medium text-tinta-700" data-selector-tema disabled>
-                        <option value="system">Sistema</option>
-                        <option value="light">Claro</option>
-                        <option value="dark">Oscuro</option>
-                    </select>
-                </label>
+                <details class="selector-tema" data-apariencia>
+                    <summary aria-label="Apariencia del portfolio: Sistema" title="Apariencia del portfolio" data-apariencia-boton>
+                        @foreach (['system', 'light', 'dark'] as $tipo)
+                            <span data-icono-tema="{{ $tipo }}" @class(['hidden' => $tipo !== 'system'])>@include('portafolio.parciales.icono-apariencia', ['tipo' => $tipo])</span>
+                        @endforeach
+                    </summary>
+                    <fieldset class="opciones-tema">
+                        <legend class="sr-only">Apariencia del portfolio</legend>
+                        @foreach (['system' => 'Sistema', 'light' => 'Claro', 'dark' => 'Oscuro'] as $valor => $etiqueta)
+                            <label class="opcion-tema">
+                                <input type="radio" name="portfolio-theme" value="{{ $valor }}" class="sr-only" data-selector-tema @checked($valor === 'system') disabled>
+                                @include('portafolio.parciales.icono-apariencia', ['tipo' => $valor])
+                                <span class="text-sm font-medium">{{ $etiqueta }}</span>
+                                <span class="marca-tema">@include('portafolio.parciales.icono-apariencia', ['tipo' => 'check'])</span>
+                            </label>
+                        @endforeach
+                    </fieldset>
+                </details>
                 <button type="button" class="inline-flex size-11 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 transition-colors hover:border-acento-700 hover:bg-acento-50 motion-reduce:transition-none lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
                     <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />

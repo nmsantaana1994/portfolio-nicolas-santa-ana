@@ -1,13 +1,44 @@
 const botonMenu = document.querySelector('[data-menu-boton]');
 const menuMovil = document.querySelector('[data-menu-movil]');
+const apariencia = document.querySelector('[data-apariencia]');
+
+const cerrarApariencia = (devolverFoco = false) => {
+    if (!apariencia?.open) return;
+    apariencia.open = false;
+    if (devolverFoco) apariencia.querySelector('summary').focus();
+};
+
+const actualizarEstadoMenu = (estaAbierto) => {
+    if (!menuMovil || !botonMenu) return;
+    menuMovil.classList.toggle('hidden', !estaAbierto);
+    if (estaAbierto) cerrarApariencia();
+    botonMenu.setAttribute('aria-expanded', String(estaAbierto));
+    botonMenu.setAttribute('aria-label', estaAbierto ? 'Cerrar navegación' : 'Abrir navegación');
+};
+
+if (apariencia) {
+    apariencia.addEventListener('change', () => cerrarApariencia(true));
+    apariencia.addEventListener('toggle', () => {
+        if (!apariencia.open) return;
+        actualizarEstadoMenu(false);
+        apariencia.querySelector('input:checked')?.focus();
+    });
+    document.addEventListener('click', (event) => {
+        if (!apariencia.contains(event.target)) cerrarApariencia();
+        else if (event.target.matches('[data-selector-tema]')) cerrarApariencia(true);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && apariencia.open) {
+            event.preventDefault();
+            cerrarApariencia(true);
+        }
+    });
+    apariencia.addEventListener('focusout', (event) => {
+        if (event.relatedTarget && !apariencia.contains(event.relatedTarget)) cerrarApariencia();
+    });
+}
 
 if (botonMenu && menuMovil) {
-    const actualizarEstadoMenu = (estaAbierto) => {
-        menuMovil.classList.toggle('hidden', !estaAbierto);
-        botonMenu.setAttribute('aria-expanded', String(estaAbierto));
-        botonMenu.setAttribute('aria-label', estaAbierto ? 'Cerrar navegación' : 'Abrir navegación');
-    };
-
     const cerrarMenu = (devolverFoco = false) => {
         actualizarEstadoMenu(false);
 

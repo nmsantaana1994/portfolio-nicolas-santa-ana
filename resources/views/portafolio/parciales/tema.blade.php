@@ -17,9 +17,15 @@
             document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
                 meta.content = theme === 'dark' ? '#0b1220' : '#ffffff';
             });
-            document.querySelectorAll('[data-selector-tema]').forEach(select => {
-                select.value = preference;
-                select.disabled = false;
+            document.querySelectorAll('[data-selector-tema]').forEach(input => {
+                input.checked = input.value === preference;
+                input.disabled = false;
+            });
+            document.querySelectorAll('[data-icono-tema]').forEach(icon => {
+                icon.classList.toggle('hidden', icon.dataset.iconoTema !== preference);
+            });
+            document.querySelectorAll('[data-apariencia-boton]').forEach(button => {
+                button.setAttribute('aria-label', 'Apariencia del portfolio: ' + ({ system: 'Sistema', light: 'Claro', dark: 'Oscuro' })[preference]);
             });
         };
 

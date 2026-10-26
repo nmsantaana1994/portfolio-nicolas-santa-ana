@@ -8,7 +8,7 @@ const source = readFileSync(`${__dirname}/../../resources/views/portafolio/parci
 function boot({ saved = null, dark = false, blocked = false } = {}) {
     const events = {};
     const root = { dataset: {}, style: {} };
-    const select = { value: 'system', disabled: true, matches: selector => selector === '[data-selector-tema]' };
+    const inputs = ['system', 'light', 'dark'].map(value => ({ value, checked: value === 'system', disabled: true, matches: selector => selector === '[data-selector-tema]' }));
     const metas = [{}, {}];
     const system = { matches: dark, addEventListener: (_, callback) => { events.system = callback; } };
     let stored = saved;
@@ -21,16 +21,17 @@ function boot({ saved = null, dark = false, blocked = false } = {}) {
         window: { matchMedia: () => system, addEventListener: (type, callback) => { events[type] = callback; } },
         document: {
             documentElement: root,
-            querySelectorAll: selector => selector.startsWith('meta') ? metas : [select],
+            querySelectorAll: selector => selector.startsWith('meta') ? metas : selector === '[data-selector-tema]' ? inputs : [],
             addEventListener: (type, callback) => { events[type] = callback; },
         },
         localStorage: storage,
     };
     runInNewContext(source, context);
     return {
-        root, select, metas,
+        root, metas,
+        select: { get value() { return inputs.find(input => input.checked).value; } },
         stored: () => stored,
-        choose: value => { select.value = value; events.change({ target: select }); },
+        choose: value => { events.change({ target: inputs.find(input => input.value === value) }); },
         system: dark => { system.matches = dark; events.system(); },
         storage: value => { stored = value; events.storage({ key: 'portfolio-theme' }); },
     };

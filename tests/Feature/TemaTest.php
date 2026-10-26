@@ -8,18 +8,19 @@ use Tests\TestCase;
 
 class TemaTest extends TestCase
 {
-    public function test_todas_las_paginas_comparten_un_selector_nativo_con_tres_opciones(): void
+    public function test_todas_las_paginas_comparten_un_control_de_apariencia_con_tres_opciones(): void
     {
         foreach (['inicio', 'servicios', 'proyectos.foco-finanzas', 'proyectos.soluciones-comerciales'] as $ruta) {
             $html = $this->get(route($ruta))->assertOk()->getContent();
             $documento = new DOMDocument;
             @$documento->loadHTML($html);
             $xpath = new DOMXPath($documento);
-            $this->assertSame(1, $xpath->query('//header//select[@data-selector-tema]')->length);
-            $this->assertSame('Tema del portfolio', trim($xpath->evaluate('string(//label[select[@data-selector-tema]]/span)')));
-            $this->assertSame(3, $xpath->query('//select[@data-selector-tema]/option')->length);
+            $this->assertSame(1, $xpath->query('//header//details[@data-apariencia]')->length);
+            $this->assertSame(1, $xpath->query('//summary[@aria-label="Apariencia del portfolio: Sistema"]')->length);
+            $this->assertSame(3, $xpath->query('//input[@type="radio" and @data-selector-tema]')->length);
+            $this->assertSame(0, $xpath->query('//select[@data-selector-tema]')->length);
             foreach (['system' => 'Sistema', 'light' => 'Claro', 'dark' => 'Oscuro'] as $valor => $texto) {
-                $this->assertSame($texto, $xpath->evaluate('string(//select[@data-selector-tema]/option[@value="'.$valor.'"])'));
+                $this->assertSame($texto, trim($xpath->evaluate('string(//label[input[@data-selector-tema and @value="'.$valor.'"]]/span[1])')));
             }
             $this->assertSame(1, $xpath->query('//meta[@name="color-scheme" and @content="light dark"]')->length);
             $this->assertSame(2, $xpath->query('//meta[@name="theme-color"]')->length);
