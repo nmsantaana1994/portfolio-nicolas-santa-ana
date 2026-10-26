@@ -25,7 +25,7 @@ test('la elección manual cambia colores reales del CSS compilado, incluso contr
                             text: css('main p').color,
                             hero: css('.fondo-hero').backgroundImage,
                             header: css('body > header').backgroundColor,
-                            card: css('main .superficie-tarjeta, main .superficie-captura').backgroundColor,
+                            card: css('main .superficie-tarjeta, main .superficie-captura, main .terminal-pantalla').backgroundColor,
                             footer: css('body > footer').backgroundColor,
                         };
                     });

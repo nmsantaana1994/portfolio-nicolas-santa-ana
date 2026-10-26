@@ -17,15 +17,17 @@ class TerminalesTest extends TestCase
             $respuesta->assertSee($caso[$campo]);
         }
 
-        $respuesta->assertSee('Desarrollé desde sus bases tanto la plataforma central como el agente local')
-            ->assertSee('contribuciones de otros desarrolladores')
-            ->assertSee('No todas las operaciones pueden resolverse sin conexión')
-            ->assertSee('no se promete operación offline ilimitada')
-            ->assertSee('No se atribuye su funcionamiento a producción')
-            ->assertSee('no certifica la versión que está instalada hoy')
-            ->assertSee('no adjunta resultados fechados');
+        $respuesta->assertSee('Creé y desarrollé desde cero Terminales y Agente Terminales')
+            ->assertSee('Soy responsable del desarrollo de ambos sistemas')
+            ->assertSee('Durante mis ausencias, otras personas realizaron intervenciones puntuales')
+            ->assertSee('no todos los circuitos pueden operar offline')
+            ->assertSee('depende de la información disponible localmente')
+            ->assertSee('Edge continúa en desarrollo y laboratorio')
+            ->assertDontSee('no adjunta resultados fechados')
+            ->assertDontSee('no certifica')
+            ->assertDontSee('El historial también incluye');
 
-        foreach ($caso['evidencia'] as $titulo => $descripcion) {
+        foreach ($caso['calidad'] as $titulo => $descripcion) {
             $respuesta->assertSee($titulo)->assertSee($descripcion);
         }
     }
@@ -39,8 +41,13 @@ class TerminalesTest extends TestCase
         $this->assertSame(0, $xpath->query('//main//img')->length);
         $this->assertSame(1, $xpath->query('//h1')->length);
         $this->assertSame(1, $xpath->query('//main[@tabindex="-1"]')->length);
-        $this->assertStringContainsString(config('portafolio.caso_terminales.participacion'), $xpath->evaluate('string(//section[@id="participacion"])'));
-        $this->assertSame(0, $xpath->query('//section[@id="participacion"]//details')->length);
+        $this->assertStringContainsString(config('portafolio.caso_terminales.participacion'), $xpath->evaluate('string(//*[@id="participacion"])'));
+        $this->assertSame(0, $xpath->query('//*[@id="participacion"]//details')->length);
+        $this->assertSame(5, $xpath->query('//ol[@data-recorrido-terminales]/li')->length);
+        $this->assertSame(1, $xpath->query('//figure[@data-terminal-demo]')->length);
+        $this->assertSame(0, $xpath->query('//figure[@data-terminal-demo]//button')->length);
+        $this->assertStringContainsString('Interfaz ficticia', $xpath->evaluate('string(//figure[@data-terminal-demo])'));
+        $this->assertSame(0, $xpath->query('//main//svg[not(@aria-hidden="true")]')->length);
         $this->assertSame(0, $xpath->query('//main//details[@open]')->length);
 
         foreach (['Terminal operativa', 'Agente local', 'Sistema central', 'C# / .NET', 'SQLite', 'Laravel', 'MySQL'] as $texto) {

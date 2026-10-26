@@ -1,5 +1,24 @@
 @import 'tailwindcss';
 
+/* Presentación ficticia de Terminales; sin interacciones ni animación decorativa. */
+.terminal-presentacion {
+    padding: 0.75rem;
+    background: radial-gradient(ellipse at center, var(--superficie-acento), transparent 72%);
+}
+.terminal-dispositivo {
+    padding: 0.75rem;
+    border: 1px solid var(--borde-control);
+    border-radius: 2rem;
+    background: linear-gradient(145deg, var(--borde), var(--papel) 35%, var(--borde));
+    box-shadow: 0 18px 40px var(--sombra-captura);
+}
+.terminal-pantalla {
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 1.3rem;
+    background: var(--superficie-suave);
+}
+
 :root {
     color-scheme: light;
     --pagina: #ffffff;
