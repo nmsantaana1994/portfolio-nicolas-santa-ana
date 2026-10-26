@@ -24,3 +24,15 @@ Route::get('/proyectos/foco-finanzas', function () {
         'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
     ]);
 })->name('proyectos.foco-finanzas');
+
+Route::get('/servicios', function () {
+    $portafolio = config('portafolio');
+
+    return view('servicios', [
+        'portafolio' => $portafolio,
+        'seo' => array_merge($portafolio['servicios']['seo'], [
+            'canonical' => rtrim(config('app.url'), '/').'/servicios',
+        ]),
+        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
+    ]);
+})->name('servicios');

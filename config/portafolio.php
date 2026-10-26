@@ -28,12 +28,65 @@ return [
     'navegacion' => [
         ['etiqueta' => 'Proyectos', 'ancla' => 'foco-finanzas'],
         ['etiqueta' => 'Experiencia', 'ancla' => 'experiencia'],
+        ['etiqueta' => 'Servicios', 'ruta' => 'servicios'],
         ['etiqueta' => 'Cómo trabajo', 'ancla' => 'competencias'],
         ['etiqueta' => 'Sobre mí', 'ancla' => 'sobre-mi'],
         ['etiqueta' => 'Contacto', 'ancla' => 'contacto'],
     ],
 
     'sobre_mi' => 'Me interesa entender cómo trabaja una organización antes de diseñar una solución. Mi experiencia combina desarrollo full stack, análisis funcional, soporte e implementación: traduzco necesidades operativas en funcionalidades claras y acompaño su evolución en producción.',
+
+    'servicios' => [
+        'seo' => [
+            'titulo' => 'Desarrollo web y servicios de software | Nicolás Santa Ana',
+            'descripcion' => 'Desarrollo de aplicaciones web, integración de sistemas y evolución de software con PHP y Laravel. Conocé mi experiencia y conversemos sobre tu proyecto.',
+        ],
+        'titulo' => 'Desarrollo y evolución de software para tu negocio.',
+        'presentacion' => 'Te ayudo a transformar procesos en aplicaciones web, conectar sistemas y mejorar el software que ya usás. Trabajo como desarrollador Full Stack, con foco en PHP y Laravel.',
+        'capacidades' => [
+            [
+                'titulo' => 'Aplicaciones y sistemas web',
+                'problema' => 'Un proceso necesita una herramienta propia, con reglas y recorridos que las soluciones genéricas no contemplan.',
+                'solucion' => 'Puedo desarrollar sistemas de gestión y aplicaciones web a medida, desde el modelo de datos y la lógica de negocio hasta la interfaz de uso.',
+                'evidencia' => 'Experiencia publicada en sistemas de gestión operativa y una plataforma web para droguería.',
+                'ruta' => 'inicio',
+                'ancla' => 'proyectos',
+                'enlace' => 'Ver casos profesionales',
+            ],
+            [
+                'titulo' => 'Integración y automatización',
+                'problema' => 'Las herramientas no se comunican y parte del trabajo depende de trasladar o revisar información manualmente.',
+                'solucion' => 'Puedo conectar aplicaciones mediante APIs y desarrollar intercambios de datos y validaciones para acompañar el circuito real del negocio.',
+                'evidencia' => 'Los casos publicados de gestión y droguería incluyen integración de APIs y procesos operativos.',
+                'ruta' => 'inicio',
+                'ancla' => 'proyectos',
+                'enlace' => 'Ver experiencia en integraciones',
+            ],
+            [
+                'titulo' => 'Mantenimiento y evolución',
+                'problema' => 'Una aplicación sigue siendo necesaria, pero necesita corregir errores, incorporar funciones o adaptarse a cambios de la operación.',
+                'solucion' => 'Puedo analizar el funcionamiento existente, diagnosticar incidencias y desarrollar mejoras acotadas, cuidando las reglas y los flujos que ya se utilizan.',
+                'evidencia' => 'La experiencia profesional publicada incluye mantenimiento evolutivo, soporte productivo y documentación de sistemas de gestión.',
+                'ruta' => 'inicio',
+                'ancla' => 'experiencia',
+                'enlace' => 'Ver experiencia profesional',
+            ],
+            [
+                'titulo' => 'Calidad, pruebas y entrega',
+                'problema' => 'Cambiar software también exige comprobar que lo nuevo funciona y que los recorridos existentes siguen respondiendo.',
+                'solucion' => 'Puedo incorporar pruebas y validaciones al desarrollo, revisar flujos de uso y acompañar entregas controladas con documentación y comprobaciones proporcionales al cambio.',
+                'evidencia' => 'Foco Finanzas documenta pruebas automatizadas, integración continua y validación manual como parte de la evolución de un producto propio.',
+                'ruta' => 'proyectos.foco-finanzas',
+                'ancla' => 'calidad',
+                'enlace' => 'Ver evidencia en Foco Finanzas',
+            ],
+        ],
+        'forma_trabajo' => [
+            ['titulo' => 'Entender el contexto', 'descripcion' => 'Conversamos sobre el proceso, las personas que lo usan y las herramientas existentes. Primero, entender qué hace falta resolver.'],
+            ['titulo' => 'Definir un alcance', 'descripcion' => 'Acordamos prioridades, límites y criterios para revisar el trabajo. Las decisiones técnicas acompañan ese alcance, no lo reemplazan.'],
+            ['titulo' => 'Construir y validar', 'descripcion' => 'Avanzamos con cambios revisables, pruebas y documentación. La validación combina el comportamiento del software con el recorrido de quienes lo utilizan.'],
+        ],
+    ],
 
     'focos' => [
         ['titulo' => 'Entender la operación', 'descripcion' => 'Relevamiento y análisis funcional para definir el dominio, las reglas de negocio y los recorridos de quienes usan el sistema.'],

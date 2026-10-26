@@ -7,7 +7,7 @@
 
             <div class="hidden items-center gap-7 lg:flex">
                 @foreach ($portafolio['navegacion'] as $item)
-                    <a href="{{ $prefijoInicio }}#{{ $item['ancla'] }}" class="inline-flex min-h-11 items-center rounded-md px-2 text-sm font-medium text-tinta-600 transition-colors hover:bg-acento-50 hover:text-acento-700 motion-reduce:transition-none">
+                    <a href="{{ isset($item['ruta']) ? route($item['ruta'], [], false) : $prefijoInicio.'#'.$item['ancla'] }}" @if (isset($item['ruta']) && request()->routeIs($item['ruta'])) aria-current="page" @endif class="inline-flex min-h-11 items-center rounded-md px-2 text-sm font-medium text-tinta-600 transition-colors hover:bg-acento-50 hover:text-acento-700 aria-[current=page]:bg-acento-50 aria-[current=page]:text-acento-700 motion-reduce:transition-none">
                         {{ $item['etiqueta'] }}
                     </a>
                 @endforeach
@@ -23,7 +23,7 @@
         <div id="menu-movil" class="hidden border-t border-slate-200 bg-white px-5 py-4 lg:hidden" data-menu-movil>
             <div class="mx-auto flex max-w-7xl flex-col gap-1">
                 @foreach ($portafolio['navegacion'] as $item)
-                    <a href="{{ $prefijoInicio }}#{{ $item['ancla'] }}" class="rounded-lg px-3 py-3 text-sm font-medium text-tinta-700 hover:bg-acento-50 hover:text-acento-700">
+                    <a href="{{ isset($item['ruta']) ? route($item['ruta'], [], false) : $prefijoInicio.'#'.$item['ancla'] }}" @if (isset($item['ruta']) && request()->routeIs($item['ruta'])) aria-current="page" @endif class="rounded-lg px-3 py-3 text-sm font-medium text-tinta-700 hover:bg-acento-50 hover:text-acento-700 aria-[current=page]:bg-acento-50 aria-[current=page]:text-acento-700">
                         {{ $item['etiqueta'] }}
                     </a>
                 @endforeach

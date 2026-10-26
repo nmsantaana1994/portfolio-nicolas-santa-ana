@@ -115,7 +115,8 @@ class FocoFinanzasTest extends TestCase
         $xpath = new DOMXPath($documento);
 
         foreach (config('portafolio.navegacion') as $item) {
-            $respuesta->assertSee('href="/#'.$item['ancla'].'"', false);
+            $destino = isset($item['ruta']) ? route($item['ruta'], [], false) : '/#'.$item['ancla'];
+            $respuesta->assertSee('href="'.$destino.'"', false);
         }
 
         $respuesta->assertSee('Volver al portfolio')->assertSee('Ver otros proyectos')->assertSee('Contactar');
