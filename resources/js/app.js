@@ -95,6 +95,20 @@ document.querySelectorAll('[data-galeria-foco]').forEach((galeria) => {
 
     let origen;
     let overflowAnterior;
+    const botonOriginal = visor.querySelector('[data-visor-original]');
+    const area = visor.querySelector('#visor-foco-area');
+    const ajustarImagen = (original = false) => {
+        visor.toggleAttribute('data-original', original);
+        botonOriginal.setAttribute('aria-pressed', String(original));
+        botonOriginal.textContent = original ? 'Ajustar imagen' : 'Ver tamaño original';
+        visor.querySelector('[data-visor-estado]').textContent = original
+            ? 'Tamaño original. Desplazá el área para explorar los detalles; usá Escape para cerrar.'
+            : 'Imagen ajustada al espacio disponible. Usá Escape para cerrar.';
+        area.scrollTop = 0;
+        area.scrollLeft = 0;
+    };
+
+    botonOriginal.addEventListener('click', () => ajustarImagen(!visor.hasAttribute('data-original')));
 
     galeria.querySelectorAll('[data-ampliar-foco]').forEach((enlace) => {
         enlace.addEventListener('click', (evento) => {
@@ -113,6 +127,7 @@ document.querySelectorAll('[data-galeria-foco]').forEach((galeria) => {
             visor.querySelector('#visor-foco-titulo').textContent = enlace.dataset.nombre;
             origen = enlace;
             overflowAnterior = document.documentElement.style.overflow;
+            ajustarImagen();
             visor.showModal();
             document.documentElement.style.overflow = 'hidden';
         });

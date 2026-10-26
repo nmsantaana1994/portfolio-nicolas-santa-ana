@@ -1,9 +1,9 @@
 <section id="inicio" class="fondo-hero scroll-mt-24 border-b border-slate-100">
-    <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:gap-8 lg:gap-16 lg:px-10 lg:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:gap-8 lg:gap-10 lg:px-10 lg:py-16 xl:gap-16 xl:py-24">
         <div>
             <p class="text-base font-bold text-tinta-950">{{ $portafolio['persona']['nombre'] }}</p>
             <p class="mt-1 text-sm font-semibold text-acento-700">{{ $portafolio['persona']['titulo'] }}</p>
-            <h1 class="mt-7 max-w-3xl text-balance text-4xl font-bold leading-[1.1] tracking-[-0.04em] text-tinta-950 sm:text-5xl lg:text-6xl">
+            <h1 class="mt-7 max-w-3xl text-balance text-4xl font-bold leading-[1.1] tracking-[-0.04em] text-tinta-950 sm:text-5xl xl:text-6xl">
                 {{ $portafolio['hero']['titulo'] }}
                 <span class="text-acento-700">{{ $portafolio['hero']['enfasis'] }}</span>
             </h1>

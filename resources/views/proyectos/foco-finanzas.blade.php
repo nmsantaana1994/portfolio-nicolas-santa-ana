@@ -5,25 +5,27 @@
     @include('portafolio.parciales.header')
 
     <main id="contenido" tabindex="-1" data-galeria-foco>
-        <section class="fondo-hero border-b border-slate-200 py-10 sm:py-16">
-            <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] md:items-center lg:gap-16 lg:px-10">
-                <div>
+        <section class="fondo-hero border-b border-slate-200 py-6 sm:py-16">
+            <div class="foco-presentacion mx-auto grid max-w-7xl gap-6 px-5 sm:px-8 md:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] md:items-center md:gap-x-10 lg:gap-x-16 lg:px-10">
+                <div class="foco-intro">
                     <a href="{{ route('inicio', [], false) }}#foco-finanzas" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Caso de estudio · {{ $proyecto['contexto'] }}</p>
                     <h1 class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">Foco Finanzas: del movimiento diario a la planificación financiera.</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $proyecto['presentacion_caso'] }}</p>
+                </div>
+                @include('portafolio.parciales.captura-foco', ['escena' => $proyecto['escenas'][0], 'prioritaria' => true])
+                <div class="foco-detalle">
                     <p class="mt-4 max-w-2xl leading-7 text-tinta-600">Diseñé y desarrollé el producto completo: modelo de datos, lógica financiera, interfaz, pruebas y entrega a una beta privada.</p>
                     <a href="#producto-en-uso" class="hero-accion mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Explorar el producto @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</a>
-                    <div class="mt-8 rounded-xl border border-slate-200 bg-white/80 p-4">
+                    <div class="mt-5 rounded-xl border border-slate-200 bg-white/80 p-3 sm:p-4">
                         <p class="text-sm font-semibold text-tinta-950">Tema de las capturas</p>
-                        <div class="mt-3 inline-flex rounded-lg bg-tinta-950 p-1" role="group" aria-label="Tema de las capturas">
+                        <div class="mt-2 inline-flex rounded-lg bg-tinta-950 p-1" role="group" aria-label="Tema de las capturas">
                             <button type="button" class="min-h-11 rounded-md px-4 text-sm font-semibold text-slate-300" aria-pressed="false" data-tema-foco="light">Claro</button>
                             <button type="button" class="min-h-11 rounded-md bg-white px-4 text-sm font-semibold text-tinta-950" aria-pressed="true" data-tema-foco="dark">Oscuro</button>
                         </div>
                         <p class="mt-3 text-xs leading-5 text-tinta-600">Todos los datos visibles son sintéticos. Capturas históricas del 17/07/2026: seleccioná una imagen para ampliarla; el tema sólo cambia las capturas.</p>
                     </div>
                 </div>
-                @include('portafolio.parciales.captura-foco', ['escena' => $proyecto['escenas'][0], 'prioritaria' => true])
             </div>
         </section>
 
@@ -188,13 +190,16 @@
         </section>
 
         <dialog class="visor-foco" aria-labelledby="visor-foco-titulo" aria-describedby="visor-foco-ayuda" data-visor-foco>
-            <div class="flex items-center justify-between gap-4 border-b border-slate-200 p-4">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 p-4">
                 <h2 id="visor-foco-titulo" class="font-bold text-tinta-950">Captura de Foco Finanzas</h2>
                 <form method="dialog"><button autofocus class="min-h-11 rounded-lg border border-slate-300 px-4 text-sm font-semibold text-tinta-700">Cerrar imagen</button></form>
             </div>
-            <p id="visor-foco-ayuda" class="px-4 py-3 text-sm text-tinta-600">Imagen a tamaño original. Desplazá el área para explorar los detalles; usá Escape para cerrar.</p>
-            <div class="max-h-[70dvh] overflow-auto bg-tinta-950 p-3" tabindex="0" role="region" aria-label="Captura ampliada, desplazable">
-                <img alt="" class="mx-auto max-w-none" data-visor-imagen>
+            <div class="flex flex-wrap items-center gap-3 px-4 py-3">
+                <button type="button" class="hero-accion min-h-11 rounded-lg border border-slate-300 px-4 text-sm font-semibold text-tinta-700 hover:bg-acento-50" aria-pressed="false" aria-controls="visor-foco-area" data-visor-original>Ver tamaño original</button>
+                <p id="visor-foco-ayuda" class="text-sm text-tinta-600" aria-live="polite" data-visor-estado>Imagen ajustada al espacio disponible. Usá Escape para cerrar.</p>
+            </div>
+            <div id="visor-foco-area" class="visor-foco-area" tabindex="0" role="region" aria-label="Captura ampliada, desplazable">
+                <img alt="" data-visor-imagen>
             </div>
         </dialog>
     </main>

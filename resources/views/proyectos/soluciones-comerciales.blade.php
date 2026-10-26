@@ -10,7 +10,7 @@
                 <div>
                     <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver a los proyectos</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Experiencia profesional · Desarrollo empresarial</p>
-                    <h1 id="titulo-caso" class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">{{ $caso['titulo'] }}</h1>
+                    <h1 id="titulo-caso" class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl xl:text-6xl">{{ $caso['titulo'] }}</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $caso['presentacion'] }}</p>
                     <a href="#centralfarm" class="hero-accion mt-7 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 py-3 font-semibold text-white hover:bg-tinta-950">Conocer las experiencias @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</a>
                 </div>

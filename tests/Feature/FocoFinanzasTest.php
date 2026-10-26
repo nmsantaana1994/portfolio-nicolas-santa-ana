@@ -8,6 +8,19 @@ use Tests\TestCase;
 
 class FocoFinanzasTest extends TestCase
 {
+    public function test_el_visor_abre_ajustado_y_ofrece_control_explicito_de_tamano_original(): void
+    {
+        $documento = new DOMDocument;
+        @$documento->loadHTML($this->get(route('proyectos.foco-finanzas'))->assertOk()->getContent());
+        $xpath = new DOMXPath($documento);
+        $this->assertSame(1, $xpath->query('//dialog//button[@data-visor-original and @aria-pressed="false" and @aria-controls="visor-foco-area"]')->length);
+        $this->assertSame(0, $xpath->query('//dialog[@data-original]')->length);
+        $this->assertSame(1, $xpath->query('//dialog//*[@aria-live="polite"]')->length);
+        $this->assertStringContainsString('Ver tamaño original', $xpath->evaluate('string(//button[@data-visor-original])'));
+        $this->assertSame(1, $xpath->query('//div[contains(@class,"foco-intro")]/following-sibling::figure[1]')->length);
+        $this->assertSame(1, $xpath->query('//figure/following-sibling::div[contains(@class,"foco-detalle")]')->length);
+    }
+
     public function test_el_caso_tiene_seo_propio_y_el_autor_conserva_la_url_del_portfolio(): void
     {
         config(['app.url' => 'https://portfolio.example.com/']);
