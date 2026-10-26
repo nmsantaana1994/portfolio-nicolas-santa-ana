@@ -42,6 +42,10 @@
 }
 
 @layer utilities {
+    .hero-accion {
+        transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
     .fondo-hero {
         background-image:
             radial-gradient(circle at 15% 20%, rgb(21 112 239 / 0.12), transparent 26rem),
@@ -59,5 +63,9 @@
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    .hero-accion {
+        transition: none;
     }
 }

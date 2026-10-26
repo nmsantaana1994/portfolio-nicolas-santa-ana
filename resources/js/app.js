@@ -23,7 +23,20 @@ if (botonMenu && menuMovil) {
     });
 
     menuMovil.querySelectorAll('a').forEach((enlace) => {
-        enlace.addEventListener('click', () => cerrarMenu());
+        enlace.addEventListener('click', (evento) => {
+            cerrarMenu();
+
+            const destino = document.getElementById(enlace.hash.slice(1));
+            const encabezado = destino?.querySelector('h2');
+
+            if (encabezado) {
+                evento.preventDefault();
+                window.history.pushState(null, '', enlace.hash);
+                destino.scrollIntoView({ block: 'start' });
+                encabezado.setAttribute('tabindex', '-1');
+                encabezado.focus({ preventScroll: true });
+            }
+        });
     });
 
     document.addEventListener('keydown', (evento) => {

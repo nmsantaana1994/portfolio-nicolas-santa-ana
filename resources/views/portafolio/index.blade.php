@@ -9,13 +9,13 @@
 
             <div class="hidden items-center gap-7 lg:flex">
                 @foreach ($portafolio['navegacion'] as $item)
-                    <a href="#{{ $item['ancla'] }}" class="text-sm font-medium text-tinta-600 transition hover:text-acento-700">
+                    <a href="#{{ $item['ancla'] }}" class="inline-flex min-h-11 items-center rounded-md px-2 text-sm font-medium text-tinta-600 transition-colors hover:bg-acento-50 hover:text-acento-700 motion-reduce:transition-none">
                         {{ $item['etiqueta'] }}
                     </a>
                 @endforeach
             </div>
 
-            <button type="button" class="inline-flex size-10 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
+            <button type="button" class="inline-flex size-11 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 transition-colors hover:border-acento-700 hover:bg-acento-50 motion-reduce:transition-none lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
                 <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
                 </svg>

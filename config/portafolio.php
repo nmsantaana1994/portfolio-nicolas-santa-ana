@@ -15,16 +15,20 @@ return [
     'persona' => [
         'nombre' => 'Nicolás Martín Santa Ana',
         'titulo' => 'Full Stack PHP/Laravel Developer',
-        'presentacion' => 'Desarrollo sistemas web de gestión, APIs REST e interfaces operativas con Laravel, JavaScript, MySQL, Blade y Vue.js.',
+        'presentacion' => 'Construyo y evoluciono sistemas de gestión, aplicaciones web e integraciones para empresas. Combino backend PHP/Laravel con interfaces claras para quienes usan el software todos los días.',
         'ubicacion' => 'CABA, Buenos Aires, Argentina',
     ],
 
+    'hero' => [
+        'titulo' => 'Desarrollo software para',
+        'enfasis' => 'resolver problemas reales.',
+        'disponibilidad' => 'Oportunidades laborales y proyectos freelance',
+    ],
+
     'navegacion' => [
-        ['etiqueta' => 'Sobre mí', 'ancla' => 'sobre-mi'],
-        ['etiqueta' => 'Stack', 'ancla' => 'stack'],
+        ['etiqueta' => 'Proyectos', 'ancla' => 'foco-finanzas'],
         ['etiqueta' => 'Experiencia', 'ancla' => 'experiencia'],
-        ['etiqueta' => 'Foco Finanzas', 'ancla' => 'foco-finanzas'],
-        ['etiqueta' => 'Proyectos', 'ancla' => 'proyectos'],
+        ['etiqueta' => 'Sobre mí', 'ancla' => 'sobre-mi'],
         ['etiqueta' => 'Contacto', 'ancla' => 'contacto'],
     ],
 

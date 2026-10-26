@@ -72,6 +72,36 @@ class PortafolioTest extends TestCase
             ->assertSee('href="mailto:'.$contacto['email'].'"', false);
     }
 
+    public function test_el_hero_prioriza_proyectos_y_contacto_y_conserva_la_descarga_del_cv(): void
+    {
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSeeInOrder([
+                'Desarrollo software para',
+                'resolver problemas reales.',
+                'Ver proyectos',
+                'Contactar',
+                'Descargar CV',
+                'Oportunidades laborales y proyectos freelance',
+            ])
+            ->assertDontSee('Ver GitHub');
+    }
+
+    public function test_la_navegacion_apunta_a_secciones_existentes(): void
+    {
+        $documento = new \DOMDocument;
+        @$documento->loadHTML($this->get(route('inicio'))->assertOk()->getContent());
+        $xpath = new \DOMXPath($documento);
+        $enlaces = $xpath->query('//nav[@aria-label="Navegación principal"]//a[starts-with(@href, "#")]');
+
+        $this->assertSame(5, $enlaces->length);
+
+        foreach ($enlaces as $enlace) {
+            $ancla = substr($enlace->getAttribute('href'), 1);
+            $this->assertSame(1, $xpath->query('//*[@id="'.$ancla.'"]')->length);
+        }
+    }
+
     public function test_muestra_cuatro_proyectos_con_contexto_y_resultado(): void
     {
         $proyectos = config('portafolio.proyectos');
