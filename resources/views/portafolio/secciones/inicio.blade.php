@@ -13,7 +13,7 @@
 
             <div class="mt-8 flex flex-wrap gap-3" aria-label="Acciones principales">
                 <a href="#foco-finanzas" class="hero-accion inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-acento-700 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-tinta-950 sm:flex-none">
-                    Ver proyectos <span aria-hidden="true">↓</span>
+                    Ver proyectos @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])
                 </a>
                 <a href="#contacto" class="hero-accion inline-flex min-h-12 flex-1 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-tinta-950 hover:border-acento-700 hover:bg-acento-50 sm:flex-none">
                     Contactar

@@ -3,7 +3,7 @@
 @section('contenido')
     @include('portafolio.parciales.header')
 
-    <main id="contenido">
+    <main id="contenido" tabindex="-1">
         @include('portafolio.secciones.inicio')
         @include('portafolio.secciones.proyecto-insignia')
         @include('portafolio.secciones.proyectos')

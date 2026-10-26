@@ -81,7 +81,9 @@
         scroll-behavior: auto;
     }
 
-    .hero-accion {
+    a,
+    button,
+    summary {
         transition: none;
     }
 }

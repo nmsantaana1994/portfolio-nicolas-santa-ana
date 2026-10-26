@@ -6,6 +6,6 @@
     <figcaption class="mt-4 text-sm leading-6 text-tinta-600">
         <span class="block font-bold text-tinta-950">{{ $escena['nombre'] }}</span>
         {{ $escena['descripcion'] }}
-        <span class="mt-2 block text-xs font-semibold text-acento-700">Seleccioná la imagen para ampliar ↗</span>
+        <span class="mt-2 block text-xs font-semibold text-acento-700">Seleccioná la imagen para ampliar @include('portafolio.parciales.indicador-enlace')</span>
     </figcaption>
 </figure>

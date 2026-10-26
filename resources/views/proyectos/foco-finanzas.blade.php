@@ -4,16 +4,16 @@
     @php($proyecto = $portafolio['proyecto_insignia'])
     @include('portafolio.parciales.header')
 
-    <main id="contenido" data-galeria-foco>
+    <main id="contenido" tabindex="-1" data-galeria-foco>
         <section class="fondo-hero border-b border-slate-200 py-10 sm:py-16">
             <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] md:items-center lg:gap-16 lg:px-10">
                 <div>
-                    <a href="{{ route('inicio', [], false) }}#foco-finanzas" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">← Volver al portfolio</a>
+                    <a href="{{ route('inicio', [], false) }}#foco-finanzas" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Caso de estudio · {{ $proyecto['contexto'] }}</p>
                     <h1 class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">Foco Finanzas: del movimiento diario a la planificación financiera.</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $proyecto['presentacion_caso'] }}</p>
                     <p class="mt-4 max-w-2xl leading-7 text-tinta-600">Diseñé y desarrollé el producto completo: modelo de datos, lógica financiera, interfaz, pruebas y entrega a una beta privada.</p>
-                    <a href="#producto-en-uso" class="hero-accion mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Explorar el producto ↓</a>
+                    <a href="#producto-en-uso" class="hero-accion mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Explorar el producto @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</a>
                     <div class="mt-8 rounded-xl border border-slate-200 bg-white/80 p-4">
                         <p class="text-sm font-semibold text-tinta-950">Tema de las capturas</p>
                         <div class="mt-3 inline-flex rounded-lg bg-tinta-950 p-1" role="group" aria-label="Tema de las capturas">

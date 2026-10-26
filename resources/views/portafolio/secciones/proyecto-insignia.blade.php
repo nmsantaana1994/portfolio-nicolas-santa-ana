@@ -29,7 +29,7 @@
                 </dl>
                 <p class="mt-5 text-sm leading-6 text-slate-400">{{ $proyecto['estado'] }}</p>
                 <a href="{{ route('proyectos.foco-finanzas', [], false) }}" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-sm font-semibold text-blue-200 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-white motion-reduce:transition-none">
-                    Ver caso completo <span aria-hidden="true">↓</span>
+                    Ver caso completo @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])
                 </a>
             </div>
 

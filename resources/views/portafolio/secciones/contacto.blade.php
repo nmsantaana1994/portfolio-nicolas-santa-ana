@@ -4,7 +4,7 @@
             <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Contacto</p>
             <h2 class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Hablemos de tu próximo desafío</h2>
             <p class="mt-5 text-lg leading-8 text-tinta-600">Podemos conversar sobre una oportunidad Full Stack PHP/Laravel o un proyecto freelance: un sistema nuevo, una integración o la evolución de una aplicación existente.</p>
-            <a href="{{ route('servicios', [], false) }}" class="mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Conocer mis servicios →</a>
+            <a href="{{ route('servicios', [], false) }}" class="mt-4 inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Conocer mis servicios @include('portafolio.parciales.indicador-enlace')</a>
         </div>
 
         <address class="not-italic">

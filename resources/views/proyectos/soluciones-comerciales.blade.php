@@ -8,17 +8,17 @@
         <section class="fondo-hero border-b border-slate-200 py-10 sm:py-16" aria-labelledby="titulo-caso">
             <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16 lg:px-10">
                 <div>
-                    <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">← Volver a los proyectos</a>
+                    <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver a los proyectos</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Experiencia profesional · Desarrollo empresarial</p>
                     <h1 id="titulo-caso" class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">{{ $caso['titulo'] }}</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $caso['presentacion'] }}</p>
-                    <a href="#centralfarm" class="hero-accion mt-7 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 py-3 font-semibold text-white hover:bg-tinta-950">Conocer las experiencias ↓</a>
+                    <a href="#centralfarm" class="hero-accion mt-7 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 py-3 font-semibold text-white hover:bg-tinta-950">Conocer las experiencias @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</a>
                 </div>
                 <nav class="space-y-4" aria-label="Experiencias del caso empresarial">
                     @foreach ($caso['experiencias'] as $experiencia)
                         <a href="#{{ $experiencia['id'] }}" @class(['group block rounded-2xl border p-6 transition-colors motion-reduce:transition-none', 'border-blue-200 bg-white hover:border-acento-700' => $loop->first, 'border-tinta-950 bg-tinta-950 text-white hover:bg-tinta-900' => ! $loop->first])>
                             <span @class(['text-xs font-bold uppercase tracking-wide', 'text-acento-700' => $loop->first, 'text-blue-300' => ! $loop->first])>{{ $experiencia['tipo'] }}</span>
-                            <span class="mt-2 block text-2xl font-bold tracking-tight">{{ $experiencia['nombre'] }} <span aria-hidden="true">↘</span></span>
+                            <span class="mt-2 block text-2xl font-bold tracking-tight">{{ $experiencia['nombre'] }} @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</span>
                             <span @class(['mt-2 block text-sm leading-6', 'text-tinta-600' => $loop->first, 'text-slate-300' => ! $loop->first])>{{ $experiencia['resumen'] }}</span>
                         </a>
                     @endforeach
