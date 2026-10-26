@@ -24,12 +24,37 @@ La evolución técnica, las decisiones y el estado de cada fase se registran en 
 
 ## Requisitos locales
 
-- PHP 8.4 o superior, con las extensiones requeridas por Laravel.
+- PHP 8.4.1 o superior dentro de la rama 8.4, con las extensiones requeridas por Laravel.
 - Composer 2.
-- Node.js y npm compatibles con Vite.
+- Node.js 22.12 o superior dentro de la rama 22 y npm 10.9.4.
 - Git.
 
 No es necesario crear una base de datos ni ejecutar migraciones.
+
+### Windows con Laragon
+
+Desde PowerShell o la terminal integrada de VS Code, ejecutar:
+
+```powershell
+.\scripts\dev-shell.cmd
+```
+
+El launcher detecta la instalación de Laragon a partir de la ubicación del repositorio, lee la versión PHP seleccionada en `usr/laragon.ini` y abre una PowerShell hija con ese PHP agregado únicamente a su `PATH`. No modifica Laragon, Windows ni la política de ejecución.
+
+Si Laragon no contiene el repositorio bajo su carpeta `www`, se puede indicar su raíz sólo para la sesión actual:
+
+```powershell
+$env:LARAGON_ROOT = 'C:\ruta\a\laragon'
+.\scripts\dev-shell.cmd
+```
+
+Para comprobar el entorno sin abrir una terminal interactiva:
+
+```powershell
+.\scripts\dev-shell.cmd --check
+```
+
+En PowerShell se debe utilizar `npm.cmd` en lugar de `npm`, porque el launcher de npm en formato `.ps1` puede estar bloqueado por la Execution Policy.
 
 ## Instalación local
 
@@ -69,7 +94,7 @@ No es necesario crear una base de datos ni ejecutar migraciones.
 5. Instalar las dependencias frontend:
 
    ```bash
-   npm install
+   npm ci
    ```
 
 ## Ejecución local
@@ -80,10 +105,10 @@ Levantar Laravel en una terminal:
 php artisan serve --port=8001
 ```
 
-Levantar Vite en otra terminal:
+Levantar Vite en otra terminal. En PowerShell:
 
-```bash
-npm run dev
+```powershell
+npm.cmd run dev
 ```
 
 El portfolio estará disponible en `http://127.0.0.1:8001`.
@@ -94,8 +119,8 @@ El portfolio estará disponible en `http://127.0.0.1:8001`.
 # Instalar dependencias PHP
 composer install
 
-# Instalar dependencias frontend
-npm install
+# Instalar dependencias frontend desde el lock
+npm ci
 
 # Ejecutar Vite en desarrollo
 npm run dev
