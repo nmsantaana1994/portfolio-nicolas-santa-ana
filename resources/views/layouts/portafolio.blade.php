@@ -36,7 +36,10 @@
         <meta name="twitter:image" content="{{ $imagenSocial }}">
         <meta name="twitter:image:alt" content="{{ $seo['imagen_alt'] }}">
 
-        <meta name="theme-color" content="#101828">
+        <meta name="color-scheme" content="light dark">
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+        @include('portafolio.parciales.tema')
 
         <script type="application/ld+json">
             {!! json_encode([

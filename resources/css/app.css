@@ -1,5 +1,55 @@
 @import 'tailwindcss';
 
+:root {
+    color-scheme: light dark;
+    --pagina: light-dark(#ffffff, #0b1220);
+    --papel: light-dark(#ffffff, #121e30);
+    --superficie-suave: light-dark(#f7f8fa, #0e1828);
+    --superficie-acento: light-dark(#eff8ff, #132c49);
+    --texto-principal: light-dark(#101828, #f0f5ff);
+    --texto-cuerpo: light-dark(#344054, #d2dcea);
+    --texto-secundario: light-dark(#475467, #bac7d9);
+    --texto-discreto: light-dark(#667085, #a7b7ce);
+    --enlace: light-dark(#175cd3, #86bcff);
+    --boton-primario: #175cd3;
+    --borde: light-dark(#e2e8f0, #32435a);
+    --borde-acento: light-dark(#dbeafe, #32435a);
+    --borde-suave: light-dark(#f1f5f9, #26374d);
+    --borde-control: light-dark(#cbd5e1, #647894);
+    --foco: light-dark(#175cd3, #9cccff);
+    --banda-profunda: #101828;
+    --sombra: light-dark(rgb(16 24 40 / 3%), rgb(0 0 0 / 18%));
+}
+
+/* Adaptación de las superficies existentes sin invertir bandas ni texto blanco. */
+@layer utilities {
+    .bg-white { background-color: var(--papel); }
+    .bg-slate-50 { background-color: var(--superficie-suave); }
+    .bg-tinta-950 { background-color: var(--banda-profunda); }
+    .bg-acento-700 { background-color: var(--boton-primario); }
+    .border-slate-100 { border-color: var(--borde-suave); }
+    .border-slate-200 { border-color: var(--borde); }
+    .border-blue-100 { border-color: var(--borde-acento); }
+    .border-slate-300, .border-blue-200 { border-color: var(--borde-control); }
+    .border-tinta-950 { border-color: light-dark(#101828, #32435a); }
+    .bg-white\/80 { background-color: color-mix(in srgb, var(--papel) 80%, transparent); }
+    .bg-white\/90 { background-color: color-mix(in srgb, var(--papel) 90%, transparent); }
+    .bg-white\/95 { background-color: color-mix(in srgb, var(--papel) 95%, transparent); }
+    .border-slate-200\/80 { border-color: color-mix(in srgb, var(--borde) 80%, transparent); }
+    @media (hover: hover) {
+        .hover\:bg-tinta-950:hover { background-color: var(--banda-profunda); }
+    }
+}
+
+.selector-tema {
+    visibility: hidden;
+    display: block;
+    width: 6.25rem;
+}
+
+[data-theme] .selector-tema { visibility: visible; }
+.selector-tema select { width: 100%; cursor: pointer; }
+
 .visor-foco {
     margin: auto;
     width: min(64rem, calc(100% - 2rem));
@@ -9,7 +59,8 @@
     border: 0;
     border-radius: 1rem;
     padding: 0;
-    background: white;
+    background: var(--papel);
+    color: var(--texto-cuerpo);
 }
 
 .visor-foco::backdrop {
@@ -18,11 +69,11 @@
 
 .superficie-tarjeta {
     border-radius: 1rem;
-    box-shadow: 0 2px 8px rgb(16 24 40 / 3%);
+    box-shadow: 0 2px 8px var(--sombra);
 }
 
 .superficie-captura {
-    box-shadow: 0 4px 16px rgb(16 24 40 / 4%);
+    box-shadow: 0 4px 16px light-dark(rgb(16 24 40 / 4%), rgb(0 0 0 / 18%));
 }
 
 .superficie-captura:focus-within {
@@ -30,24 +81,24 @@
 }
 
 .selector-capturas {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
+    background: var(--superficie-suave);
+    border: 1px solid var(--borde);
     gap: 0.25rem;
 }
 
 .selector-capturas button {
-    color: var(--color-tinta-600);
+    color: var(--texto-secundario);
 }
 
 .selector-capturas button[aria-pressed='true'] {
-    color: var(--color-tinta-950);
-    background: white;
+    color: var(--texto-principal);
+    background: var(--papel);
     box-shadow: 0 1px 4px rgb(16 24 40 / 12%);
 }
 
 .selector-capturas button[aria-pressed='false']:hover {
-    color: var(--color-acento-700);
-    background: var(--color-acento-50);
+    color: var(--enlace);
+    background: var(--superficie-acento);
 }
 
 .foco-presentacion { grid-template-areas: 'intro' 'imagen' 'detalle'; }
@@ -65,7 +116,7 @@
     justify-content: center;
     height: min(65dvh, 44rem);
     overflow: auto;
-    background: var(--color-tinta-950);
+    background: var(--banda-profunda);
     padding: 0.75rem;
 }
 
@@ -106,16 +157,16 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-tinta-950: #101828;
+    --color-tinta-950: var(--texto-principal);
     --color-tinta-900: #182230;
-    --color-tinta-700: #344054;
-    --color-tinta-600: #475467;
-    --color-tinta-400: #667085;
-    --color-superficie: #f7f8fa;
-    --color-acento-700: #175cd3;
+    --color-tinta-700: var(--texto-cuerpo);
+    --color-tinta-600: var(--texto-secundario);
+    --color-tinta-400: var(--texto-discreto);
+    --color-superficie: var(--superficie-suave);
+    --color-acento-700: var(--enlace);
     --color-acento-600: #1570ef;
     --color-acento-100: #d1e9ff;
-    --color-acento-50: #eff8ff;
+    --color-acento-50: var(--superficie-acento);
 }
 
 @layer base {
@@ -124,17 +175,17 @@
     }
 
     body {
-        background: #ffffff;
-        color: var(--color-tinta-700);
+        background: var(--pagina);
+        color: var(--texto-cuerpo);
     }
 
     ::selection {
         background: var(--color-acento-100);
-        color: var(--color-tinta-950);
+        color: #101828;
     }
 
     :focus-visible {
-        outline: 3px solid color-mix(in srgb, var(--color-acento-600) 55%, transparent);
+        outline: 3px solid var(--foco);
         outline-offset: 3px;
     }
 }
@@ -147,7 +198,7 @@
     .fondo-hero {
         background-image:
             radial-gradient(circle at 15% 20%, rgb(21 112 239 / 0.12), transparent 26rem),
-            linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+            linear-gradient(180deg, light-dark(#f8fbff, #101f35) 0%, var(--pagina) 100%);
     }
 
     .rejilla-sutil {
