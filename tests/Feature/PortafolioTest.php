@@ -51,6 +51,16 @@ class PortafolioTest extends TestCase
             ->assertSee('<meta name="twitter:image"', false);
     }
 
+    public function test_la_home_incorpora_instrument_sans_desde_los_assets_locales(): void
+    {
+        $this->get(route('inicio'))
+            ->assertOk()
+            ->assertSee('@font-face', false)
+            ->assertSee('font-family: "Instrument Sans";', false)
+            ->assertSee('format("woff', false)
+            ->assertDontSee('fonts.bunny.net');
+    }
+
     public function test_la_home_incluye_los_enlaces_principales(): void
     {
         $contacto = config('portafolio.contacto');
