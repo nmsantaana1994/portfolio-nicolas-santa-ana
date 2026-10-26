@@ -187,7 +187,9 @@ El deploy actual se encuentra en:
 https://portfolio-nicolas-santa-ana-production.up.railway.app
 ```
 
-El proceso de despliegue debe instalar las dependencias PHP, instalar las dependencias frontend y compilar los assets de Vite:
+El servicio usa **Railpack con FrankenPHP**, con inicio automático del proveedor Laravel y sin un start command personalizado. La auditoría del deployment de `25c79fc` confirmó Railpack 0.43.0, PHP 8.4.27, Node 22.23.3 y npm 10.9.9. Las versiones son una fotografía de ese deployment; Railpack puede resolver nuevos parches compatibles en builds posteriores.
+
+Los siguientes comandos son una referencia manual de instalación y compilación:
 
 ```bash
 composer install --no-dev --optimize-autoloader
@@ -195,11 +197,9 @@ npm ci
 npm run build
 ```
 
-Como comando de inicio puede utilizarse:
+No representan literalmente el plan automático de Railway: el deployment auditado ejecutó `composer install --optimize-autoloader --no-scripts --no-interaction`, `npm install`, `npm run build` y `npm prune --omit=dev --ignore-scripts`. El build command configurado es `npm run build`.
 
-```bash
-php artisan serve --host=0.0.0.0 --port=$PORT
-```
+FrankenPHP sirve la aplicación mediante la configuración generada por Railpack. `php artisan serve` se utiliza en desarrollo local; no es el servidor productivo efectivo. El servicio tiene una réplica en US East y no tiene volúmenes persistentes; los archivos del contenedor son efímeros.
 
 ### Variables de Railway
 
@@ -222,7 +222,27 @@ php artisan key:generate --show
 
 `ASSET_URL` es necesaria en este deploy de Railway para que Laravel genere correctamente las URLs públicas de los assets compilados por Vite. Sin esa variable, el CSS de Tailwind y el JavaScript pueden apuntar a una URL incorrecta y no cargar en producción.
 
-Después de modificar variables de entorno en Railway, se debe realizar un nuevo deploy para reconstruir los assets y aplicar la configuración actualizada.
+### Cierre operativo pendiente de aplicación
+
+La auditoría confirmó migraciones automáticas al arrancar y ningún healthcheck configurado en Railway. Los siguientes ajustes están preparados documentalmente y requieren autorización antes de aplicarse:
+
+- Variable del servicio `RAILPACK_SKIP_MIGRATIONS=true`: evita las migraciones automáticas del arranque Laravel de Railpack. El portfolio no necesita base de datos funcionalmente.
+- Healthcheck del servicio: `/up`, que ya responde HTTP 200. Railway comprobará esta ruta antes de activar el nuevo deployment; no es monitoreo continuo después del despliegue.
+
+Procedimiento desde el dashboard de Railway:
+
+1. Seleccionar el proyecto `amiable-freedom` (`09529c5a-5454-40ec-806b-822d6ef1d360`), entorno `production` (`f5db1fe9-7795-45d9-897d-40aaddc26e40`) y servicio `portfolio-nicolas-santa-ana` (`ba85960f-9589-4a07-bf38-9c8c33c449d4`). Confirmar el repositorio GitHub y un deployment activo en estado `SUCCESS`.
+2. Comprobar si la clave `RAILPACK_SKIP_MIGRATIONS` ya existe. Registrar únicamente su estado previo para una eventual reversión, sin exportar otras variables.
+3. En Variables, agregar o ajustar únicamente esa clave a `true`. En Settings > Deploy, establecer Healthcheck Path en `/up`. Mantener el builder y el start command automático.
+4. Revisar los cambios pendientes antes de desplegar: sólo deben aparecer la variable indicada y el healthcheck. Si Railway ofrece aplicar/desplegar los cambios, hacerlo una sola vez después de preparar ambos. Si la interfaz aplica un ajuste inmediatamente, asumir que puede generar un deployment y verificar su estado antes de continuar.
+5. Esperar el deployment exitoso y comprobar su commit. Revisar los logs de arranque: no deben aparecer ejecuciones de `artisan migrate`, migraciones ni seeding. Si aparecen, detener el cierre y diagnosticar el comportamiento del script de Railpack.
+6. Confirmar el healthcheck `/up` en la configuración efectiva y la activación del nuevo deployment. Comprobar HTTP 200 en `/` y `/up` y realizar una revisión visual breve del portfolio.
+
+Las modificaciones de variables o configuración pueden iniciar un nuevo deployment. `railway variable set` ofrece `--skip-deploys`, y `railway environment edit` ofrece `--stage`; aun así, no se deben ejecutar durante una auditoría. La CLI 4.58.0 tiene un reporte de no aplicación de ciertos campos `deploy.*` mediante dot-path, por lo que este procedimiento usa el dashboard y exige verificar el resultado efectivo.
+
+Reversión: restaurar el estado previo de la única variable modificada (eliminarla si antes no existía) y borrar `/up` del healthcheck para recuperar su estado anterior vacío. Revisar y aplicar únicamente esas diferencias. La reversión de configuración también puede generar un deployment; volver a un deployment previo por sí solo no garantiza restaurar las variables y settings actuales. No eliminar bases ni archivos para revertir estos ajustes.
+
+Referencias: [inicio Laravel y variable de migraciones de Railpack](https://railpack.com/languages/php/), [healthchecks de Railway](https://docs.railway.com/deployments/healthchecks) y [configuración por CLI](https://docs.railway.com/cli/environment).
 
 ## Alcance actual
 
