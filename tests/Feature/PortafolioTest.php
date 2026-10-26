@@ -139,7 +139,7 @@ class PortafolioTest extends TestCase
 
         $respuesta->assertSee('Oportunidades laborales y proyectos freelance')
             ->assertSee('proyecto freelance')
-            ->assertSee('Explorar capturas, decisiones y evidencia técnica');
+            ->assertSee('Ver caso completo');
     }
 
     public function test_los_casos_muestran_aporte_y_resultado_sin_abrir_desplegables(): void
@@ -191,15 +191,15 @@ class PortafolioTest extends TestCase
 
         $this->assertSame('Foco Finanzas', $proyecto['nombre']);
         $this->assertCount(4, $proyecto['metricas']);
-        $this->assertCount(4, $proyecto['decisiones']);
+        $this->assertCount(6, $proyecto['decisiones']);
         $this->assertCount(6, $proyecto['escenas']);
 
-        $this->get(route('inicio'))
+        $this->get(route('proyectos.foco-finanzas'))
             ->assertOk()
-            ->assertSee('Proyecto insignia')
-            ->assertSee('Finanzas personales mobile-first con Laravel')
-            ->assertSee('604')
-            ->assertSee('tests automatizados')
+            ->assertSee('Caso de estudio')
+            ->assertSee('Validaciones documentadas · octubre de 2026')
+            ->assertSee('1.299')
+            ->assertSee('tests aprobados · SQLite')
             ->assertSee('Beta privada activa en staging')
             ->assertSee('Todos los datos visibles son sintéticos')
             ->assertSee('data-galeria-foco', false)
@@ -212,7 +212,7 @@ class PortafolioTest extends TestCase
     public function test_las_escenas_de_foco_tienen_variantes_clara_y_oscura_publicables(): void
     {
         $escenas = config('portafolio.proyecto_insignia.escenas');
-        $respuesta = $this->get(route('inicio'))->assertOk();
+        $respuesta = $this->get(route('proyectos.foco-finanzas'))->assertOk();
 
         foreach ($escenas as $escena) {
             foreach (['light', 'dark'] as $tema) {

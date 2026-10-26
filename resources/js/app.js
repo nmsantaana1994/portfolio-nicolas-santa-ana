@@ -26,6 +26,10 @@ if (botonMenu && menuMovil) {
         enlace.addEventListener('click', (evento) => {
             cerrarMenu();
 
+            if (enlace.origin !== window.location.origin || enlace.pathname !== window.location.pathname) {
+                return;
+            }
+
             const destino = document.getElementById(enlace.hash.slice(1));
             const encabezado = destino?.querySelector('h2');
 
@@ -73,9 +77,59 @@ document.querySelectorAll('[data-galeria-foco]').forEach((galeria) => {
 
             imagen.classList.toggle('hidden', imagen.dataset.imagenFoco !== temaActivo);
         });
+
+        galeria.querySelectorAll('[data-ampliar-foco]').forEach((enlace) => {
+            enlace.href = enlace.querySelector(`img[data-imagen-foco="${temaActivo}"]`).src;
+        });
     };
 
     botones.forEach((boton) => {
         boton.addEventListener('click', () => activarTema(boton.dataset.temaFoco));
+    });
+
+    const visor = galeria.querySelector('[data-visor-foco]');
+
+    if (!visor || typeof visor.showModal !== 'function') {
+        return;
+    }
+
+    let origen;
+    let overflowAnterior;
+
+    galeria.querySelectorAll('[data-ampliar-foco]').forEach((enlace) => {
+        enlace.addEventListener('click', (evento) => {
+            if (evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.altKey) {
+                return;
+            }
+
+            evento.preventDefault();
+            const imagen = enlace.querySelector('img:not(.hidden)');
+            const ampliada = visor.querySelector('[data-visor-imagen]');
+
+            ampliada.src = imagen.src;
+            ampliada.alt = imagen.alt;
+            ampliada.width = Number(imagen.getAttribute('width'));
+            ampliada.height = Number(imagen.getAttribute('height'));
+            visor.querySelector('#visor-foco-titulo').textContent = enlace.dataset.nombre;
+            origen = enlace;
+            overflowAnterior = document.documentElement.style.overflow;
+            visor.showModal();
+            document.documentElement.style.overflow = 'hidden';
+        });
+    });
+
+    visor.addEventListener('close', () => {
+        document.documentElement.style.overflow = overflowAnterior;
+        origen?.focus({ preventScroll: true });
+    });
+
+    visor.addEventListener('click', (evento) => {
+        if (evento.target === visor) {
+            const rect = visor.getBoundingClientRect();
+
+            if (evento.clientX < rect.left || evento.clientX > rect.right || evento.clientY < rect.top || evento.clientY > rect.bottom) {
+                visor.close();
+            }
+        }
     });
 });

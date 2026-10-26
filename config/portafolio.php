@@ -76,42 +76,114 @@ return [
         'nombre' => 'Foco Finanzas',
         'subtitulo' => 'Finanzas personales mobile-first con Laravel',
         'contexto' => 'Proyecto propio · Beta privada',
-        'descripcion' => 'Aplicación web para integrar cuentas, movimientos, tarjetas, cuotas, presupuestos, metas, obligaciones e inversiones manuales, con IA asistiva de solo lectura.',
+        'descripcion' => 'Aplicación web instalable para relacionar cuentas, movimientos, tarjetas, cuotas, presupuestos, metas e inversiones manuales, con planificación, avisos e IA asistiva de solo lectura.',
         'resumen_problema' => 'Saldos, cuotas y vencimientos separados dificultan entender el disponible real del mes.',
         'resumen_solucion' => 'Una aplicación que relaciona movimientos, planificación y ahorro sin duplicar impactos financieros.',
+        'presentacion_caso' => 'Una aplicación de finanzas personales para entender movimientos, cuotas y ahorro en un mismo lugar.',
         'problema' => 'La información financiera personal suele quedar fragmentada entre saldos, consumos, cuotas, vencimientos, metas e inversiones, dificultando entender el disponible real y los compromisos del mes.',
-        'solucion' => 'Diseñé un monolito modular que modela esas relaciones sin duplicar impactos: diferencia gastos y transferencias, conserva ciclos históricos, vincula metas con ahorro y mantiene la IA fuera de las mutaciones financieras.',
-        'responsabilidades' => 'Definición de producto, modelado de dominio, backend Laravel, persistencia PostgreSQL, interfaz mobile-first, seguridad, tests, CI, Docker, staging, dataset sintético y documentación técnica.',
-        'estado' => 'Beta privada activa en staging. Repositorio privado y producción pública todavía no operativa.',
+        'solucion' => 'Foco reúne la actividad y la planificación en una misma aplicación: distingue gastos de transferencias, relaciona tarjetas y cuotas con sus vencimientos, y permite seguir presupuestos y metas. El asistente ayuda a interpretar la información, sin modificar los datos financieros.',
+        'responsabilidades' => 'Definición y evolución del producto, modelado financiero, backend Laravel y PostgreSQL, interfaz responsive, integraciones controladas, seguridad y privacidad, pruebas, CI con runner propio, Docker local, entrega a staging, recuperación y documentación técnica.',
+        'estado' => 'Beta privada activa en staging, con ampliación controlada en preparación. Repositorio privado; no se presenta como un producto público en producción.',
+        // Revisión de código/documentación local del 25/10/2026, Foco c6ac7cb.
+        // No acredita el estado remoto del último deployment ni del último run.
+        'revision' => '25/10/2026',
+        'nota_visual' => 'Galería histórica: escenario sintético del 17/07/2026. Representa los módulos, no la interfaz vigente de octubre; cambiaron textos, jerarquías y recorridos.',
         'stack' => ['PHP 8.4', 'Laravel 13', 'PostgreSQL 18', 'Blade', 'Tailwind CSS', 'JavaScript', 'Playwright', 'Docker', 'GitHub Actions'],
+        'funcionalidades' => [
+            'movimientos' => [
+                'titulo' => 'Cuentas y movimientos',
+                'descripcion' => 'Ingresos, gastos, transferencias y comprobantes privados permiten reconstruir la actividad. Los estados pendiente y confirmado se distinguen sin mezclar sus totales; la carga rápida facilita el registro desde distintas pantallas.',
+            ],
+            'tarjetas' => [
+                'titulo' => 'Tarjetas, resúmenes y cuotas',
+                'descripcion' => 'Consumos, cierres, vencimientos y cuotas conservan su contexto histórico. Los pagos acumulados se relacionan con la cobertura de las cuotas, sin contar el pago de la tarjeta como un segundo gasto.',
+            ],
+            'planificacion' => [
+                'titulo' => 'Presupuestos, metas y compromisos',
+                'descripcion' => 'Presupuestos, metas, compromisos y suscripciones ayudan a leer las obligaciones del mes. La aplicación diferencia dinero operativo, progreso asignado a metas y proyecciones parciales cuando falta información de conversión.',
+            ],
+            'inversiones' => [
+                'titulo' => 'Inversiones manuales y asistente',
+                'descripcion' => 'Posiciones y valuaciones manuales permiten analizar la cartera sin prometer cotizaciones en tiempo real. El asistente conserva el período de consulta y utiliza herramientas de solo lectura; la IA externa es opcional, con consentimiento y límites, sin ejecutar operaciones financieras ni brindar asesoramiento.',
+            ],
+        ],
+        'capacidades' => [
+            [
+                'titulo' => 'PWA y avisos accionables',
+                'descripcion' => 'Instalación desde el navegador, bandeja personal con archivo y enlaces al contexto financiero, y Web Push opt-in con mensajes genéricos. La pantalla offline no almacena información financiera para operar sin conexión.',
+            ],
+            [
+                'titulo' => 'Rutinas y lectura contextual',
+                'descripcion' => 'Revisiones semanal y mensual reúnen prioridades y accesos al detalle. El asistente puede continuar la lectura del período elegido sin modificar los datos financieros.',
+            ],
+            [
+                'titulo' => 'Privacidad y administración',
+                'descripcion' => 'Gestión de sesiones propias, exportación y eliminación de datos, MFA administrativo y reautenticación para operaciones sensibles. La administración incorpora acceso beta y analítica agregada first-party, sin abrir finanzas individuales en esos paneles.',
+            ],
+        ],
+        // docs/40-estado-beta-activa.md, G4-E, base e9832e3: 10/10/2026.
+        // Son dos ejecuciones de la misma suite; no sumar como tests únicos.
         'metricas' => [
-            ['valor' => '604', 'etiqueta' => 'tests automatizados', 'detalle' => 'Línea base local del 31/07/2026'],
-            ['valor' => '3', 'etiqueta' => 'jobs de CI', 'detalle' => 'SQLite, PostgreSQL y Browser'],
-            ['valor' => '12', 'etiqueta' => 'capturas verificadas', 'detalle' => 'Seis escenas en claro y oscuro'],
-            ['valor' => '48', 'etiqueta' => 'tablas restauradas', 'detalle' => 'Restore local con datos sintéticos'],
+            ['valor' => '1.299', 'etiqueta' => 'tests aprobados · SQLite', 'detalle' => '10/10/2026 · 11.286 aserciones · 43 omitidos'],
+            ['valor' => '1.341', 'etiqueta' => 'tests aprobados · PostgreSQL', 'detalle' => '10/10/2026 · 12.046 aserciones · 1 omitido'],
+            ['valor' => '3', 'etiqueta' => 'jobs de Quality', 'detalle' => 'Workflow revisado el 25/10/2026: SQLite, PostgreSQL y Browser'],
+            ['valor' => '12', 'etiqueta' => 'capturas sintéticas', 'detalle' => 'Seis escenas en claro y oscuro · referencia 17/07/2026'],
+        ],
+        // docs/09-roadmap.md, docs/24-direccion-ux-ui-global.md e historial Git.
+        // CI: docs/infraestructura/github-actions-self-hosted-runner.md,
+        // secciones 19 y 21, 20/10/2026; full y critical son corridas distintas.
+        // Recovery: docs/09-roadmap.md y docs/34-operacion-staging-datos-reales.md,
+        // FF-BETA3-001, cierre 30/09/2026; no acredita recuperación integral.
+        'evolucion' => [
+            ['periodo' => 'Agosto 2026', 'titulo' => 'Una experiencia de uso más continua', 'descripcion' => 'Carga rápida global, gestos móviles y una bandeja personal de notificaciones con archivo y navegación al detalle.'],
+            ['periodo' => 'Septiembre 2026', 'titulo' => 'Integridad y recuperación', 'descripcion' => 'Cobertura acumulada de pagos de tarjeta, estabilidad histórica de cuotas y liquidaciones coordinadas con atomicidad e idempotencia. Ejercicio de recuperación aislada y MFA administrativo.'],
+            ['periodo' => 'Octubre 2026', 'titulo' => 'Claridad, privacidad y calidad de entrega', 'descripcion' => 'Conceptos financieros alineados entre pantallas, gestión de sesiones y reautenticación, límites de IA, retención de datos, analítica interna, revisiones del mes y mejoras de accesibilidad y responsive. CI sobre runner propio y mantenimiento de seguridad del runtime.'],
         ],
         'decisiones' => [
             [
+                'titulo' => 'Una cifra necesita contexto',
+                'problema' => 'Saldo, resultado mensual y proyección responden preguntas distintas; mezclarlos puede confundir la planificación.',
+                'descripcion' => 'Cada lectura conserva su moneda, período y estado. El producto diferencia disponible operativo, deuda, resultado y proyecciones con información incompleta.',
+                'consecuencia' => 'Las pantallas y el asistente explican qué representa cada importe, sin sumar monedas distintas ni tratar pendientes como confirmados.',
+            ],
+            [
+                'titulo' => 'Liquidaciones consistentes',
+                'problema' => 'Dos ejecuciones simultáneas no deben consumir el mismo saldo ni duplicar una liquidación.',
+                'descripcion' => 'El ejecutor coordina disponibilidad, transacciones, locks y revalidación, con idempotencia y pruebas concurrentes en PostgreSQL.',
+                'consecuencia' => 'La consistencia se comprueba entre ejecuciones de ese circuito; no se promete resolver toda la concurrencia financiera del sistema.',
+            ],
+            [
                 'titulo' => 'Dinero en unidades menores',
+                'problema' => 'La representación decimal puede introducir ambigüedades en cálculos monetarios.',
                 'descripcion' => 'Los importes se persisten como enteros para evitar ambigüedad decimal y sostener contratos monetarios reproducibles.',
+                'consecuencia' => 'Cálculos y pruebas trabajan sobre una representación monetaria consistente.',
             ],
             [
                 'titulo' => 'Tarjetas sin gastos duplicados',
+                'problema' => 'Contar la compra y el pago de la tarjeta como gastos duplicaría su impacto.',
                 'descripcion' => 'El consumo representa el gasto y el pago se modela como una transferencia hacia la tarjeta.',
+                'consecuencia' => 'Pagar la deuda no vuelve a contabilizar el consumo como un nuevo gasto.',
             ],
             [
                 'titulo' => 'Ownership probado',
+                'problema' => 'Cada persona debe acceder únicamente a sus propios recursos financieros.',
                 'descripcion' => 'Consultas y referencias user-scoped se cubren con pruebas adversariales sobre SQLite y PostgreSQL 18.',
+                'consecuencia' => 'El aislamiento se verifica a nivel de aplicación; no implica RLS ni separación física por usuario.',
             ],
             [
                 'titulo' => 'Evidencia sintética reproducible',
+                'problema' => 'Mostrar el producto no debe exponer información de personas de la beta.',
                 'descripcion' => 'Un dataset aislado y determinista genera capturas públicas sin utilizar usuarios ni información de la beta.',
+                'consecuencia' => 'La evidencia visual se puede regenerar y revisar antes de publicarse.',
             ],
         ],
         'escenas' => [
             [
                 'nombre' => 'Dashboard mobile',
                 'archivo' => 'foco-dashboard-mobile.png',
+                'grupo' => 'resumen',
+                'ancho' => 390,
+                'alto' => 844,
                 'alt' => 'Dashboard mobile de Foco Finanzas con disponible, tarjeta, ingresos y cargos sintéticos.',
                 'descripcion' => 'Resumen mensual con disponible, deuda e ingresos sintéticos.',
                 'formato' => 'mobile',
@@ -120,6 +192,9 @@ return [
             [
                 'nombre' => 'Plan mobile',
                 'archivo' => 'foco-plan-mobile.png',
+                'grupo' => 'planificacion',
+                'ancho' => 390,
+                'alto' => 844,
                 'alt' => 'Plan financiero mobile con presupuestos y una meta de ahorro sintética.',
                 'descripcion' => 'Presupuestos y meta de ahorro construidos con un escenario reproducible.',
                 'formato' => 'mobile',
@@ -128,6 +203,9 @@ return [
             [
                 'nombre' => 'Inversiones desktop',
                 'archivo' => 'foco-inversiones-desktop.png',
+                'grupo' => 'inversiones',
+                'ancho' => 1440,
+                'alto' => 900,
                 'alt' => 'Reporte desktop de inversiones manuales con posiciones y resultado estimado sintético.',
                 'descripcion' => 'Reporte manual de posiciones, valuación y resultado estimado.',
                 'formato' => 'desktop',
@@ -136,6 +214,9 @@ return [
             [
                 'nombre' => 'Movimientos mobile',
                 'archivo' => 'foco-movimientos-mobile.png',
+                'grupo' => 'movimientos',
+                'ancho' => 390,
+                'alto' => 844,
                 'alt' => 'Historial mobile de movimientos sintéticos con una compra en cuotas.',
                 'descripcion' => 'Movimientos, estados y cuotas dentro de un período reproducible.',
                 'formato' => 'mobile',
@@ -144,6 +225,9 @@ return [
             [
                 'nombre' => 'Tarjeta y ciclos mobile',
                 'archivo' => 'foco-tarjeta-ciclos-mobile.png',
+                'grupo' => 'tarjetas',
+                'ancho' => 390,
+                'alto' => 844,
                 'alt' => 'Detalle mobile de una tarjeta sintética con sus ciclos de cierre y vencimiento.',
                 'descripcion' => 'Ciclos de tarjeta y deuda modelados sin duplicar el gasto.',
                 'formato' => 'mobile',
@@ -152,6 +236,9 @@ return [
             [
                 'nombre' => 'Asistente desktop',
                 'archivo' => 'foco-asistente-desktop.png',
+                'grupo' => 'inversiones',
+                'ancho' => 1366,
+                'alto' => 768,
                 'alt' => 'Asistente de Foco con una lectura mensual sintética y una herramienta de solo lectura.',
                 'descripcion' => 'Lectura asistida local, read-only y sin asesoramiento financiero.',
                 'formato' => 'desktop',
