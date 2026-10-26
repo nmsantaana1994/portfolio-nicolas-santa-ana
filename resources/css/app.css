@@ -1,5 +1,15 @@
 @import 'tailwindcss';
 
+.ops-mockup {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 1.5rem;
+    background: var(--papel);
+    box-shadow: 0 16px 40px var(--sombra-captura);
+}
+.ops-pedidos { background: var(--superficie-suave); }
+
 /* Dos vistas ficticias del mismo proceso, sin controles ni movimiento simulado. */
 .sgmh-escena { text-align: left; }
 .sgmh-composicion { display: grid; gap: 1.25rem; align-items: center; }

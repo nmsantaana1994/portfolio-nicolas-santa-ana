@@ -72,3 +72,15 @@ Route::get('/proyectos/sgm-healthy', function () {
         'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
     ]);
 })->name('proyectos.sgm-healthy');
+
+Route::get('/proyectos/plataformas-operativas', function () {
+    $portafolio = config('portafolio');
+
+    return view('proyectos.plataformas-operativas', [
+        'portafolio' => $portafolio,
+        'seo' => array_merge($portafolio['caso_plataformas_operativas']['seo'], [
+            'canonical' => rtrim(config('app.url'), '/').'/proyectos/plataformas-operativas',
+        ]),
+        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
+    ]);
+})->name('proyectos.plataformas-operativas');

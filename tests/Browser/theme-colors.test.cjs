@@ -11,7 +11,7 @@ test('la elección manual cambia colores reales del CSS compilado, incluso contr
         for (const system of ['light', 'dark']) {
             const context = await browser.newContext({ colorScheme: system });
             const page = await context.newPage();
-            for (const route of ['/', '/servicios', '/proyectos/foco-finanzas', '/proyectos/soluciones-comerciales', '/proyectos/terminales', '/proyectos/sgm-healthy']) {
+            for (const route of ['/', '/servicios', '/proyectos/foco-finanzas', '/proyectos/soluciones-comerciales', '/proyectos/terminales', '/proyectos/sgm-healthy', '/proyectos/plataformas-operativas']) {
                 await page.goto(base + route);
                 const colors = {};
                 for (const theme of ['light', 'dark']) {
@@ -25,7 +25,7 @@ test('la elección manual cambia colores reales del CSS compilado, incluso contr
                             text: css('main p').color,
                             hero: css('.fondo-hero').backgroundImage,
                             header: css('body > header').backgroundColor,
-                            card: css('main .superficie-tarjeta, main .superficie-captura, main .terminal-pantalla, main .sgmh-plan').backgroundColor,
+                            card: css('main .superficie-tarjeta, main .superficie-captura, main .terminal-pantalla, main .sgmh-plan, main .ops-mockup').backgroundColor,
                             footer: css('body > footer').backgroundColor,
                         };
                     });

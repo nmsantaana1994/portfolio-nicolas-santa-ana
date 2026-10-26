@@ -44,5 +44,9 @@
                 </article>
             @endforeach
         </div>
+        <a href="{{ route('proyectos.plataformas-operativas', [], false) }}" class="mt-6 flex min-h-11 items-center justify-between gap-5 rounded-2xl border border-slate-300 bg-white p-5 text-acento-700 hover:border-acento-700 sm:p-6">
+            <span><span class="block text-xs font-bold uppercase tracking-wide">Dos experiencias de desarrollo empresarial</span><span class="mt-2 block text-xl font-bold text-tinta-950">ZonalApp + CateringOnline</span><span class="mt-2 block max-w-3xl text-sm leading-6 text-tinta-600">{{ $portafolio['caso_plataformas_operativas']['resumen_home'] }}</span><span class="mt-3 block text-sm font-semibold underline underline-offset-4">Ver el caso conjunto</span></span>
+            @include('portafolio.parciales.indicador-enlace')
+        </a>
     </div>
 </section>

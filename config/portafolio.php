@@ -447,6 +447,48 @@ return [
         ],
     ],
 
+    'caso_plataformas_operativas' => [
+        'seo' => [
+            'titulo' => 'ZonalApp + CateringOnline — Operaciones y pedidos | Nicolás Santa Ana',
+            'descripcion' => 'Creación y evolución de ZonalApp y desarrollo colaborativo de CateringOnline: plataformas internas, interfaces móviles e integración de sistemas.',
+        ],
+        'titulo' => 'Aplicaciones empresariales para organizar operaciones y pedidos',
+        'presentacion' => 'Dos experiencias independientes: una plataforma que reúne procesos de distintos sistemas y una aplicación de pedidos semanales construida en equipo.',
+        'resumen_home' => 'Una plataforma operativa creada desde sus bases y una aplicación de pedidos desarrollada en equipo.',
+        'experiencias' => [
+            [
+                'id' => 'zonalapp', 'nombre' => 'ZonalApp', 'tipo' => 'Creación y evolución',
+                'titulo' => 'Un punto de acceso para la operación.',
+                'descripcion' => 'Los responsables de distintas operaciones necesitan consultar información y resolver tareas de varias áreas. ZonalApp reúne esos recorridos en un portal, con accesos según el perfil y la operación de cada persona.',
+                'participacion' => 'Creé ZonalApp y desarrollé la aplicación desde sus bases. Participé en su evolución junto con otro desarrollador que se sumó posteriormente.',
+                'funciones' => ['Consultas de cantidades, reportes y conciliaciones.', 'Pedidos, recepción de productos y reclamos.', 'Novedades de personal, cartelería y acceso a funciones de otros sistemas.'],
+                'tecnica' => [
+                    'Aplicación y datos' => 'Laravel 12, PHP, MySQL, Blade y Tailwind. Servicios HTTP integran distintas fuentes de información.',
+                    'Acceso por contexto' => 'Autenticación, roles y permisos según perfiles y operaciones. Incluye acceso a otros sistemas mediante SSO.',
+                    'Validación y alcance' => 'Existen pruebas específicas para distintos módulos. Las capacidades identificadas no implican que todos los módulos estén habilitados en producción ni un funcionamiento offline general.',
+                ],
+            ],
+            [
+                'id' => 'cateringonline', 'nombre' => 'CateringOnline', 'tipo' => 'Desarrollo colaborativo',
+                'titulo' => 'La semana de comidas, desde el móvil.',
+                'descripcion' => 'CateringOnline organiza pedidos semanales de comidas: permite consultar menús, seleccionar opciones y administrar cambios según las condiciones del lugar de trabajo y su calendario.',
+                'participacion' => 'Desarrollé CateringOnline junto con mi jefe. Mis contribuciones incluyen la interfaz móvil, avisos, sincronización de ajustes, tratamiento de feriados y mejoras de consultas y flujos.',
+                'funciones' => ['Selección semanal y carrito, con solicitudes individuales y generales.', 'Modificaciones, cancelaciones, avisos y reportes.', 'Reglas según empresa, sucursal, sector, turno y calendario.'],
+                'recuperacion' => 'Ante problemas de comunicación, los ajustes pendientes se conservan y se reintentan. Los resultados se concilian y las situaciones ambiguas contemplan revisión manual.',
+                'tecnica' => [
+                    'Interfaz y persistencia' => 'Laravel 11, Livewire 3, Blade, Tailwind y MySQL. Interfaces adaptadas a móviles para los recorridos de pedido.',
+                    'Integración y recuperación' => 'Integración con el sistema operativo de Consumos, con persistencia de ajustes pendientes, reintentos, conciliación y revisión manual de casos ambiguos. No implica consistencia absoluta entre bases ni ausencia universal de duplicaciones.',
+                    'Pruebas específicas' => 'Existen pruebas del carrito, los ajustes y la recuperación. Su alcance es específico: no se presenta la sincronización como perfecta.',
+                ],
+            ],
+        ],
+        'capacidades' => [
+            ['titulo' => 'Construir y evolucionar', 'descripcion' => 'Desarrollo Full Stack, modelado de procesos e interfaces empresariales, con mantenimiento y evolución de funcionalidades.'],
+            ['titulo' => 'Integrar con control de acceso', 'descripcion' => 'Relacionar información de sistemas existentes y ofrecer recorridos según perfiles, permisos y operaciones.'],
+            ['titulo' => 'Colaborar y recuperar', 'descripcion' => 'Trabajar en equipo y tratar errores de comunicación con estados, reintentos y revisión de resultados.'],
+        ],
+    ],
+
     'proyectos' => [
         [
             'nombre' => 'Sistema de gestión para comedores corporativos',
