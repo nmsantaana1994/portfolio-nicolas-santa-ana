@@ -38,7 +38,7 @@
                 <a href="{{ route('proyectos.soluciones-comerciales', [], false) }}" class="mt-4 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Ver experiencia aplicada: Centralfarm y GlobalMed @include('portafolio.parciales.indicador-enlace')</a>
                 <div class="mt-8 grid gap-6 md:grid-cols-2">
                     @foreach ($servicios['capacidades'] as $capacidad)
-                        <article class="flex min-w-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8" data-servicio>
+                        <article class="superficie-tarjeta flex min-w-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8" data-servicio>
                             <p class="text-sm font-bold text-acento-700" aria-hidden="true">0{{ $loop->iteration }}</p>
                             <h3 class="mt-3 text-2xl font-bold tracking-tight text-tinta-950">{{ $capacidad['titulo'] }}</h3>
                             <p class="mt-4 text-sm leading-7 text-tinta-600">{{ $capacidad['problema'] }}</p>

@@ -35,7 +35,7 @@
                         <p class="mt-4 max-w-3xl text-lg leading-8 text-tinta-600">{{ $experiencia['contexto'] }}</p>
                     </div>
                     <div class="mt-8 grid gap-6 lg:grid-cols-2">
-                        <article class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                        <article class="superficie-tarjeta rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
                             <h3 class="text-lg font-bold text-tinta-950">El desafío</h3>
                             <p class="mt-3 leading-7 text-tinta-600">{{ $experiencia['desafio'] }}</p>
                         </article>

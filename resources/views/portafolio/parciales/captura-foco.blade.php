@@ -1,4 +1,4 @@
-<figure class="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+<figure class="superficie-captura min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
     <a href="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" target="_blank" rel="noopener" class="group flex justify-center rounded-xl bg-tinta-950 p-3" aria-label="Ampliar {{ $escena['nombre'] }}" data-ampliar-foco data-nombre="{{ $escena['nombre'] }}">
         <img data-src="{{ asset('images/projects/foco/light/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $escena['ancho'] }}" height="{{ $escena['alto'] }}" loading="lazy" decoding="async" class="hidden h-auto max-h-[30rem] w-auto max-w-full rounded-lg" data-imagen-foco="light">
         <img src="{{ asset('images/projects/foco/dark/'.$escena['archivo']) }}" alt="{{ $escena['alt'] }}" width="{{ $escena['ancho'] }}" height="{{ $escena['alto'] }}" loading="{{ ($prioritaria ?? false) ? 'eager' : 'lazy' }}" decoding="async" class="h-auto max-h-[30rem] w-auto max-w-full rounded-lg" data-imagen-foco="dark">

@@ -19,7 +19,7 @@
                     <a href="#producto-en-uso" class="hero-accion mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Explorar el producto @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])</a>
                     <div class="mt-5 rounded-xl border border-slate-200 bg-white/80 p-3 sm:p-4">
                         <p class="text-sm font-semibold text-tinta-950">Tema de las capturas</p>
-                        <div class="mt-2 inline-flex rounded-lg bg-tinta-950 p-1" role="group" aria-label="Tema de las capturas">
+                        <div class="selector-capturas mt-2 inline-flex rounded-lg bg-tinta-950 p-1" role="group" aria-label="Tema de las capturas">
                             <button type="button" class="min-h-11 rounded-md px-4 text-sm font-semibold text-slate-300" aria-pressed="false" data-tema-foco="light">Claro</button>
                             <button type="button" class="min-h-11 rounded-md bg-white px-4 text-sm font-semibold text-tinta-950" aria-pressed="true" data-tema-foco="dark">Oscuro</button>
                         </div>
@@ -42,7 +42,7 @@
                 <p class="text-xs font-bold uppercase tracking-[0.14em] text-acento-700">El punto de partida</p>
                 <h2 id="titulo-problema" class="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Los movimientos aislados no cuentan toda la historia.</h2>
                 <div class="mt-8 grid gap-6 md:grid-cols-2">
-                    <article class="rounded-2xl border border-slate-200 p-6 sm:p-8">
+                    <article class="superficie-tarjeta rounded-2xl border border-slate-200 p-6 sm:p-8">
                         <h3 class="font-bold text-tinta-950">El problema</h3>
                         <p class="mt-3 leading-7 text-tinta-600">{{ $proyecto['problema'] }}</p>
                     </article>
@@ -85,7 +85,7 @@
         <section class="border-b border-slate-200 bg-slate-50 pb-14 sm:pb-20" aria-label="Experiencia, privacidad y administración">
             <div class="mx-auto grid max-w-7xl gap-5 px-5 sm:px-8 lg:grid-cols-3 lg:px-10">
                 @foreach ($proyecto['capacidades'] as $capacidad)
-                    <article class="rounded-2xl border border-slate-200 bg-white p-6">
+                        <article class="superficie-tarjeta rounded-2xl border border-slate-200 bg-white p-6">
                         <h2 class="text-lg font-bold text-tinta-950">{{ $capacidad['titulo'] }}</h2>
                         <p class="mt-3 text-sm leading-7 text-tinta-600">{{ $capacidad['descripcion'] }}</p>
                     </article>
