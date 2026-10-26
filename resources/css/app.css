@@ -1,5 +1,36 @@
 @import 'tailwindcss';
 
+/* Dos vistas ficticias del mismo proceso, sin controles ni movimiento simulado. */
+.sgmh-escena { text-align: left; }
+.sgmh-composicion { display: grid; gap: 1.25rem; align-items: center; }
+.sgmh-plan {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 1.5rem;
+    background: var(--papel);
+    box-shadow: 0 16px 40px var(--sombra-captura);
+}
+.sgmh-vinculo { justify-self: center; transform: rotate(90deg); }
+.sgmh-movil {
+    width: min(100%, 18rem);
+    justify-self: center;
+    padding: 0.5rem;
+    border: 1px solid var(--borde-control);
+    border-radius: 2rem;
+    background: var(--papel);
+    box-shadow: 0 20px 44px var(--sombra-captura);
+}
+.sgmh-movil-pantalla { overflow: hidden; border: 1px solid var(--borde); border-radius: 1.5rem; background: var(--superficie-suave); }
+.sgmh-auricular { width: 3rem; height: 0.25rem; margin: 0.75rem auto 0; border-radius: 1rem; background: var(--borde-control); }
+.sgmh-plato { display: block; width: 100%; height: auto; }
+.sgmh-plato-plan { display: none; }
+@media (min-width: 40rem) {
+    .sgmh-composicion { grid-template-columns: minmax(0, 1.7fr) 1rem minmax(0, 1fr); gap: 1rem; }
+    .sgmh-vinculo { transform: none; }
+    .sgmh-plato-plan { display: block; }
+}
+
 /* Presentación ficticia de Terminales; sin interacciones ni animación decorativa. */
 .terminal-presentacion {
     padding: 0.75rem;

@@ -181,11 +181,11 @@ class PortafolioTest extends TestCase
         $this->assertSame(1, $xpath->query('//*[@id="foco-finanzas"]/div/div/figure')->length);
     }
 
-    public function test_muestra_cuatro_proyectos_con_contexto_y_resultado(): void
+    public function test_muestra_cinco_proyectos_con_contexto_y_resultado(): void
     {
         $proyectos = config('portafolio.proyectos');
 
-        $this->assertCount(4, $proyectos);
+        $this->assertCount(5, $proyectos);
 
         foreach ($proyectos as $proyecto) {
             $this->assertArrayHasKey('contexto', $proyecto);

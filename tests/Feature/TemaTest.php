@@ -10,7 +10,7 @@ class TemaTest extends TestCase
 {
     public function test_todas_las_paginas_comparten_un_control_de_apariencia_con_tres_opciones(): void
     {
-        foreach (['inicio', 'servicios', 'proyectos.foco-finanzas', 'proyectos.soluciones-comerciales', 'proyectos.terminales'] as $ruta) {
+        foreach (['inicio', 'servicios', 'proyectos.foco-finanzas', 'proyectos.soluciones-comerciales', 'proyectos.terminales', 'proyectos.sgm-healthy'] as $ruta) {
             $html = $this->get(route($ruta))->assertOk()->getContent();
             $documento = new DOMDocument;
             @$documento->loadHTML($html);

@@ -401,6 +401,52 @@ return [
         'evolucion' => 'Edge continúa en desarrollo y laboratorio. Es una línea de evolución separada: sus funciones no se presentan como parte del circuito actual.',
     ],
 
+    // Información funcional y autoría confirmadas por el titular para el caso público.
+    'caso_sgm_healthy' => [
+        'seo' => [
+            'titulo' => 'SGM + Healthy — Planificación y comensales | Nicolás Santa Ana',
+            'descripcion' => 'Dos aplicaciones desarrolladas por Nicolás Santa Ana: SGM para planificar menús y Healthy para consultar información y registrar comidas.',
+        ],
+        'titulo' => 'De la planificación del menú a la experiencia del comensal',
+        'presentacion' => 'Desarrollé dos aplicaciones relacionadas: SGM organiza la planificación interna de menús y Healthy acerca esa información a las personas que los consultan.',
+        'problema' => 'Planificar para distintas operaciones implica coordinar menús, recetas, cantidades y revisiones. Esa información también tiene que estar disponible para quienes consultan qué van a comer.',
+        'solucion' => 'SGM acompaña la gestión de los equipos internos. Healthy presenta menús, recetas y contenido al comensal, con su propio perfil y registro personal de comidas. Dos responsabilidades distintas dentro de un mismo proceso.',
+        'aplicaciones' => [
+            [
+                'nombre' => 'SGM', 'ambito' => 'Equipos internos',
+                'titulo' => 'Organizar, revisar y publicar.',
+                'descripcion' => 'Planificación semanal y menús generales que se adaptan por operación, con cantidades, recetas e ingredientes.',
+                'funciones' => ['Revisión y aprobación de propuestas hasta el cierre y la publicación.', 'Históricos y proyecciones para acompañar el trabajo de planificación.', 'Gestión relacionada con costos, compras e integración empresarial.'],
+            ],
+            [
+                'nombre' => 'Healthy', 'ambito' => 'Comensales',
+                'titulo' => 'Consultar y llevar un registro propio.',
+                'descripcion' => 'Menús diarios y semanales, recetas y contenido sobre alimentación en una interfaz orientada al usuario final.',
+                'funciones' => ['Autenticación propia y gestión de perfil.', 'Registro personal de comidas, historial y resúmenes de consumos.', 'Una experiencia de consulta y registro, no un producto médico ni una promesa de resultados de salud.'],
+            ],
+        ],
+        'recorrido' => [
+            ['aplicacion' => 'SGM', 'titulo' => 'Se planifica el menú', 'descripcion' => 'Los equipos internos organizan menús y recetas para la semana.'],
+            ['aplicacion' => 'SGM', 'titulo' => 'Se adapta y publica', 'descripcion' => 'La información se adapta por operación y se publica según el proceso correspondiente.'],
+            ['aplicacion' => 'Healthy', 'titulo' => 'La información llega a la consulta', 'descripcion' => 'Healthy utiliza la información de menús, recetas y contenido disponible desde SGM.'],
+            ['aplicacion' => 'Healthy', 'titulo' => 'El comensal elige qué consultar', 'descripcion' => 'Puede recorrer menús diarios y semanales y ver recetas.'],
+            ['aplicacion' => 'Healthy', 'titulo' => 'La experiencia se vuelve personal', 'descripcion' => 'El perfil y el registro de comidas complementan la consulta con historial y resúmenes propios.'],
+        ],
+        'participacion' => 'Creé y desarrollé SGM y Healthy desde sus bases. Soy el desarrollador principal de SGM y mi trabajo en ambas aplicaciones abarca análisis de procesos, modelado de información, backend, interfaces e integraciones correspondientes.',
+        'capacidades' => [
+            ['titulo' => 'Traducir procesos', 'descripcion' => 'Convertir tareas de planificación, revisión y publicación en funcionalidades y estados de trabajo.'],
+            ['titulo' => 'Conectar aplicaciones', 'descripcion' => 'Relacionar información de un mismo dominio sin confundir las responsabilidades de cada sistema.'],
+            ['titulo' => 'Diseñar para distintos perfiles', 'descripcion' => 'Construir interfaces para equipos internos y usuarios finales, y acompañar su evolución y mantenimiento.'],
+        ],
+        'tecnica' => [
+            'Aplicaciones y persistencia' => 'SGM utiliza Laravel 10; Healthy, Laravel 11. Ambas aplicaciones emplean PHP, MySQL y Blade. SGM también incluye herramientas de administración del dominio Healthy.',
+            'Responsabilidades y autenticación' => 'Healthy tiene autenticación propia. La relación entre aplicaciones no supone inicio de sesión único, una base de datos compartida por todos los módulos ni sincronización bidireccional completa.',
+            'Estados e históricos' => 'En SGM, los workflows acompañan revisión, aprobación, cierre y publicación de menús, con conservación de históricos.',
+            'Pruebas' => 'SGM dispone de pruebas específicas de workflows, estados, menús y exportaciones. El relevamiento de Healthy no identificó cobertura específica de negocio; no se presenta como una suite funcional extensa.',
+            'Alcance de implementación' => 'Las funcionalidades descritas fueron identificadas en el relevamiento. Su habilitación y las integraciones disponibles dependen del entorno; no se afirma que todos los módulos estén desplegados en producción.',
+        ],
+    ],
+
     'proyectos' => [
         [
             'nombre' => 'Sistema de gestión para comedores corporativos',
@@ -438,6 +484,18 @@ return [
             'resultado' => 'Procesos comerciales y operativos centralizados en una herramienta web adaptada al circuito de la droguería.',
             'stack' => ['PHP', 'Laravel', 'MySQL', 'Blade', 'Bootstrap'],
             'responsabilidades' => 'Relevamiento, modelado, implementación full stack, despliegue y mantenimiento.',
+        ],
+        [
+            'nombre' => 'SGM + Healthy: planificación y experiencia del comensal',
+            'contexto' => 'Desarrollo empresarial',
+            'ruta_caso' => 'proyectos.sgm-healthy',
+            'enlace_caso' => 'SGM + Healthy: ver caso completo',
+            'ancho_completo' => true,
+            'problema' => 'Coordinar la planificación de menús y la información que consulta el comensal.',
+            'solucion' => 'Dos aplicaciones relacionadas, una para los equipos internos y otra para el usuario final.',
+            'responsabilidades' => 'Creé ambas aplicaciones desde sus bases: procesos, datos, backend, interfaces e integraciones.',
+            'resultado' => 'Planificación, publicación y consulta conectadas, con responsabilidades propias para cada aplicación.',
+            'stack' => ['PHP', 'Laravel 10', 'Laravel 11', 'MySQL', 'Blade'],
         ],
     ],
 

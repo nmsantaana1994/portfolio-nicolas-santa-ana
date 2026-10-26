@@ -9,10 +9,10 @@
 
         <div class="mt-8 grid gap-6 md:grid-cols-2">
             @foreach ($portafolio['proyectos'] as $proyecto)
-                <article class="superficie-tarjeta flex flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                <article @class(['superficie-tarjeta flex flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8', 'md:col-span-2' => $proyecto['ancho_completo'] ?? false])>
                     <p class="text-xs font-bold uppercase tracking-[0.14em] text-acento-700">{{ $proyecto['contexto'] }}</p>
                     <h3 class="mt-3 text-xl font-bold text-tinta-950 sm:text-2xl">{{ $proyecto['nombre'] }}</h3>
-                    <dl class="mt-7 space-y-5">
+                    <dl @class(['mt-7', 'grid gap-5 md:grid-cols-2 md:gap-x-10' => $proyecto['ancho_completo'] ?? false, 'space-y-5' => ! ($proyecto['ancho_completo'] ?? false)])>
                         <div>
                             <dt class="text-xs font-bold uppercase tracking-[0.14em] text-tinta-400">Problema</dt>
                             <dd class="mt-2 leading-7 text-tinta-600">{{ $proyecto['problema'] }}</dd>
@@ -31,7 +31,7 @@
                         </div>
                     </dl>
                     @if (isset($proyecto['ruta_caso']))
-                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="mt-5 inline-flex min-h-11 items-center gap-2 self-start rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Terminales + Agente: ver caso completo @include('portafolio.parciales.indicador-enlace')</a>
+                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="mt-5 inline-flex min-h-11 items-center gap-2 self-start rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">{{ $proyecto['enlace_caso'] ?? 'Terminales + Agente: ver caso completo' }} @include('portafolio.parciales.indicador-enlace')</a>
                     @endif
                     <details class="group mt-6 border-t border-slate-200 pt-2">
                         <summary class="cursor-pointer rounded-md py-3 text-sm font-semibold text-acento-700">Tecnologías utilizadas</summary>

@@ -60,3 +60,15 @@ Route::get('/proyectos/terminales', function () {
         'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
     ]);
 })->name('proyectos.terminales');
+
+Route::get('/proyectos/sgm-healthy', function () {
+    $portafolio = config('portafolio');
+
+    return view('proyectos.sgm-healthy', [
+        'portafolio' => $portafolio,
+        'seo' => array_merge($portafolio['caso_sgm_healthy']['seo'], [
+            'canonical' => rtrim(config('app.url'), '/').'/proyectos/sgm-healthy',
+        ]),
+        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
+    ]);
+})->name('proyectos.sgm-healthy');
