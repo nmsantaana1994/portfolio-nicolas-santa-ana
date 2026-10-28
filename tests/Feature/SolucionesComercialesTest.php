@@ -24,17 +24,18 @@ class SolucionesComercialesTest extends TestCase
                 $respuesta->assertSee($funcionalidad['titulo'])->assertSee($funcionalidad['descripcion']);
             }
 
-            foreach (['Implementado', 'Validado', 'Despliegue', 'Pendiente'] as $estado) {
-                $respuesta->assertSee($estado)->assertSee($experiencia['evidencia'][$estado]);
+            foreach ($experiencia['practicas'] as $titulo => $descripcion) {
+                $respuesta->assertSee($titulo)->assertSee($descripcion);
             }
         }
 
         $respuesta->assertSee('reconstrucción completa y del desarrollo integral')
-            ->assertSee('no implica autoría de los sistemas externos')
+            ->assertSee('integrando los sistemas externos y las reglas de negocio existentes')
             ->assertSee('Recibí una aplicación web heredada')
-            ->assertSee('no de construcción desde cero')
-            ->assertSee('no certifica qué versión está desplegada')
-            ->assertSee('No publica pantallas internas');
+            ->assertSee('evolución progresiva')
+            ->assertSee('Cómo está construida Centralfarm')
+            ->assertDontSee('Estado, tecnologías y alcance de la evidencia')
+            ->assertDontSee('no certifica qué versión está desplegada');
     }
 
     public function test_el_seo_es_especifico_y_el_autor_conserva_la_url_principal(): void
@@ -85,6 +86,7 @@ class SolucionesComercialesTest extends TestCase
         $this->assertSame(0, $xpath->query('//main//img | //main//form')->length);
         $this->assertSame(2, $xpath->query('//details[@data-evidencia-empresarial]')->length);
         $this->assertSame(0, $xpath->query('//details[@open]')->length);
+        $this->assertSame(0, $xpath->query('//details[@data-evidencia-empresarial]//dt[text()="Implementado" or text()="Validado" or text()="Despliegue" or text()="Pendiente"]')->length);
 
         foreach (config('portafolio.caso_empresarial.experiencias') as $experiencia) {
             $seccion = $xpath->query('//section[@id="'.$experiencia['id'].'"]')->item(0);

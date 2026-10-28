@@ -19,10 +19,9 @@ class TerminalesTest extends TestCase
 
         $respuesta->assertSee('Creé y desarrollé desde cero Terminales y Agente Terminales')
             ->assertSee('Soy responsable del desarrollo de ambos sistemas')
-            ->assertSee('Durante mis ausencias, otras personas realizaron intervenciones puntuales')
             ->assertSee('no todos los circuitos pueden operar offline')
             ->assertSee('depende de la información disponible localmente')
-            ->assertSee('Edge continúa en desarrollo y laboratorio')
+            ->assertSee('Edge es una línea en desarrollo y laboratorio')
             ->assertDontSee('no adjunta resultados fechados')
             ->assertDontSee('no certifica')
             ->assertDontSee('El historial también incluye');
@@ -46,7 +45,8 @@ class TerminalesTest extends TestCase
         $this->assertSame(5, $xpath->query('//ol[@data-recorrido-terminales]/li')->length);
         $this->assertSame(1, $xpath->query('//figure[@data-terminal-demo]')->length);
         $this->assertSame(0, $xpath->query('//figure[@data-terminal-demo]//button')->length);
-        $this->assertStringContainsString('Interfaz ficticia', $xpath->evaluate('string(//figure[@data-terminal-demo])'));
+        $this->assertStringContainsString('Recreación ficticia', $xpath->evaluate('string(//figure[@data-terminal-demo]/figcaption)'));
+        $this->assertStringNotContainsString('Demo', $xpath->evaluate('string(//figure[@data-terminal-demo])'));
         $this->assertSame(0, $xpath->query('//main//svg[not(@aria-hidden="true")]')->length);
         $this->assertSame(0, $xpath->query('//main//details[@open]')->length);
 

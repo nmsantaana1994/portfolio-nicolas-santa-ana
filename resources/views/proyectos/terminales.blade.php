@@ -30,7 +30,6 @@
                 <div id="participacion" class="mt-10 scroll-mt-24 border-l-4 border-acento-700 pl-5 sm:pl-7" aria-labelledby="titulo-participacion">
                     <h3 id="titulo-participacion" class="text-lg font-bold text-tinta-950">Mi responsabilidad</h3>
                     <p class="mt-3 max-w-3xl text-lg leading-8 text-tinta-700">{{ $caso['participacion'] }}</p>
-                    <p class="mt-3 text-sm leading-6 text-tinta-600">{{ $caso['colaboracion'] }}</p>
                 </div>
             </div>
         </section>
@@ -68,7 +67,7 @@
                 </div>
                 <p class="mt-8 max-w-3xl leading-7 text-tinta-600">La persistencia local, los identificadores y estados, los reintentos y las pruebas específicas acompañan la recuperación y el seguimiento de las operaciones.</p>
                 <details class="group mt-8 rounded-2xl border border-slate-200 bg-white" data-detalle-terminales>
-                    <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Arquitectura y decisiones de confiabilidad</summary>
+                    <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Cómo se conectan y recuperan las operaciones</summary>
                     <div class="border-t border-slate-200 p-5 sm:p-8">
                         <figure aria-labelledby="flujo-terminales">
                             <ol class="grid gap-6 md:grid-cols-3" data-flujo-terminales>

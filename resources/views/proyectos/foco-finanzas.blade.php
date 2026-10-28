@@ -129,12 +129,12 @@
         <section id="calidad" class="scroll-mt-24 py-14 sm:py-20" aria-labelledby="titulo-calidad">
             <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
                 <p class="text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Calidad y entrega</p>
-                <h2 id="titulo-calidad" class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">La evidencia también forma parte del desarrollo.</h2>
+                <h2 id="titulo-calidad" class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Probar las reglas, cuidar cada entrega.</h2>
                 <p class="mt-5 max-w-3xl leading-7 text-tinta-600">Las pruebas comprueban reglas financieras, flujos de uso y operaciones simultáneas. La integración continua valida cada entrega; la revisión manual completa la comprobación de la experiencia de uso.</p>
                 <p class="mt-4 max-w-3xl leading-7 text-tinta-600">PHPUnit y Playwright respaldan este proceso. GitHub Actions mantiene tres jobs de Quality sobre un runner Linux self-hosted: SQLite, PostgreSQL 18 y Browser. La entrega a staging en Railway combina integración por PR, despliegue y comprobaciones manuales.</p>
                 <div class="mt-8 rounded-2xl border border-blue-100 bg-acento-50 p-6 sm:p-8">
                     <h3 class="text-lg font-bold text-tinta-950">Validaciones documentadas · octubre de 2026</h3>
-                    <p class="mt-2 text-sm leading-6 text-tinta-600">Las suites PHP corresponden al cierre del 10/10/2026. Son ejecuciones por motor, no métricas actuales ni pruebas únicas que se puedan sumar. Los omitidos dependen del motor y se conservan explícitamente.</p>
+                    <p class="mt-2 text-sm leading-6 text-tinta-600">Resultados históricos del 10/10/2026, separados por motor de base de datos. Los conteos no se suman entre sí e incluyen las pruebas omitidas de cada ejecución.</p>
                     <dl class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                         @foreach ($proyecto['metricas'] as $metrica)
                             <div><dt class="text-sm font-semibold text-tinta-700">{{ $metrica['etiqueta'] }}</dt><dd class="mt-2 text-4xl font-bold text-acento-700">{{ $metrica['valor'] }}</dd><dd class="mt-2 text-xs leading-5 text-tinta-600">{{ $metrica['detalle'] }}</dd></div>
@@ -142,11 +142,11 @@
                     </dl>
                 </div>
                 <details class="group mt-6 rounded-2xl border border-slate-200" data-alcance-evidencia>
-                    <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Consultar el alcance de las pruebas, la recuperación y la seguridad</summary>
+                    <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Pruebas, recuperación y seguridad</summary>
                     <div class="border-t border-slate-200 p-5 sm:p-6">
                         <h3 class="font-bold text-tinta-950">Pruebas y entrega</h3>
                         <p class="mt-3 max-w-3xl text-sm leading-6 text-tinta-600">PHPUnit cubre pruebas Unit y Feature, incluida concurrencia en PostgreSQL. Playwright comprueba navegación, renderizado, foco, teclado y responsive en Chromium desktop y mobile; no acredita todos los navegadores ni todos los circuitos financieros persistidos. La suite Browser completa sigue siendo la referencia de los PR; los perfiles reducidos y el piloto paralelo Docker permanecen experimentales y manuales.</p>
-                        <p class="mt-3 max-w-3xl text-sm leading-6 text-tinta-600">Docker es el entorno principal de desarrollo de Foco, con Laragon como alternativa. Un pipeline verde no sustituye el smoke test ni la revisión visual.</p>
+                        <p class="mt-3 max-w-3xl text-sm leading-6 text-tinta-600">Docker es el entorno principal de desarrollo de Foco, con Laragon como alternativa. Las comprobaciones automáticas se complementan con una revisión funcional y visual.</p>
                         <p class="mt-3 max-w-3xl text-sm leading-6 text-tinta-600">La evidencia Browser documentada del 20/10/2026 registra 171 casos aprobados y 11 omitidos en una ejecución full. El piloto critical de esa fecha aprobó 18 y omitió 4: es otra selección, no una ampliación de cobertura ni un reemplazo de full. Estos resultados proceden de la documentación del proyecto; no se volvieron a ejecutar para elaborar este caso.</p>
                         <h3 class="mt-6 font-bold text-tinta-950">Recuperación</h3>
                         <p class="mt-3 max-w-3xl text-sm leading-6 text-tinta-600">En julio se validó un restore local sintético de 48 tablas. En septiembre, un ejercicio posterior demostró backup real → restauración aislada → aplicación operativa e invariantes verificadas, con resultado «utilizable con limitaciones» y cierre documentado el 30/09/2026. No acredita recuperación integral de archivos adjuntos, servicios externos ni un plan completo de disaster recovery.</p>

@@ -74,7 +74,8 @@ class FocoFinanzasTest extends TestCase
 
         $respuesta->assertSee(config('portafolio.proyecto_insignia.responsabilidades'))
             ->assertSee('Validaciones documentadas · octubre de 2026')
-            ->assertSee('no métricas actuales')
+            ->assertSee('Resultados históricos del 10/10/2026')
+            ->assertSee('Los conteos no se suman entre sí')
             ->assertSee('48 tablas')
             ->assertSee('No acredita recuperación integral de archivos adjuntos')
             ->assertSee('opt-in explícito')
@@ -174,6 +175,6 @@ class FocoFinanzasTest extends TestCase
         $this->assertSame(0, $xpath->query('//details[@data-alcance-evidencia and @open]')->length);
         $this->assertSame(0, $xpath->query('//section[@id="producto-en-uso"]//details')->length);
         $this->assertSame(1, $xpath->query('//section[@id="calidad"]//dl[not(ancestor::details)]')->length);
-        $this->assertStringContainsString('recuperación y la seguridad', $xpath->evaluate('string(//details[@data-alcance-evidencia]/summary)'));
+        $this->assertStringContainsString('recuperación y seguridad', $xpath->evaluate('string(//details[@data-alcance-evidencia]/summary)'));
     }
 }

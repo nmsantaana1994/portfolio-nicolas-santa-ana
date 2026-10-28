@@ -19,9 +19,9 @@ class SgmHealthyTest extends TestCase
             ->assertSee('desarrollador principal de SGM')
             ->assertSee('no un producto médico')
             ->assertSee('autenticación propia')
-            ->assertSee('no supone inicio de sesión único')
-            ->assertSee('no identificó cobertura específica de negocio')
-            ->assertSee('no se afirma que todos los módulos estén desplegados en producción');
+            ->assertSee('Cada aplicación conserva sus responsabilidades')
+            ->assertSee('Pruebas en SGM')
+            ->assertDontSee('no identificó cobertura específica de negocio');
         foreach ($caso['aplicaciones'] as $aplicacion) {
             $respuesta->assertSee($aplicacion['descripcion']);
             foreach ($aplicacion['funciones'] as $funcion) {
@@ -51,8 +51,9 @@ class SgmHealthyTest extends TestCase
         $this->assertSame(0, $xpath->query('//details[@open]')->length);
         $this->assertSame(0, $xpath->query('//*[@data-recorrido-sgm-healthy]/ancestor::details')->length);
         $mockup = $xpath->evaluate('string(//figure[@data-sgm-healthy-demo])');
-        $this->assertStringContainsString('Persona Demo', $mockup);
-        $this->assertStringContainsString('Cantidad ficticia: 24 porciones', $mockup);
+        $this->assertStringContainsString('Mi espacio', $mockup);
+        $this->assertStringContainsString('24 porciones', $mockup);
+        $this->assertStringNotContainsString('Demo', $mockup);
         $this->assertStringContainsString('no pantallas internas', $mockup);
         foreach ($xpath->query('//main//a[starts-with(@href,"#")]') as $enlace) {
             $this->assertSame(1, $xpath->query('//*[@id="'.substr($enlace->getAttribute('href'), 1).'"]')->length);

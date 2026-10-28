@@ -29,8 +29,9 @@ class PlataformasOperativasTest extends TestCase
             ->assertSee('Desarrollé CateringOnline junto con mi jefe')
             ->assertSee('interfaz móvil, avisos, sincronización de ajustes, tratamiento de feriados')
             ->assertSee('revisión manual')
-            ->assertSee('no implican que todos los módulos estén habilitados en producción')
-            ->assertSee('no se presenta la sincronización como perfecta');
+            ->assertSee('Pruebas por módulo')
+            ->assertSee('Pruebas del carrito, los ajustes y la recuperación')
+            ->assertDontSee('ausencia universal de duplicaciones');
     }
 
     public function test_los_mockups_son_estaticos_ficticios_y_los_detalles_son_secundarios(): void
@@ -46,6 +47,8 @@ class PlataformasOperativasTest extends TestCase
         $this->assertSame(0, $xpath->query('//main//svg[not(@aria-hidden="true")]')->length);
         $this->assertSame(2, $xpath->query('//details[@data-tecnica-plataforma]')->length);
         $this->assertSame(0, $xpath->query('//main//details[@open]')->length);
+        $this->assertSame(2, $xpath->query('//main//figure/figcaption')->length);
+        $this->assertStringNotContainsString('Demo', $xpath->evaluate('string(//main)'));
         $this->assertStringContainsString('Dashboard ficticio', $xpath->evaluate('string(//figure[@data-demo-zonalapp])'));
         $this->assertStringContainsString('Pedido ficticio', $xpath->evaluate('string(//figure[@data-demo-cateringonline])'));
         foreach (config('portafolio.caso_plataformas_operativas.experiencias') as $experiencia) {

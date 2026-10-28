@@ -57,7 +57,7 @@
                         <p class="mt-3 max-w-4xl leading-7 text-tinta-600">{{ $experiencia['resultado'] }}</p>
                     </div>
                     <details class="group mt-6 rounded-2xl border border-slate-200 bg-white" data-evidencia-empresarial>
-                        <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Estado, tecnologías y alcance de la evidencia de {{ $experiencia['nombre'] }}</summary>
+                        <summary class="cursor-pointer rounded-2xl px-5 py-5 font-semibold text-acento-700">Cómo está construida {{ $experiencia['nombre'] }}</summary>
                         <div class="border-t border-slate-200 p-5 sm:p-6">
                             <ul class="flex flex-wrap gap-2" aria-label="Tecnologías de {{ $experiencia['nombre'] }}">
                                 @foreach ($experiencia['stack'] as $tecnologia)
@@ -65,8 +65,8 @@
                                 @endforeach
                             </ul>
                             <dl class="mt-6 grid gap-5 md:grid-cols-2">
-                                @foreach ($experiencia['evidencia'] as $estado => $descripcion)
-                                    <div><dt class="font-bold text-tinta-950">{{ $estado }}</dt><dd class="mt-2 text-sm leading-7 text-tinta-600">{{ $descripcion }}</dd></div>
+                                @foreach ($experiencia['practicas'] as $titulo => $descripcion)
+                                    <div><dt class="font-bold text-tinta-950">{{ $titulo }}</dt><dd class="mt-2 text-sm leading-7 text-tinta-600">{{ $descripcion }}</dd></div>
                                 @endforeach
                             </dl>
                         </div>
@@ -106,7 +106,6 @@
                     <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Volver a los proyectos</a>
                     <a href="{{ route('inicio', [], false) }}#contacto" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Otras formas de contacto</a>
                 </div>
-                <p class="mt-6 max-w-3xl text-xs leading-6 text-tinta-600">Este caso presenta información funcional general y participación profesional confirmada por el titular. No publica pantallas internas, datos comerciales ni código propietario. Las verificaciones locales no certifican el estado actual de los servicios productivos.</p>
             </div>
         </section>
     </main>

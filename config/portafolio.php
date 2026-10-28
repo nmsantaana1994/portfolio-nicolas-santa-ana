@@ -218,9 +218,9 @@ return [
                 'consecuencia' => 'Pagar la deuda no vuelve a contabilizar el consumo como un nuevo gasto.',
             ],
             [
-                'titulo' => 'Ownership probado',
+                'titulo' => 'Acceso a la información propia',
                 'problema' => 'Cada persona debe acceder únicamente a sus propios recursos financieros.',
-                'descripcion' => 'Consultas y referencias user-scoped se cubren con pruebas adversariales sobre SQLite y PostgreSQL 18.',
+                'descripcion' => 'Las consultas se limitan a la información de cada usuario y se prueban intentos de acceso ajeno sobre SQLite y PostgreSQL 18.',
                 'consecuencia' => 'El aislamiento se verifica a nivel de aplicación; no implica RLS ni separación física por usuario.',
             ],
             [
@@ -317,14 +317,18 @@ return [
                 'resumen' => 'Desarrollo completo de la nueva aplicación web.',
                 'contexto' => 'Una aplicación para la operación comercial de una droguería, con recorridos diferenciados para clientes y vendedores.',
                 'desafio' => 'Reconstruir la web para acompañar la consulta de productos, la preparación de pedidos y las necesidades de administración, respetando el contexto comercial existente.',
-                'participacion' => 'Estuve a cargo de la reconstrucción completa y del desarrollo integral de la aplicación web actual: backend, interfaz y adaptación de los flujos comerciales. Esto no implica autoría de los sistemas externos ni de las reglas de negocio originales.',
+                'participacion' => 'Estuve a cargo de la reconstrucción completa y del desarrollo integral de la aplicación web actual: backend, interfaz y adaptación de los flujos comerciales, integrando los sistemas externos y las reglas de negocio existentes.',
                 'resultado' => 'La aplicación reúne catálogo, armado y seguimiento de pedidos, importación de archivos y controles de acceso en una herramienta web para la operación.',
                 'funcionalidades' => [
                     ['titulo' => 'Del catálogo al pedido', 'descripcion' => 'Consulta de productos, carrito, confirmación, historial y repetición de pedidos, con validaciones según el cliente y el contexto del vendedor.'],
                     ['titulo' => 'Importaciones con revisión', 'descripcion' => 'Carga de pedidos desde archivos, previsualización y confirmación, con devolución de las líneas no procesadas para poder revisarlas.'],
-                    ['titulo' => 'Administración y consultas', 'descripcion' => 'Gestión de usuarios y permisos por módulo. La consulta de cuenta corriente tiene un alcance restringido y documentado como piloto, no una habilitación general.'],
+                    ['titulo' => 'Administración y consultas', 'descripcion' => 'Gestión de usuarios y permisos por módulo, con una consulta de cuenta corriente en etapa piloto y de acceso restringido.'],
                 ],
                 'stack' => ['PHP', 'Laravel 10', 'MySQL', 'Blade', 'JavaScript', 'Bootstrap', 'AG Grid'],
+                'practicas' => [
+                    'Pedidos con revisión' => 'La importación permite revisar los datos antes de confirmar y devuelve las líneas que necesitan corrección.',
+                    'Accesos y pruebas' => 'Permisos por módulo y pruebas Unit y Feature acompañan los recorridos comerciales y administrativos.',
+                ],
                 'evidencia' => [
                     'Implementado' => 'Código de la aplicación, flujos comerciales y administración presentes en el repositorio. El historial registra intervenciones sobre pedidos, importación, consultas y permisos.',
                     'Validado' => 'Existen pruebas Unit y Feature y resultados históricos documentados. No se ejecutaron de nuevo las pruebas empresariales para publicar este caso.',
@@ -339,14 +343,18 @@ return [
                 'resumen' => 'Mantenimiento, optimización y nuevas funcionalidades.',
                 'contexto' => 'Una aplicación empresarial existente que acompaña pedidos, consultas comerciales e intercambio de información con otros sistemas.',
                 'desafio' => 'Mejorar pantallas y sumar funciones sin interrumpir los recorridos de trabajo ni cambiar sin revisión la forma en que el sistema intercambia información.',
-                'participacion' => 'Recibí una aplicación web heredada y realizo su mantenimiento, optimizaciones y desarrollo de nuevas funcionalidades. Mi intervención es de evolución progresiva, no de construcción desde cero ni de autoría de todo el código existente.',
-                'resultado' => 'El trabajo combina continuidad del circuito comercial con mejoras de interfaz, validaciones y funciones de administración. Las implementaciones locales y las entregas documentadas se distinguen de la aceptación final en el entorno operativo.',
+                'participacion' => 'Recibí una aplicación web heredada y realizo su mantenimiento, optimizaciones y desarrollo de nuevas funcionalidades. Trabajo sobre el sistema existente para acompañar su uso y evolución progresiva.',
+                'resultado' => 'El trabajo combina continuidad del circuito comercial con mejoras de interfaz, validaciones y funciones de administración.',
                 'funcionalidades' => [
                     ['titulo' => 'Pedidos e importaciones', 'descripcion' => 'Mantenimiento de recorridos de pedido y formatos de intercambio, con restricciones comerciales y reglas configurables para la devolución de información importada.'],
-                    ['titulo' => 'Interfaces para la operación', 'descripcion' => 'Las mejoras revisadas incluyen grillas, paginación, teclado y navegación, además de nuevas funciones administrativas. Su presencia en una copia local no demuestra su publicación en todos los entornos.'],
-                    ['titulo' => 'Intercambio de información', 'descripcion' => 'La aplicación dispone de APIs para recibir datos por lotes y entregar pedidos con confirmación de recepción. El consumidor externo no formó parte del relevamiento: no se certifica aquí el circuito completo en producción.'],
+                    ['titulo' => 'Interfaces para la operación', 'descripcion' => 'Mejoras en las tablas de datos, la paginación y la navegación con teclado, junto con nuevas funciones administrativas.'],
+                    ['titulo' => 'Intercambio de información', 'descripcion' => 'Interfaces de integración —APIs— para recibir datos por lotes y entregar pedidos con confirmación de recepción.'],
                 ],
                 'stack' => ['PHP', 'Laravel 5.6', 'MySQL', 'Blade', 'JavaScript', 'jQuery', 'Bootstrap', 'AG Grid'],
+                'practicas' => [
+                    'Cambios acotados' => 'Las mejoras se adaptan a los formatos y reglas del sistema existente para cuidar los recorridos de trabajo.',
+                    'Comprobaciones funcionales' => 'Validaciones dirigidas de acceso, importación e interfaz con datos de prueba acompañan la evolución.',
+                ],
                 'evidencia' => [
                     'Implementado' => 'Las copias locales contienen módulos comerciales, interfaces de integración y mejoras administrativas. Conservan diferencias que deben revisarse antes de promover cambios.',
                     'Validado' => 'Hay validaciones dirigidas documentadas de acceso, importación e interfaz con datos de prueba. No equivalen a una comprobación actual del hosting ni de los sistemas externos.',
@@ -359,7 +367,7 @@ return [
             ['titulo' => 'Desarrollar con contexto', 'descripcion' => 'Traducir necesidades comerciales en una aplicación web, diferenciando reglas propias, sistemas externos y responsabilidades.'],
             ['titulo' => 'Conectar sistemas con cuidado', 'descripcion' => 'Intercambiar información mediante archivos y APIs, respetando los formatos, las validaciones y las tareas que dependen de esos datos.'],
             ['titulo' => 'Evolucionar sin empezar de cero', 'descripcion' => 'Diagnosticar un sistema existente, mejorar interfaces y sumar funciones con cambios acotados y verificables.'],
-            ['titulo' => 'Validar y documentar', 'descripcion' => 'Combinar pruebas y comprobaciones funcionales, separando código implementado, evidencia de validación y estado desplegado.'],
+            ['titulo' => 'Validar y documentar', 'descripcion' => 'Combinar pruebas, comprobaciones funcionales y documentación para acompañar cada cambio.'],
         ],
     ],
 
@@ -398,7 +406,7 @@ return [
             'Reintentos y recuperación' => 'El intercambio contempla pendientes y reintentos para recuperar la comunicación.',
             'Pruebas específicas' => 'Pruebas específicas acompañan la validación de los comportamientos del circuito.',
         ],
-        'evolucion' => 'Edge continúa en desarrollo y laboratorio. Es una línea de evolución separada: sus funciones no se presentan como parte del circuito actual.',
+        'evolucion' => 'Edge es una línea en desarrollo y laboratorio que explora cómo ampliar la continuidad local ante problemas de conectividad, separada del circuito actual.',
     ],
 
     // Información funcional y autoría confirmadas por el titular para el caso público.
@@ -440,10 +448,9 @@ return [
         ],
         'tecnica' => [
             'Aplicaciones y persistencia' => 'SGM utiliza Laravel 10; Healthy, Laravel 11. Ambas aplicaciones emplean PHP, MySQL y Blade. SGM también incluye herramientas de administración del dominio Healthy.',
-            'Responsabilidades y autenticación' => 'Healthy tiene autenticación propia. La relación entre aplicaciones no supone inicio de sesión único, una base de datos compartida por todos los módulos ni sincronización bidireccional completa.',
-            'Estados e históricos' => 'En SGM, los workflows acompañan revisión, aprobación, cierre y publicación de menús, con conservación de históricos.',
-            'Pruebas' => 'SGM dispone de pruebas específicas de workflows, estados, menús y exportaciones. El relevamiento de Healthy no identificó cobertura específica de negocio; no se presenta como una suite funcional extensa.',
-            'Alcance de implementación' => 'Las funcionalidades descritas fueron identificadas en el relevamiento. Su habilitación y las integraciones disponibles dependen del entorno; no se afirma que todos los módulos estén desplegados en producción.',
+            'Responsabilidades y autenticación' => 'Healthy tiene autenticación propia y utiliza información de menús, recetas y contenido administrada desde SGM. Cada aplicación conserva sus responsabilidades.',
+            'Estados e históricos' => 'En SGM, los estados de trabajo acompañan la revisión, aprobación, cierre y publicación de menús, con conservación de históricos.',
+            'Pruebas en SGM' => 'Pruebas específicas comprueban los procesos de revisión, los estados, los menús y las exportaciones de SGM.',
         ],
     ],
 
@@ -464,8 +471,8 @@ return [
                 'funciones' => ['Consultas de cantidades, reportes y conciliaciones.', 'Pedidos, recepción de productos y reclamos.', 'Novedades de personal, cartelería y acceso a funciones de otros sistemas.'],
                 'tecnica' => [
                     'Aplicación y datos' => 'Laravel 12, PHP, MySQL, Blade y Tailwind. Servicios HTTP integran distintas fuentes de información.',
-                    'Acceso por contexto' => 'Autenticación, roles y permisos según perfiles y operaciones. Incluye acceso a otros sistemas mediante SSO.',
-                    'Validación y alcance' => 'Existen pruebas específicas para distintos módulos. Las capacidades identificadas no implican que todos los módulos estén habilitados en producción ni un funcionamiento offline general.',
+                    'Acceso por contexto' => 'Autenticación, roles y permisos según perfiles y operaciones. El inicio de sesión único —SSO— permite acceder a otros sistemas.',
+                    'Pruebas por módulo' => 'Pruebas específicas acompañan la validación de distintos módulos de la plataforma.',
                 ],
             ],
             [
@@ -477,8 +484,8 @@ return [
                 'recuperacion' => 'Ante problemas de comunicación, los ajustes pendientes se conservan y se reintentan. Los resultados se concilian y las situaciones ambiguas contemplan revisión manual.',
                 'tecnica' => [
                     'Interfaz y persistencia' => 'Laravel 11, Livewire 3, Blade, Tailwind y MySQL. Interfaces adaptadas a móviles para los recorridos de pedido.',
-                    'Integración y recuperación' => 'Integración con el sistema operativo de Consumos, con persistencia de ajustes pendientes, reintentos, conciliación y revisión manual de casos ambiguos. No implica consistencia absoluta entre bases ni ausencia universal de duplicaciones.',
-                    'Pruebas específicas' => 'Existen pruebas del carrito, los ajustes y la recuperación. Su alcance es específico: no se presenta la sincronización como perfecta.',
+                    'Integración y recuperación' => 'La integración con Consumos conserva los ajustes pendientes, reintenta su envío y compara los resultados. Las situaciones ambiguas pasan a revisión manual.',
+                    'Pruebas específicas' => 'Pruebas del carrito, los ajustes y la recuperación comprueban esos recorridos de uso.',
                 ],
             ],
         ],
