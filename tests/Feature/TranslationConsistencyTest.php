@@ -25,7 +25,7 @@ class TranslationConsistencyTest extends TestCase
         $this->assertSame(array_keys($catalogues['es']), array_keys($catalogues['en']));
         foreach ([app_path(), resource_path('views')] as $directory) {
             foreach (File::allFiles($directory) as $file) {
-                preg_match_all('/__\(\s*[\'"]([a-zA-Z0-9_.-]+)[\'"]/', $file->getContents(), $matches);
+                preg_match_all('/__\(\s*[\'"]([a-zA-Z0-9_.-]+)[\'"]\s*(?=[,)])/', $file->getContents(), $matches);
                 foreach ($matches[1] as $key) {
                     $this->assertArrayHasKey($key, $catalogues['es'], $file->getRelativePathname());
                     $this->assertArrayHasKey($key, $catalogues['en'], $file->getRelativePathname());
@@ -44,5 +44,6 @@ class TranslationConsistencyTest extends TestCase
         }
         ksort($files);
         $this->assertSame($review['es_sha256'], $files, 'Spanish source changed: review English and update lang/review.json. Hashes do not prove semantic equivalence.');
+        $this->assertSame($review['source_sha256'], hash('sha256', json_encode(config('portafolio'), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)), 'Shared source changed: review language mappings and update the review record.');
     }
 }

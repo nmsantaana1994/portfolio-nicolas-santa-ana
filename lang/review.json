@@ -1,10 +1,25 @@
 {
-    "scope": "9D.2A: common, two navigation labels, home hero and home SEO only; other content pending 9D.2B",
+    "scope": "9D.2B: all seven pages, interfaces, accessibility labels, SEO and mockups. Spanish is the editorial source; raster screenshots and CV remain Spanish.",
     "reviewed_at": "2026-10-28",
     "es_sha256": {
+        "commercial.php": "babb7e12ef123cd60151dd9fed4b42902a284886a6febf8348cc82ff7fd33b1b",
         "common.php": "2e83cb1b28d9d5cbd80b9e6bc25d50bca6cbd11e00f160fd9f14e81c472dfc71",
+        "foco.php": "286230338fee6e6bda7c0c80e1629217eba13bdf52d0cbe65c55d46e9ec7bfc0",
         "home.php": "80b04bfd48dc0a8879e0714de678533e57d17d9169e94b8d567b5681e02919bc",
+        "labels.php": "63ba1fe7a3a5116071751b160db9e3570f0a813b56fb358036a09925a6ec7521",
+        "menus.php": "97c4f0cb0979b16e4b767038ef3b416ada59571aa395ce1c06f89a458221f6f6",
         "navigation.php": "b0f594dbeb46f8a05973cac8ca43b58e7b72ca06e2c4205f5ffab354e9e0337f",
-        "seo.php": "a3a7ba550da0178e5b2e1cc815b0b363cc2988020ca302df5e3fdaa76014997d"
-    }
+        "operations.php": "5da38c8df1670a87158e03baae3e20440a4d08724a208b4dc5d805623a77f17e",
+        "profile.php": "97da275585ff86dafd429132e77e4d1280046b9c71715dfe0a270a40577ed224",
+        "seo.php": "995ac52948ef4e99d180f1799e6e46e4a7e76fa13551f8e5412793984d18851f",
+        "services.php": "1670835f13cffeee50f6ff3636ddaa0d074b059e868c5017eecd3a31e9d12c79",
+        "terminals.php": "21351e3031d7dc41f76613d1e6efb9cd9b0f96342787f4fac79ac1d6ba8525af",
+        "ui_cases.php": "9096eecf95833fb37164412ed2531b6bdeaad7cb018f9037cfd9a9f6915bbc76",
+        "ui_common.php": "ce984084c4ee8898dfc98c0b36573b11e779394cf12508e502e071aeb4acd0dd",
+        "ui_foco.php": "279aedb515182a067dfca18fbf65a9f3b7496b2ba3af091d93f8e6fbea1b9617",
+        "ui_home.php": "cc47cb6e1c1d4925dbcacd7628acca988208ffd7a5c74514948199693a48da84",
+        "ui_mockups.php": "30529b067960326c4d667812b8cc00ca7ee471a15b16144cf475e3c3e0b2b620",
+        "ui_services.php": "f7808f9c208b37643853c104ab369c6c8ce2865681c85ee384da23025af6255b"
+    },
+    "source_sha256": "06789afbd45c7ce66961ef5d4201d2575b2367a7fed35c9dad4a5dc072e49d92"
 }

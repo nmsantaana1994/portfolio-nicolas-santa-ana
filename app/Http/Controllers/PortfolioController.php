@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\PortfolioContent;
 use App\Support\PortfolioLocale;
 use Illuminate\View\View;
 
@@ -11,7 +12,7 @@ class PortfolioController extends Controller
     {
         $page = PortfolioLocale::page();
         [, $view, $key] = PortfolioLocale::PAGES[$page];
-        $portafolio = config('portafolio');
+        $portafolio = PortfolioContent::localized();
         $portafolio['navegacion'][0]['etiqueta'] = __('navigation.projects');
         $portafolio['navegacion'][2]['etiqueta'] = __('navigation.services');
         $seo = $key ? ($portafolio[$key]['seo'] ?? []) : [
@@ -20,8 +21,8 @@ class PortfolioController extends Controller
         ];
         if ($page === 'proyectos.foco-finanzas') {
             $seo = [
-                'titulo' => 'Foco Finanzas — Caso de estudio | Nicolás Santa Ana',
-                'descripcion' => 'Caso de estudio de Foco Finanzas: producto propio en beta privada, planificación financiera, PWA, IA controlada, pruebas y evolución técnica documentada hasta octubre de 2026.',
+                'titulo' => __('seo.foco_title'),
+                'descripcion' => __('seo.foco_description'),
             ];
         }
         $seo['canonical'] = rtrim(config('app.url'), '/').PortfolioLocale::route($page, [], false);

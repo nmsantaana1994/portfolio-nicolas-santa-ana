@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'review_scope' => 'Code and documentation review: :date. The described capabilities are implemented and integrated according to the available history. Staging deployments and validation are cited only when documented; the current remote state was not checked. Beta expansion remains in preparation: this does not mean new admissions or a public launch.',
+    'documented_status' => 'Documented status: :state Ongoing development relies on focused changes, testing and evidence reviewed again when the product changes.',
+    'foco_finanzas_del_movimiento_diario_a_la_planificacion' => 'Foco Finanzas: from daily transactions to financial planning.',
+    'disene_y_desarrolle_el_producto_completo_modelo_de' => 'I designed and developed the complete product: data model, financial logic, interface, testing and delivery to a private beta.',
+    'todos_los_datos_visibles_son_sinteticos_capturas_historicas' => 'All visible data is synthetic. Historical screenshots dated 17/07/2026: select an image to enlarge it; this theme control only changes the screenshots.',
+    'los_movimientos_aislados_no_cuentan_toda_la_historia' => 'Individual transactions do not tell the whole story.',
+    'el_alcance_es_la_organizacion_y_lectura_de' => 'The product organizes and presents personal financial information; it does not promise automatic bank synchronization or real-time market quotes.',
+    'construir_el_producto_y_sostener_su_evolucion' => 'Building the product and supporting its ongoing development.',
+    'el_backend_se_organiza_como_un_monolito_modular' => 'The backend is organized as a modular monolith: a Laravel application with related financial domains. I reproduce defects using synthetic data and validate historical behavior, currencies and concurrency before delivering changes.',
+    'reglas_claras_antes_que_complejidad_accidental' => 'Clear rules before accidental complexity.',
+    'las_pruebas_comprueban_reglas_financieras_flujos_de_uso' => 'Tests check financial rules, user workflows and concurrent operations. Continuous integration validates each delivery; manual review completes the user experience checks.',
+    'phpunit_y_playwright_respaldan_este_proceso_github_actions' => 'PHPUnit and Playwright support this process. GitHub Actions runs three Quality jobs on a self-hosted Linux runner: SQLite, PostgreSQL 18 and Browser. Delivery to staging on Railway combines PR integration, deployment and manual checks.',
+    'validaciones_documentadas_octubre_de_2026' => 'Documented validation · October 2026',
+    'resultados_historicos_del_10_10_2026_separados_por' => 'Historical results dated 10/10/2026, separated by database engine. Counts are not added together and include the skipped tests from each execution.',
+    'phpunit_cubre_pruebas_unit_y_feature_incluida_concurrencia' => 'PHPUnit covers Unit and Feature tests, including PostgreSQL concurrency. Playwright checks navigation, rendering, focus, keyboard use and responsive behavior in desktop and mobile Chromium; it does not establish support for every browser or every persisted financial workflow. The full Browser suite remains the PR reference; reduced profiles and the parallel Docker pilot remain experimental and manually run.',
+    'docker_es_el_entorno_principal_de_desarrollo_de' => 'Docker is Foco\'s primary development environment, with Laragon as an alternative. Automated checks are complemented by functional and visual reviews.',
+    'la_evidencia_browser_documentada_del_20_10_2026' => 'Documented Browser evidence dated 20/10/2026 records 171 passed and 11 skipped cases in a full run. The critical pilot on that date passed 18 and skipped 4: a different selection, not additional coverage or a replacement for full. These results come from the project documentation and were not rerun for this case study.',
+    'en_julio_se_valido_un_restore_local_sintetico' => 'In July, a local synthetic restore of 48 tables was validated. In September, a later exercise demonstrated real backup → isolated restore → working application and verified invariants, with the outcome “usable with limitations” and documented closure on 30/09/2026. This does not establish complete recovery of attachments, external services or a comprehensive disaster recovery plan.',
+    'la_seguridad_combina_autorizacion_por_propietario_mfa_administrativo' => 'Security combines owner-based authorization, administrative MFA, session revocation, reauthentication and auditing with minimized information. These are specific controls, not an absolute guarantee or an external security audit. The assistant remains read-only; the external provider requires explicit opt-in and respects usage limits.',
+    'del_mvp_a_una_beta_mas_explicable_y' => 'From MVP to a clearer, more maintainable beta.',
+    'si_necesitas_construir_o_evolucionar_una_aplicacion_con' => 'If you need to build or improve an application with its own business rules, let\'s discuss your project.',
+    'imagen_ajustada_al_espacio_disponible_usa_escape_para' => 'Image fitted to the available space. Press Escape to close.',
+    'experiencia_privacidad_y_administracion' => 'User experience, privacy and administration',
+];

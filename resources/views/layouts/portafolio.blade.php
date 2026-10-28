@@ -9,7 +9,7 @@
 @endphp
 
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-appearance-label="{{ __('ui_common.apariencia_del_portfolio') }}" data-theme-label-system="{{ __('labels.sistema') }}" data-theme-label-light="{{ __('labels.claro') }}" data-theme-label-dark="{{ __('labels.oscuro') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
         <meta property="og:type" content="{{ $seo['tipo'] }}">
         <meta property="og:url" content="{{ $urlCanonica }}">
         <meta property="og:locale" content="{{ $seo['locale'] }}">
-        <meta property="og:site_name" content="Portfolio de {{ $portafolio['persona']['nombre'] }}">
+        <meta property="og:site_name" content="{{ __('ui_common.portfolio_de_name', ['name' => $portafolio['persona']['nombre']]) }}">
         <meta property="og:image" content="{{ $imagenSocial }}">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="{{ $seo['imagen_ancho'] }}">
@@ -72,7 +72,7 @@
     </head>
     <body class="font-sans antialiased">
         <a href="#contenido" class="sr-only z-50 rounded-md bg-white px-4 py-3 font-semibold text-tinta-950 shadow-lg focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
-            Ir al contenido
+            {{ __('ui_common.ir_al_contenido') }}
         </a>
 
         @yield('contenido')

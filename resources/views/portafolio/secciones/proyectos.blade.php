@@ -1,9 +1,9 @@
 <section id="proyectos" class="scroll-mt-24 bg-superficie py-14 sm:py-16" aria-labelledby="titulo-proyectos">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Casos profesionales</p>
-            <h2 id="titulo-proyectos" class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Distintos desafíos. Software para cada necesidad.</h2>
-            <p class="mt-4 text-lg leading-8 text-tinta-600">Aplicaciones empresariales, integración y continuidad operativa. Conocé qué desarrollé y cómo funciona cada solución.</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">{{ __('ui_common.casos_profesionales') }}</p>
+            <h2 id="titulo-proyectos" class="mt-3 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">{{ __('ui_home.distintos_desafios_software_para_cada_necesidad') }}</h2>
+            <p class="mt-4 text-lg leading-8 text-tinta-600">{{ __('ui_home.aplicaciones_empresariales_integracion_y_continuidad_operativa_conoce_que') }}</p>
         </div>
 
         <div class="mt-8 grid gap-5 md:grid-cols-2 lg:gap-6">
@@ -22,7 +22,7 @@
                     <p class="mt-4 text-sm font-medium leading-6 text-tinta-600">{{ $proyecto['distintivo'] }}</p>
                     <div class="mt-auto pt-5">
                         <a href="{{ \App\Support\PortfolioLocale::route($proyecto['ruta_caso'], [], false) }}" class="inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">
-                            Ver caso completo<span class="sr-only"> de {{ $proyecto['nombre'] }}</span>
+                            {{ __('ui_common.ver_caso_completo') }}<span class="sr-only"> {{ __('ui_common.project_name', ['name' => $proyecto['nombre']]) }}</span>
                             @include('portafolio.parciales.indicador-enlace')
                         </a>
                     </div>

@@ -1,9 +1,9 @@
 <section id="competencias" class="scroll-mt-24 bg-superficie py-14 sm:py-16" aria-labelledby="titulo-foco">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">Competencias y forma de trabajo</p>
-            <h2 id="titulo-foco" class="mt-3 scroll-mt-24 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Del problema a la evolución del sistema</h2>
-            <p class="mt-4 text-lg leading-8 text-tinta-600">Análisis, implementación y acompañamiento, tanto en equipos de producto como en proyectos freelance.</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-acento-700">{{ __('ui_common.competencias_y_forma_de_trabajo') }}</p>
+            <h2 id="titulo-foco" class="mt-3 scroll-mt-24 text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">{{ __('ui_common.del_problema_a_la_evolucion_del_sistema') }}</h2>
+            <p class="mt-4 text-lg leading-8 text-tinta-600">{{ __('ui_home.analisis_implementacion_y_acompanamiento_tanto_en_equipos_de') }}</p>
         </div>
 
         <div class="mt-8 grid gap-4 md:grid-cols-3">

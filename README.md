@@ -22,19 +22,21 @@ La versión actual no utiliza base de datos, login, panel administrativo ni form
 
 La evolución técnica, las decisiones y el estado de cada fase se registran en la [documentación del proyecto](docs/README.md).
 
-## Idiomas — infraestructura parcial (9D.2A)
+## Idiomas — español e inglés (9D.2B)
 
 Las URLs españolas se conservan; sus equivalentes usan `/en` con los mismos slugs. Una sola acción y las mismas vistas atienden ambos idiomas. `PortfolioLocale` centraliza páginas y enlaces; al agregar enlaces internos se debe usar su método `route()`.
 
 El selector conserva página y ancla (con JavaScript) y guarda la elección en `localStorage`, sin redirecciones ni cambios de contenido basados en esa preferencia. Sin almacenamiento o JavaScript, las URLs y los enlaces de idioma siguen funcionando; sin JavaScript no se copia el fragmento de la URL.
 
-Mientras EN esté incompleto, el selector sólo se renderiza con `APP_ENV=local` o `testing`; permanece ausente en producción y otros entornos. Se utiliza la configuración existente `app.env`, sin variables adicionales. Las rutas EN y sus controles `noindex` siguen activos aunque no se muestre el selector.
+Las siete páginas están traducidas y el selector está habilitado también para producción. `PortfolioLocale::EN_COMPLETE=true` activa conjuntamente el selector público, la indexación EN y los `hreflang` recíprocos `es`/`en`, con `x-default` hacia español y canonical propio por página. No existe sitemap. Si se vuelve a marcar EN como incompleto, se recuperan el aviso, `noindex` y la restricción del selector a local/testing.
 
-**EN está incompleto:** sólo se tradujeron el selector, dos etiquetas de navegación, el hero y el SEO de la home. El resto del contenido profesional sigue en español y queda pendiente para 9D.2B. EN tiene aviso visible, `noindex` en HTML/cabecera HTTP y canonical propio. Por ahora se emiten alternates `es` y `x-default`, no `en`; no hay sitemap. `PortfolioLocale::EN_COMPLETE` permanece en `false`: sólo tras completar y revisar 9D.2B se habilitan conjuntamente indexación y hreflang recíprocos.
+Se comparten vistas, orden, rutas, tecnologías y cifras. `config/portafolio.php` conserva la fuente editorial española de los datos profesionales. `PortfolioContent` expone sólo sus campos de texto a los catálogos nativos `profile`, `services`, `foco`, `commercial`, `terminals`, `menus` y `operations`; los catálogos ES leen esa fuente sin duplicarla y los EN contienen las traducciones. Los textos de interfaz se organizan en `ui_*`, `labels`, `home`, `navigation`, `common` y `seo`. Los textos de JavaScript se reciben desde el HTML localizado, sin peticiones de traducción.
 
-Los catálogos nativos están en `lang/es` y `lang/en`. Las pruebas de `TranslationConsistencyTest` comprueban paridad de claves, textos no vacíos, referencias literales y hashes de las fuentes españolas en `lang/review.json`. Si cambia ES, revisar EN y actualizar el hash correspondiente después de la revisión humana. Esto detecta cambios, no equivalencia semántica. Los textos aún no extraídos no forman parte de esa comprobación.
+Para cambiar contenido: editar el texto español en su fuente (configuración o catálogo ES), conservar las claves y actualizar el catálogo EN correspondiente. Si se agrega un campo visible, incluirlo en el mapeo y revisar ambos idiomas. `TranslationConsistencyTest` comprueba paridad de claves, textos no vacíos, referencias literales y hashes del contenido español y la configuración compartida en `lang/review.json`. `FullTranslationTest` busca textos españoles conocidos en páginas EN y verifica que no cambien datos estructurales ni cifras. Son controles de consistencia, no una garantía de equivalencia semántica; siempre corresponde revisión editorial y visual.
 
-No hace falta editar hashes a mano: se puede pedir a Codex que revise ES/EN, recalcule `es_sha256` con el mismo algoritmo de la prueba (SHA-256 del catálogo PHP serializado con JSON Unicode y barras sin escapar) y actualice `reviewed_at` tras esa revisión. Después debe ejecutar `TranslationConsistencyTest`. El procedimiento existente es suficiente; no se agrega una herramienta de mantenimiento ni se actualizan hashes sólo para silenciar un fallo.
+No hace falta editar hashes a mano: pedir a Codex que revise ES/EN, recalcule `es_sha256` y `source_sha256` con el algoritmo de la prueba (SHA-256 del contenido PHP serializado con JSON Unicode y barras sin escapar) y actualice `reviewed_at` tras esa revisión. El cálculo es independiente de finales de línea Windows/Linux. No se actualizan hashes sólo para silenciar fallos.
+
+El CV PDF continúa únicamente en español: los enlaces ingleses lo indican. Las capturas rasterizadas históricas de Foco mantienen la interfaz española, con descripciones y alternativas textuales en inglés. Los nombres comerciales, de proyectos, tecnologías y nombres ficticios de ejemplos se conservan; los mockups siguen identificados como recreaciones.
 
 Validación: `php artisan test`, `node --test tests/Frontend/*.test.cjs`, Pint y build habituales. No se agregaron paquetes, sesiones ni servicios de traducción.
 

@@ -15,7 +15,7 @@ const actualizarEstadoMenu = (estaAbierto) => {
     menuMovil.classList.toggle('hidden', !estaAbierto);
     if (estaAbierto) cerrarApariencia();
     botonMenu.setAttribute('aria-expanded', String(estaAbierto));
-    botonMenu.setAttribute('aria-label', estaAbierto ? 'Cerrar navegación' : 'Abrir navegación');
+    botonMenu.setAttribute('aria-label', estaAbierto ? botonMenu.dataset.closeLabel : botonMenu.dataset.openLabel);
 };
 
 initializeLanguage(document, window, () => actualizarEstadoMenu(false));
@@ -135,10 +135,10 @@ document.querySelectorAll('[data-galeria-foco]').forEach((galeria) => {
     const ajustarImagen = (original = false) => {
         visor.toggleAttribute('data-original', original);
         botonOriginal.setAttribute('aria-pressed', String(original));
-        botonOriginal.textContent = original ? 'Ajustar imagen' : 'Ver tamaño original';
+        botonOriginal.textContent = original ? botonOriginal.dataset.fitLabel : botonOriginal.dataset.originalLabel;
         visor.querySelector('[data-visor-estado]').textContent = original
-            ? 'Tamaño original. Desplazá el área para explorar los detalles; usá Escape para cerrar.'
-            : 'Imagen ajustada al espacio disponible. Usá Escape para cerrar.';
+            ? botonOriginal.dataset.originalStatus
+            : botonOriginal.dataset.fitStatus;
         area.scrollTop = 0;
         area.scrollLeft = 0;
     };

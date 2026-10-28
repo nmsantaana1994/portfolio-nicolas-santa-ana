@@ -9,26 +9,21 @@ use Tests\TestCase;
 
 class LocaleTest extends TestCase
 {
-    public function test_partial_language_selector_is_local_only_without_disabling_english_routes(): void
+    public function test_completed_language_selector_is_available_in_production(): void
     {
         foreach (['production', 'staging', 'local', 'testing'] as $environment) {
             config(['app.env' => $environment]);
             foreach (['/', '/en', '/en/proyectos/terminales'] as $url) {
                 $response = $this->get($url)->assertOk();
-                if (in_array($environment, ['local', 'testing'], true)) {
-                    $response->assertSee('data-language-selector', false);
-                } else {
-                    $response->assertDontSee('data-language-selector', false);
-                }
-                if (str_starts_with($url, '/en')) {
-                    $response->assertHeader('X-Robots-Tag', 'noindex, follow')
-                        ->assertSee('<meta name="robots" content="noindex, follow">', false);
-                }
+                $response->assertSee('data-language-selector', false)
+                    ->assertSee('<meta name="robots" content="index, follow">', false)
+                    ->assertHeaderMissing('X-Robots-Tag')
+                    ->assertDontSee('Only selected content');
             }
         }
     }
 
-    public function test_all_pages_keep_their_locale_links_canonical_and_partial_seo(): void
+    public function test_all_pages_keep_their_locale_links_canonical_and_reciprocal_seo(): void
     {
         config(['app.url' => 'https://portfolio.example.com']);
         foreach (['es', 'en'] as $locale) {
@@ -41,9 +36,14 @@ class LocaleTest extends TestCase
                 $this->assertSame($locale, $x->evaluate('string(/html/@lang)'));
                 $this->assertSame(1, $x->query('//link[@rel="canonical"]')->length);
                 $this->assertSame('https://portfolio.example.com'.$url, $x->evaluate('string(//link[@rel="canonical"]/@href)'));
-                $this->assertSame($locale === 'en' ? 'noindex, follow' : 'index, follow', $x->evaluate('string(//meta[@name="robots"]/@content)'));
+                $this->assertSame('index, follow', $x->evaluate('string(//meta[@name="robots"]/@content)'));
                 $this->assertSame($locale === 'en' ? 'en_US' : 'es_AR', $x->evaluate('string(//meta[@property="og:locale"]/@content)'));
-                $this->assertSame(0, $x->query('//link[@hreflang="en"]')->length);
+                $this->assertSame(1, $x->query('//link[@hreflang="en"]')->length);
+                $this->assertSame('https://portfolio.example.com/en'.($path === '/' ? '' : $path), $x->evaluate('string(//link[@hreflang="en"]/@href)'));
+                $this->assertSame($x->evaluate('string(//title)'), $x->evaluate('string(//meta[@property="og:title"]/@content)'));
+                $this->assertSame($x->evaluate('string(//meta[@name="description"]/@content)'), $x->evaluate('string(//meta[@property="og:description"]/@content)'));
+                $this->assertSame($x->evaluate('string(//title)'), $x->evaluate('string(//meta[@name="twitter:title"]/@content)'));
+                $this->assertSame('https://portfolio.example.com', json_decode($x->evaluate('string(//script[@type="application/ld+json"])'), true)['url']);
                 foreach (['es', 'x-default'] as $alternate) {
                     $this->assertSame('https://portfolio.example.com'.($path === '/' ? '' : $path), $x->evaluate('string(//link[@hreflang="'.$alternate.'"]/@href)'));
                 }
@@ -75,9 +75,9 @@ class LocaleTest extends TestCase
             ->assertSee('Desarrollo software para')->assertDontSee('I build software to');
         $this->withCookie('portfolio-language', 'es')->get('/en')->assertOk()
             ->assertSee('I build software to')->assertSee('solve real problems.')
-            ->assertSee('Projects')->assertSee('Services')->assertSee('Only selected content')
+            ->assertSee('Projects')->assertSee('Services')->assertDontSee('Only selected content')
             ->assertSee('system integration and software maintenance.')
-            ->assertHeader('X-Robots-Tag', 'noindex, follow');
+            ->assertHeaderMissing('X-Robots-Tag');
         $this->get('/fr')->assertNotFound();
         $this->get('/en/en')->assertNotFound();
     }

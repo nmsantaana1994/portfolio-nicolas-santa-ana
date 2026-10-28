@@ -25,7 +25,8 @@
                 icon.classList.toggle('hidden', icon.dataset.iconoTema !== preference);
             });
             document.querySelectorAll('[data-apariencia-boton]').forEach(button => {
-                button.setAttribute('aria-label', 'Apariencia del portfolio: ' + ({ system: 'Sistema', light: 'Claro', dark: 'Oscuro' })[preference]);
+                const labels = { system: root.dataset.themeLabelSystem || 'Sistema', light: root.dataset.themeLabelLight || 'Claro', dark: root.dataset.themeLabelDark || 'Oscuro' };
+                button.setAttribute('aria-label', (root.dataset.appearanceLabel || 'Apariencia del portfolio') + ': ' + labels[preference]);
             });
         };
 

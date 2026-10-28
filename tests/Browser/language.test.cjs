@@ -5,7 +5,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs'),path=require('node:path');
 const base=process.env.PORTFOLIO_BASE_URL||'http://127.0.0.1:8000';
 
-test('ES/EN sample, navigation, storage and visual infrastructure',async()=>{
+test('ES/EN navigation, storage and visual infrastructure',async()=>{
     const browser=await chromium.launch({headless:true});
     const report=[];
     try {
@@ -26,6 +26,7 @@ test('ES/EN sample, navigation, storage and visual infrastructure',async()=>{
                 for(const theme of ['light','dark']) {
                     await page.locator('[data-apariencia] summary').click();
                     await page.locator(`.opcion-tema:has(input[value="${theme}"])`).click();
+                    assert.match(await page.locator('[data-apariencia-boton]').getAttribute('aria-label'),locale==='en'?/Portfolio appearance/:/Apariencia del portfolio/);
                     const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,background:getComputedStyle(document.body).backgroundColor,heading:getComputedStyle(document.querySelector('h1')).color}));
                     assert.equal(metrics.overflow,false);colors.push(metrics);
                     const summary=page.locator('[data-language-selector] summary');

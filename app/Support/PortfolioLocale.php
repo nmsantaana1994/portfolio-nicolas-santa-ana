@@ -4,8 +4,8 @@ namespace App\Support;
 
 class PortfolioLocale
 {
-    // Enable only after the editorial/SEO review of all English pages in 9D.2B.
-    public const EN_COMPLETE = false;
+    // All seven English pages reviewed in 9D.2B; enables selector and reciprocal SEO.
+    public const EN_COMPLETE = true;
 
     public static function showSelector(): bool
     {

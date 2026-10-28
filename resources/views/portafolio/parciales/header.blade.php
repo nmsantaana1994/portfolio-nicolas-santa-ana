@@ -1,7 +1,7 @@
 @php($prefijoInicio = \App\Support\PortfolioLocale::page() === 'inicio' ? '' : \App\Support\PortfolioLocale::route('inicio', [], false))
     <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 sm:px-8 lg:px-10" aria-label="Navegación principal">
-            <a href="{{ $prefijoInicio }}#inicio" class="text-sm font-bold tracking-tight text-tinta-950 sm:text-base" aria-label="Nicolás Santa Ana — volver al inicio">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 sm:px-8 lg:px-10" aria-label="{{ __('ui_common.navegacion_principal') }}">
+            <a href="{{ $prefijoInicio }}#inicio" class="text-sm font-bold tracking-tight text-tinta-950 sm:text-base" aria-label="{{ __('ui_common.nicolas_santa_ana_volver_al_inicio') }}">
                 Nicolás Santa Ana
             </a>
 
@@ -18,24 +18,24 @@
                     @include('portafolio.parciales.idioma')
                 @endif
                 <details class="selector-tema" data-apariencia>
-                    <summary aria-label="Apariencia del portfolio: Sistema" title="Apariencia del portfolio" data-apariencia-boton>
+                    <summary aria-label="{{ __('ui_common.apariencia_del_portfolio_sistema') }}" title="{{ __('ui_common.apariencia_del_portfolio') }}" data-apariencia-boton>
                         @foreach (['system', 'light', 'dark'] as $tipo)
                             <span data-icono-tema="{{ $tipo }}" @class(['hidden' => $tipo !== 'system'])>@include('portafolio.parciales.icono-apariencia', ['tipo' => $tipo])</span>
                         @endforeach
                     </summary>
                     <fieldset class="opciones-tema">
-                        <legend class="sr-only">Apariencia del portfolio</legend>
+                        <legend class="sr-only">{{ __('ui_common.apariencia_del_portfolio') }}</legend>
                         @foreach (['system' => 'Sistema', 'light' => 'Claro', 'dark' => 'Oscuro'] as $valor => $etiqueta)
                             <label class="opcion-tema">
                                 <input type="radio" name="portfolio-theme" value="{{ $valor }}" class="sr-only" data-selector-tema @checked($valor === 'system') disabled>
                                 @include('portafolio.parciales.icono-apariencia', ['tipo' => $valor])
-                                <span class="text-sm font-medium">{{ $etiqueta }}</span>
+                                <span class="text-sm font-medium">{{ \App\Support\PortfolioContent::label($etiqueta) }}</span>
                                 <span class="marca-tema">@include('portafolio.parciales.icono-apariencia', ['tipo' => 'check'])</span>
                             </label>
                         @endforeach
                     </fieldset>
                 </details>
-                <button type="button" class="inline-flex size-11 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 transition-colors hover:border-acento-700 hover:bg-acento-50 motion-reduce:transition-none lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir navegación" data-menu-boton>
+                <button type="button" class="inline-flex size-11 items-center justify-center rounded-lg border border-slate-300 text-tinta-700 transition-colors hover:border-acento-700 hover:bg-acento-50 motion-reduce:transition-none lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="{{ __('ui_common.abrir_navegacion') }}" data-menu-boton data-open-label="{{ __('ui_common.abrir_navegacion') }}" data-close-label="{{ __('labels.cerrar_navegacion') }}">
                     <svg aria-hidden="true" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
                     </svg>
