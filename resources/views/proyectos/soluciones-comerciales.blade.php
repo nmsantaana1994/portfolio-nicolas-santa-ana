@@ -8,7 +8,7 @@
         <section class="fondo-hero border-b border-slate-200 py-10 sm:py-16" aria-labelledby="titulo-caso">
             <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16 lg:px-10">
                 <div>
-                    <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver a los proyectos</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver a los proyectos</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Experiencia profesional · Desarrollo empresarial</p>
                     <h1 id="titulo-caso" class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl xl:text-6xl">{{ $caso['titulo'] }}</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $caso['presentacion'] }}</p>
@@ -97,14 +97,14 @@
                 <p class="mt-5 max-w-3xl leading-7 text-tinta-600">Podemos conversar sobre un proyecto freelance o una oportunidad para sumarme a tu equipo. El punto de partida es entender el proceso y definir qué necesita cambiar.</p>
                 <div class="mt-7 flex flex-wrap gap-3">
                     <a href="mailto:{{ $portafolio['contacto']['email'] }}" class="hero-accion inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 py-3 font-semibold text-white hover:bg-tinta-950">Contactar por email</a>
-                    <a href="{{ route('servicios', [], false) }}" class="hero-accion inline-flex min-h-12 items-center rounded-lg border border-slate-300 px-5 py-3 font-semibold text-tinta-700 hover:bg-acento-50">Conocer mis servicios</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('servicios', [], false) }}" class="hero-accion inline-flex min-h-12 items-center rounded-lg border border-slate-300 px-5 py-3 font-semibold text-tinta-700 hover:bg-acento-50">Conocer mis servicios</a>
                     @if ($cvDisponible)
                         <a href="{{ asset($portafolio['cv']['archivo']) }}" download="{{ $portafolio['cv']['nombre_descarga'] }}" class="inline-flex min-h-12 items-center px-3 font-semibold text-acento-700 underline underline-offset-4">Descargar CV</a>
                     @endif
                 </div>
                 <div class="mt-4 flex flex-wrap gap-x-6">
-                    <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Volver a los proyectos</a>
-                    <a href="{{ route('inicio', [], false) }}#contacto" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Otras formas de contacto</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Volver a los proyectos</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#contacto" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Otras formas de contacto</a>
                 </div>
             </div>
         </section>

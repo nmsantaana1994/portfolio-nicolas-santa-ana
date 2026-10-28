@@ -1,86 +1,14 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
+use App\Http\Middleware\SetPortfolioLocale;
+use App\Support\PortfolioLocale;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $portafolio = config('portafolio');
-
-    return view('portafolio.index', [
-        'portafolio' => $portafolio,
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('inicio');
-
-Route::get('/proyectos/foco-finanzas', function () {
-    $portafolio = config('portafolio');
-
-    return view('proyectos.foco-finanzas', [
-        'portafolio' => $portafolio,
-        'seo' => [
-            'titulo' => 'Foco Finanzas — Caso de estudio | Nicolás Santa Ana',
-            'descripcion' => 'Caso de estudio de Foco Finanzas: producto propio en beta privada, planificación financiera, PWA, IA controlada, pruebas y evolución técnica documentada hasta octubre de 2026.',
-            'canonical' => rtrim(config('app.url'), '/').'/proyectos/foco-finanzas',
-        ],
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('proyectos.foco-finanzas');
-
-Route::get('/servicios', function () {
-    $portafolio = config('portafolio');
-
-    return view('servicios', [
-        'portafolio' => $portafolio,
-        'seo' => array_merge($portafolio['servicios']['seo'], [
-            'canonical' => rtrim(config('app.url'), '/').'/servicios',
-        ]),
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('servicios');
-
-Route::get('/proyectos/soluciones-comerciales', function () {
-    $portafolio = config('portafolio');
-
-    return view('proyectos.soluciones-comerciales', [
-        'portafolio' => $portafolio,
-        'seo' => array_merge($portafolio['caso_empresarial']['seo'], [
-            'canonical' => rtrim(config('app.url'), '/').'/proyectos/soluciones-comerciales',
-        ]),
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('proyectos.soluciones-comerciales');
-
-Route::get('/proyectos/terminales', function () {
-    $portafolio = config('portafolio');
-
-    return view('proyectos.terminales', [
-        'portafolio' => $portafolio,
-        'seo' => array_merge($portafolio['caso_terminales']['seo'], [
-            'canonical' => rtrim(config('app.url'), '/').'/proyectos/terminales',
-        ]),
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('proyectos.terminales');
-
-Route::get('/proyectos/sgm-healthy', function () {
-    $portafolio = config('portafolio');
-
-    return view('proyectos.sgm-healthy', [
-        'portafolio' => $portafolio,
-        'seo' => array_merge($portafolio['caso_sgm_healthy']['seo'], [
-            'canonical' => rtrim(config('app.url'), '/').'/proyectos/sgm-healthy',
-        ]),
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('proyectos.sgm-healthy');
-
-Route::get('/proyectos/plataformas-operativas', function () {
-    $portafolio = config('portafolio');
-
-    return view('proyectos.plataformas-operativas', [
-        'portafolio' => $portafolio,
-        'seo' => array_merge($portafolio['caso_plataformas_operativas']['seo'], [
-            'canonical' => rtrim(config('app.url'), '/').'/proyectos/plataformas-operativas',
-        ]),
-        'cvDisponible' => is_file(public_path($portafolio['cv']['archivo'])),
-    ]);
-})->name('proyectos.plataformas-operativas');
+foreach (['es' => '', 'en' => 'en'] as $locale => $prefix) {
+    Route::prefix($prefix)->name($locale === 'en' ? 'en.' : '')->middleware(SetPortfolioLocale::class)->group(function () {
+        foreach (PortfolioLocale::PAGES as $name => [$path]) {
+            Route::get($path, PortfolioController::class)->name($name);
+        }
+    });
+}

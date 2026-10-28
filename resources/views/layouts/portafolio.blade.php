@@ -3,10 +3,13 @@
     $urlPortfolio = rtrim(config('app.url'), '/');
     $urlCanonica = $seo['canonical'] ?? $urlPortfolio;
     $imagenSocial = asset($seo['imagen']);
+    $pathEs = \App\Support\PortfolioLocale::route(\App\Support\PortfolioLocale::page(), [], false, 'es');
+    $urlEs = $urlPortfolio.($pathEs === '/' ? '' : $pathEs);
+    $englishPartial = app()->getLocale() === 'en' && ! \App\Support\PortfolioLocale::EN_COMPLETE;
 @endphp
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +17,14 @@
         <title>{{ $seo['titulo'] }}</title>
         <meta name="description" content="{{ $seo['descripcion'] }}">
         <meta name="author" content="{{ $portafolio['persona']['nombre'] }}">
-        <meta name="robots" content="index, follow">
+        <meta name="robots" content="{{ $englishPartial ? 'noindex, follow' : 'index, follow' }}">
         <link rel="canonical" href="{{ $urlCanonica }}">
+        {{-- EN remains partial: do not advertise it as an indexed translation until 9D.2B. --}}
+        <link rel="alternate" hreflang="es" href="{{ $urlEs }}">
+        <link rel="alternate" hreflang="x-default" href="{{ $urlEs }}">
+        @if (\App\Support\PortfolioLocale::EN_COMPLETE)
+            <link rel="alternate" hreflang="en" href="{{ $urlPortfolio.\App\Support\PortfolioLocale::route(\App\Support\PortfolioLocale::page(), [], false, 'en') }}">
+        @endif
         <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
 
         <meta property="og:title" content="{{ $seo['titulo'] }}">

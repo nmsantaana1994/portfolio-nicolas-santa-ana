@@ -1,3 +1,5 @@
+import { initializeLanguage } from './language.js';
+
 const botonMenu = document.querySelector('[data-menu-boton]');
 const menuMovil = document.querySelector('[data-menu-movil]');
 const apariencia = document.querySelector('[data-apariencia]');
@@ -15,6 +17,8 @@ const actualizarEstadoMenu = (estaAbierto) => {
     botonMenu.setAttribute('aria-expanded', String(estaAbierto));
     botonMenu.setAttribute('aria-label', estaAbierto ? 'Cerrar navegación' : 'Abrir navegación');
 };
+
+initializeLanguage(document, window, () => actualizarEstadoMenu(false));
 
 if (apariencia) {
     apariencia.addEventListener('change', () => cerrarApariencia(true));

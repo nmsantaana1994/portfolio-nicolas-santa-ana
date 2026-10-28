@@ -4,11 +4,11 @@
             <p class="text-base font-bold text-tinta-950">{{ $portafolio['persona']['nombre'] }}</p>
             <p class="mt-1 text-sm font-semibold text-acento-700">{{ $portafolio['persona']['titulo'] }}</p>
             <h1 class="mt-7 max-w-3xl text-balance text-4xl font-bold leading-[1.1] tracking-[-0.04em] text-tinta-950 sm:text-5xl xl:text-6xl">
-                {{ $portafolio['hero']['titulo'] }}
-                <span class="text-acento-700">{{ $portafolio['hero']['enfasis'] }}</span>
+                {{ __('home.title') }}
+                <span class="text-acento-700">{{ __('home.emphasis') }}</span>
             </h1>
             <p class="mt-6 max-w-2xl text-pretty text-base leading-7 text-tinta-600 lg:text-lg lg:leading-8">
-                {{ $portafolio['persona']['presentacion'] }}
+                {{ __('home.intro') }}
             </p>
 
             <div class="mt-8 flex flex-wrap gap-3" aria-label="Acciones principales">

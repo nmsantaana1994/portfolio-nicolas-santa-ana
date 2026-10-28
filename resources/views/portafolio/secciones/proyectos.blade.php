@@ -21,7 +21,7 @@
                     <p class="mt-5 leading-7 text-tinta-600">{{ $proyecto['resumen'] }}</p>
                     <p class="mt-4 text-sm font-medium leading-6 text-tinta-600">{{ $proyecto['distintivo'] }}</p>
                     <div class="mt-auto pt-5">
-                        <a href="{{ route($proyecto['ruta_caso'], [], false) }}" class="inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">
+                        <a href="{{ \App\Support\PortfolioLocale::route($proyecto['ruta_caso'], [], false) }}" class="inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">
                             Ver caso completo<span class="sr-only"> de {{ $proyecto['nombre'] }}</span>
                             @include('portafolio.parciales.indicador-enlace')
                         </a>

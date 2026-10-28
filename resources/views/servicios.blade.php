@@ -8,7 +8,7 @@
         <section class="fondo-hero border-b border-slate-200 py-10 sm:py-16" aria-labelledby="titulo-servicios">
             <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)] lg:items-center lg:gap-16 lg:px-10">
                 <div>
-                    <a href="{{ route('inicio', [], false) }}" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Servicios profesionales · Nicolás Santa Ana</p>
                     <h1 id="titulo-servicios" class="mt-4 max-w-3xl text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">{{ $servicios['titulo'] }}</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $servicios['presentacion'] }}</p>
@@ -35,7 +35,7 @@
                 <p class="text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Cómo puedo ayudarte</p>
                 <h2 id="titulo-capacidades" class="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-tinta-950 sm:text-4xl">Construir lo que falta. Mejorar lo que existe.</h2>
                 <p class="mt-4 max-w-2xl leading-7 text-tinta-600">Cuatro capacidades que se pueden combinar según las necesidades del proyecto.</p>
-                <a href="{{ route('proyectos.soluciones-comerciales', [], false) }}" class="mt-4 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Ver experiencia aplicada: Centralfarm y GlobalMed @include('portafolio.parciales.indicador-enlace')</a>
+                <a href="{{ \App\Support\PortfolioLocale::route('proyectos.soluciones-comerciales', [], false) }}" class="mt-4 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">Ver experiencia aplicada: Centralfarm y GlobalMed @include('portafolio.parciales.indicador-enlace')</a>
                 <div class="mt-8 grid gap-6 md:grid-cols-2">
                     @foreach ($servicios['capacidades'] as $capacidad)
                         <article class="superficie-tarjeta flex min-w-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8" data-servicio>
@@ -47,7 +47,7 @@
                                 <p class="text-xs font-bold uppercase tracking-wide text-tinta-400">Experiencia aplicada</p>
                                 <p class="mt-2 text-sm leading-6 text-tinta-600">{{ $capacidad['evidencia'] }}</p>
                             </div>
-                            <a href="{{ route($capacidad['ruta'], [], false) }}#{{ $capacidad['ancla'] }}" class="mt-auto inline-flex min-h-11 items-center gap-2 self-start rounded-md pt-5 text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">{{ $capacidad['enlace'] }} @include('portafolio.parciales.indicador-enlace')</a>
+                            <a href="{{ \App\Support\PortfolioLocale::route($capacidad['ruta'], [], false) }}#{{ $capacidad['ancla'] }}" class="mt-auto inline-flex min-h-11 items-center gap-2 self-start rounded-md pt-5 text-sm font-semibold text-acento-700 underline underline-offset-4 hover:text-tinta-950">{{ $capacidad['enlace'] }} @include('portafolio.parciales.indicador-enlace')</a>
                         </article>
                     @endforeach
                 </div>
@@ -84,13 +84,13 @@
                     <h3 id="titulo-equipo" class="text-xl font-bold text-tinta-950">¿Buscás sumar un desarrollador a tu equipo?</h3>
                     <p class="mt-3 text-sm leading-7 text-tinta-600">También podés conocer mi recorrido profesional y consultar mi CV.</p>
                     <div class="mt-4 flex flex-col items-start gap-2">
-                        <a href="{{ route('inicio', [], false) }}#experiencia" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Ver experiencia profesional</a>
+                        <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#experiencia" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Ver experiencia profesional</a>
                         @if ($cvDisponible)
                             <a href="{{ asset($portafolio['cv']['archivo']) }}" download="{{ $portafolio['cv']['nombre_descarga'] }}" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Descargar CV</a>
                         @else
-                            <a href="{{ route('inicio', [], false) }}#cv" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Consultar disponibilidad del CV</a>
+                            <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#cv" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Consultar disponibilidad del CV</a>
                         @endif
-                        <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Ver otros proyectos</a>
+                        <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#proyectos" class="inline-flex min-h-11 items-center rounded-md text-sm font-semibold text-acento-700 underline underline-offset-4">Ver otros proyectos</a>
                     </div>
                 </aside>
             </div>

@@ -15,7 +15,7 @@
                 <p class="mt-3 text-xl font-semibold text-blue-100">{{ $proyecto['subtitulo'] }}</p>
                 <p class="mt-5 text-lg leading-8 text-slate-300">Un producto propio para gestionar cuentas y movimientos, entender cuotas y vencimientos y planificar el mes.</p>
                 <p class="mt-4 text-sm leading-6 text-slate-300">Desarrollé el producto de punta a punta: desde las reglas financieras hasta las pantallas y las pruebas. Actualmente está en beta privada.</p>
-                <a href="{{ route('proyectos.foco-finanzas', [], false) }}" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-sm font-semibold text-blue-200 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-white motion-reduce:transition-none">
+                <a href="{{ \App\Support\PortfolioLocale::route('proyectos.foco-finanzas', [], false) }}" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-sm font-semibold text-blue-200 underline decoration-blue-300/40 underline-offset-4 transition-colors hover:text-white motion-reduce:transition-none">
                     Ver caso completo @include('portafolio.parciales.indicador-enlace', ['direccion' => 'abajo'])
                 </a>
             </div>

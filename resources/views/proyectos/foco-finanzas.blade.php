@@ -8,7 +8,7 @@
         <section class="fondo-hero border-b border-slate-200 py-6 sm:py-16">
             <div class="foco-presentacion mx-auto grid max-w-7xl gap-6 px-5 sm:px-8 md:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] md:items-center md:gap-x-10 lg:gap-x-16 lg:px-10">
                 <div class="foco-intro">
-                    <a href="{{ route('inicio', [], false) }}#foco-finanzas" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#foco-finanzas" class="inline-flex min-h-11 items-center text-sm font-semibold text-acento-700 underline underline-offset-4">@include('portafolio.parciales.indicador-enlace', ['direccion' => 'izquierda']) Volver al portfolio</a>
                     <p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-acento-700">Caso de estudio · {{ $proyecto['contexto'] }}</p>
                     <h1 class="mt-4 text-4xl leading-tight font-bold tracking-tight text-tinta-950 sm:text-5xl lg:text-6xl">Foco Finanzas: del movimiento diario a la planificación financiera.</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-tinta-600">{{ $proyecto['presentacion_caso'] }}</p>
@@ -180,8 +180,8 @@
                 <p class="mt-4 max-w-3xl leading-7 text-tinta-600">Estado documentado: {{ $proyecto['estado'] }} La evolución se apoya en cambios acotados, pruebas y evidencia revalidada cuando cambia el producto.</p>
                 <p class="mt-4 max-w-3xl leading-7 text-tinta-600">Si necesitás construir o evolucionar una aplicación con reglas de negocio propias, podemos conversar sobre tu proyecto.</p>
                 <div class="mt-7 flex flex-wrap gap-3">
-                    <a href="{{ route('inicio', [], false) }}#contacto" class="hero-accion inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Contactar</a>
-                    <a href="{{ route('inicio', [], false) }}#proyectos" class="inline-flex min-h-12 items-center rounded-lg border border-slate-300 bg-white px-5 font-semibold text-tinta-700 hover:bg-acento-50">Ver otros proyectos</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#contacto" class="hero-accion inline-flex min-h-12 items-center rounded-lg bg-acento-700 px-5 font-semibold text-white hover:bg-acento-600">Contactar</a>
+                    <a href="{{ \App\Support\PortfolioLocale::route('inicio', [], false) }}#proyectos" class="inline-flex min-h-12 items-center rounded-lg border border-slate-300 bg-white px-5 font-semibold text-tinta-700 hover:bg-acento-50">Ver otros proyectos</a>
                     @if ($cvDisponible)
                         <a href="{{ asset($portafolio['cv']['archivo']) }}" download="{{ $portafolio['cv']['nombre_descarga'] }}" class="inline-flex min-h-12 items-center px-3 font-semibold text-acento-700 underline underline-offset-4">Descargar CV</a>
                     @endif

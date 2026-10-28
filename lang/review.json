@@ -1,0 +1,10 @@
+{
+    "scope": "9D.2A: common, two navigation labels, home hero and home SEO only; other content pending 9D.2B",
+    "reviewed_at": "2026-10-28",
+    "es_sha256": {
+        "common.php": "2e83cb1b28d9d5cbd80b9e6bc25d50bca6cbd11e00f160fd9f14e81c472dfc71",
+        "home.php": "80b04bfd48dc0a8879e0714de678533e57d17d9169e94b8d567b5681e02919bc",
+        "navigation.php": "b0f594dbeb46f8a05973cac8ca43b58e7b72ca06e2c4205f5ffab354e9e0337f",
+        "seo.php": "a3a7ba550da0178e5b2e1cc815b0b363cc2988020ca302df5e3fdaa76014997d"
+    }
+}

@@ -22,6 +22,22 @@ La versión actual no utiliza base de datos, login, panel administrativo ni form
 
 La evolución técnica, las decisiones y el estado de cada fase se registran en la [documentación del proyecto](docs/README.md).
 
+## Idiomas — infraestructura parcial (9D.2A)
+
+Las URLs españolas se conservan; sus equivalentes usan `/en` con los mismos slugs. Una sola acción y las mismas vistas atienden ambos idiomas. `PortfolioLocale` centraliza páginas y enlaces; al agregar enlaces internos se debe usar su método `route()`.
+
+El selector conserva página y ancla (con JavaScript) y guarda la elección en `localStorage`, sin redirecciones ni cambios de contenido basados en esa preferencia. Sin almacenamiento o JavaScript, las URLs y los enlaces de idioma siguen funcionando; sin JavaScript no se copia el fragmento de la URL.
+
+Mientras EN esté incompleto, el selector sólo se renderiza con `APP_ENV=local` o `testing`; permanece ausente en producción y otros entornos. Se utiliza la configuración existente `app.env`, sin variables adicionales. Las rutas EN y sus controles `noindex` siguen activos aunque no se muestre el selector.
+
+**EN está incompleto:** sólo se tradujeron el selector, dos etiquetas de navegación, el hero y el SEO de la home. El resto del contenido profesional sigue en español y queda pendiente para 9D.2B. EN tiene aviso visible, `noindex` en HTML/cabecera HTTP y canonical propio. Por ahora se emiten alternates `es` y `x-default`, no `en`; no hay sitemap. `PortfolioLocale::EN_COMPLETE` permanece en `false`: sólo tras completar y revisar 9D.2B se habilitan conjuntamente indexación y hreflang recíprocos.
+
+Los catálogos nativos están en `lang/es` y `lang/en`. Las pruebas de `TranslationConsistencyTest` comprueban paridad de claves, textos no vacíos, referencias literales y hashes de las fuentes españolas en `lang/review.json`. Si cambia ES, revisar EN y actualizar el hash correspondiente después de la revisión humana. Esto detecta cambios, no equivalencia semántica. Los textos aún no extraídos no forman parte de esa comprobación.
+
+No hace falta editar hashes a mano: se puede pedir a Codex que revise ES/EN, recalcule `es_sha256` con el mismo algoritmo de la prueba (SHA-256 del catálogo PHP serializado con JSON Unicode y barras sin escapar) y actualice `reviewed_at` tras esa revisión. Después debe ejecutar `TranslationConsistencyTest`. El procedimiento existente es suficiente; no se agrega una herramienta de mantenimiento ni se actualizan hashes sólo para silenciar un fallo.
+
+Validación: `php artisan test`, `node --test tests/Frontend/*.test.cjs`, Pint y build habituales. No se agregaron paquetes, sesiones ni servicios de traducción.
+
 ## Requisitos locales
 
 - PHP 8.4.1 o superior dentro de la rama 8.4, con las extensiones requeridas por Laravel.

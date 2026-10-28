@@ -69,7 +69,7 @@ class ServiciosTest extends TestCase
             $documento = new DOMDocument;
             @$documento->loadHTML($respuesta->getContent());
             $xpath = new DOMXPath($documento);
-            $this->assertSame(2, $xpath->query('//header//a[@href="/servicios"]')->length);
+            $this->assertSame(2, $xpath->query('//header//a[@href="/servicios"][not(@data-language)]')->length);
             $this->assertSame($ruta === 'servicios' ? 2 : 0, $xpath->query('//header//a[@aria-current="page"]')->length);
         }
 

@@ -173,6 +173,8 @@
     background: var(--papel);
 }
 .selector-tema summary::-webkit-details-marker { display: none; }
+.selector-tema[data-language-selector] { visibility: visible; }
+[data-language-selector] summary { flex-direction: column; gap: 1px; }
 .selector-tema summary:hover,
 .selector-tema[open] summary { background: var(--superficie-acento); color: var(--enlace); }
 .opciones-tema {
